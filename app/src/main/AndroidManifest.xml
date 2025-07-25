@@ -13,6 +13,18 @@
         android:theme="@style/Theme.ProjetoSaveIt"
         tools:targetApi="31">
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".TelaCadastroIndustria"
+            android:exported="false" />
+        <activity
+            android:name=".TelaCadastro2Comercio"
+            android:exported="false" />
+        <activity
+            android:name=".SpashScreen"
+            android:exported="false" />
+        <activity
             android:name=".TelaCadastro1"
             android:exported="false" />
         <activity
