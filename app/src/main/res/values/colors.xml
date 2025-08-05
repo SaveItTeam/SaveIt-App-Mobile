@@ -164,8 +164,6 @@
     <color name="colorOnCustomColor2_highContrast">#FFFFFF</color>
     <color name="colorCustomColor2Container_highContrast">#713550</color>
     <color name="colorOnCustomColor2Container_highContrast">#FFFFFF</color>
-    <color name="verdeEscuro">3E5C47</color>
     <color name="VerdeEscuroColor1">#3E5C47</color>
-    <color name="PlaceHolder">8C8A8A</color>
     <color name="PlaceHolderColor">#8C8A8A</color>
 </resources>

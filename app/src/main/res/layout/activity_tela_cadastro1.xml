@@ -96,18 +96,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ondaVerdeClaro1" />
+        app:srcCompat="@drawable/ondaverdeclaroum" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ondaVerde2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ondaverdedois" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -119,7 +118,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ondaVerdeClaro2" />
+        app:srcCompat="@drawable/ondaverdeclarodois" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -131,6 +130,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ondeVerde3" />
+        app:srcCompat="@drawable/ondaverdetres" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

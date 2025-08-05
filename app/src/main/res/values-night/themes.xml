@@ -46,13 +46,5 @@
         <item name="colorSurfaceContainer">@color/md_theme_surfaceContainer</item>
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
-        <item name="colorCustomColor1">@color/colorCustomColor1</item>
-        <item name="colorOnCustomColor1">@color/colorOnCustomColor1</item>
-        <item name="colorCustomColor1Container">@color/colorCustomColor1Container</item>
-        <item name="colorOnCustomColor1Container">@color/colorOnCustomColor1Container</item>
-        <item name="colorCustomColor2">@color/colorCustomColor2</item>
-        <item name="colorOnCustomColor2">@color/colorOnCustomColor2</item>
-        <item name="colorCustomColor2Container">@color/colorCustomColor2Container</item>
-        <item name="colorOnCustomColor2Container">@color/colorOnCustomColor2Container</item>
     </style>
 </resources>

@@ -22,4 +22,14 @@
         android:name="com.example.projetosaveit.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/relatorio"
+        android:name="com.example.projetosaveit.Relatorio"
+        android:label="fragment_relatorio"
+        tools:layout="@layout/fragment_relatorio" />
+    <fragment
+        android:id="@+id/perfil"
+        android:name="com.example.projetosaveit.Perfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
 </navigation>

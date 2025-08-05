@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/SaveItLogoPng" />
+        app:srcCompat="@drawable/saveitlogo" />
 
     <TextView
         android:id="@+id/textView7"
@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
         android:text="Save It"
+        android:textColor="@color/md_theme_onSurface_mediumContrast"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +74,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="Login"
         android:textAlignment="center"
+        android:textColor="@color/md_theme_onSurface_mediumContrast"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,6 +91,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="“Bom para seu negócio e ótimo para o planeta”"
         android:textAlignment="center"
+        android:textColor="@color/md_theme_onSurface_mediumContrast"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/botaoLogin"
         android:layout_width="113dp"
         android:layout_height="32dp"
         android:background="@color/colorCustomColor2_highContrast"
@@ -135,6 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:text="Não possui uma conta? Cadastre-se!"
+        android:textColor="@color/material_dynamic_neutral_variant10"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -144,22 +148,21 @@
         android:id="@+id/imageView6"
         android:layout_width="448dp"
         android:layout_height="141dp"
-        android:layout_marginBottom="160dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ondaVerdeClaro1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ondaverdeclaroum" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/OndaVerde1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ondaverdeum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
