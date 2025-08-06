@@ -7,7 +7,7 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_vitrine"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_dashboard" />
 
@@ -17,11 +17,11 @@
         android:title="@string/title_notifications" />
 
     <item
-        android:id="@+id/perfil"
-        android:icon="@drawable/relatory"
-        android:title="perfil" />
-    <item
         android:id="@+id/relatorio"
-        android:icon="@drawable/vector"
+        android:icon="@drawable/relatory"
         android:title="relatorio" />
+    <item
+        android:id="@+id/perfil"
+        android:icon="@drawable/vector"
+        android:title="perfil" />
 </menu>

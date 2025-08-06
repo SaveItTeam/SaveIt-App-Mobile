@@ -121,6 +121,7 @@
         android:gravity="center_vertical"
         android:text="Entrar"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/md_theme_surface"
         android:textColorHighlight="@color/md_theme_surface"
         android:textColorHint="@color/md_theme_surface"
