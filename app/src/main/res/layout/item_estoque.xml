@@ -2,10 +2,13 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     android:background="#F1ECE3"
-    android:backgroundTint="#F1ECE3">
+    android:backgroundTint="#F1ECE3"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="377dp"
@@ -29,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/inclusive_sans"
             android:text="Nome do Produto"
             android:textColor="@color/md_theme_surface"
             android:textSize="16sp"
@@ -42,6 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
+            android:fontFamily="@font/inclusive_sans"
             android:text="Validade: 00/00/0000"
             android:textColor="@color/md_theme_surface"
             android:textSize="10sp"
@@ -55,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
+            android:fontFamily="@font/inclusive_sans"
             android:text="quantidade: 999kg"
             android:textColor="@color/md_theme_surface"
             android:textSize="10sp"
