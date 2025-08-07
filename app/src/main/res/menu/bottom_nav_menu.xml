@@ -3,25 +3,25 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/icon_home"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_vitrine"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/icon_dashboard"
         android:title="@string/title_dashboard" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/boxicon"
+        android:icon="@drawable/icon_box"
         android:title="@string/title_notifications" />
 
     <item
         android:id="@+id/relatorio"
-        android:icon="@drawable/relatory"
-        android:title="relatorio" />
+        android:icon="@drawable/icon_report"
+        android:title="Relatório" />
     <item
         android:id="@+id/perfil"
-        android:icon="@drawable/vector"
-        android:title="perfil" />
+        android:icon="@drawable/icon_profile"
+        android:title="Perfil" />
 </menu>
