@@ -30,7 +30,7 @@
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ondaverdeclarocinco"
+        android:src="@drawable/onda_verde_claro_cinco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,11 +40,11 @@
         android:id="@+id/imageView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ondaverdecinco"
+        android:src="@drawable/onda_verde_escura_cinco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ondaverdecinco" />
+        app:srcCompat="@drawable/onda_verde_escura_cinco" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -154,7 +154,7 @@
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ondaverdeclaroum" />
+        app:srcCompat="@drawable/onda_verde_claro_um" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -164,6 +164,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ondaverdeum" />
+        app:srcCompat="@drawable/onda_verde_escura_um" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
