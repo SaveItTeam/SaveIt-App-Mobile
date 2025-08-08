@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_vitrine"
-        android:name="com.example.projetosaveit.ui.dashboard.DashboardFragment"
+        android:name="com.example.projetosaveit.ui.dashboard.VitrineFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_vitrine" />
 
