@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
         <activity
+            android:name=".AdicionarProduto"
+            android:exported="false" />
+        <activity
             android:name=".ProdutoVitrine"
             android:exported="false" />
         <activity
