@@ -25,11 +25,11 @@
     <fragment
         android:id="@+id/relatorio"
         android:name="com.example.projetosaveit.Relatorio"
-        android:label="fragment_relatorio"
+        android:label="Relatório"
         tools:layout="@layout/fragment_relatorio" />
     <fragment
         android:id="@+id/perfil"
         android:name="com.example.projetosaveit.Perfil"
-        android:label="fragment_perfil"
+        android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
 </navigation>
