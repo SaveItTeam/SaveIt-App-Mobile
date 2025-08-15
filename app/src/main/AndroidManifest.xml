@@ -34,7 +34,7 @@
             android:name=".TelaCadastro1"
             android:exported="false" />
         <activity
-            android:name=".SpashScreen"
+            android:name=".SplashScreen"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
