@@ -28,13 +28,13 @@
             android:name=".TelaCadastro2Comercio"
             android:exported="false" />
         <activity
-            android:name=".SpashScreen"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".TelaCadastro1"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SpashScreen"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -43,7 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
