@@ -28,7 +28,7 @@
             android:name=".TelaCadastro2Comercio"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".SpashScreen"
             android:exported="false" />
         <activity
             android:name=".TelaCadastro1"
