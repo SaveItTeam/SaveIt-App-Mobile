@@ -62,7 +62,6 @@
         android:hint="Digite seu email"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
-        android:textColor="@color/md_theme_onPrimaryFixed"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +112,6 @@
         android:hint="Senha"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
-        android:textColor="@color/md_theme_onPrimaryFixed"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +149,6 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

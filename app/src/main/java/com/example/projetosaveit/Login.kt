@@ -1,13 +1,26 @@
 package com.example.projetosaveit
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class Login : AppCompatActivity() {
+
+    val objAutenticar : FirebaseAuth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.enableEdgeToEdge()
@@ -18,6 +31,36 @@ class Login : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val bt : Button = findViewById(R.id.botaoLogin)
+        bt.setOnClickListener {
+            val txtEmail: String = findViewById<EditText>(R.id.emailLogin).text.toString()
+            val txtSenha: String = findViewById<EditText>(R.id.senhaLogin).text.toString()
+
+            objAutenticar.signInWithEmailAndPassword(txtEmail, txtSenha)
+                .addOnCompleteListener { task: Task<AuthResult> ->
+                    if (task.isSuccessful) {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        try {
+                            task.exception
+                        } catch (e: FirebaseAuthInvalidUserException) {
+                            Toast.makeText(this, "Usuário não cadastrado", Toast.LENGTH_LONG).show()
+                        } catch (e: FirebaseAuthInvalidCredentialsException) {
+                            Toast.makeText(this, "E-mail e senha não correspondem a um usuário cadastrado", Toast.LENGTH_LONG).show()
+                        } catch (e: Exception) {
+                            println(e.message)
+                        }
+                    }
+                }
+        }
+
+        val btCadastro : TextView = findViewById(R.id.btIrCadastro)
+        btCadastro.setOnClickListener {
+            val intent = Intent(this, TelaCadastro1::class.java)
+            startActivity(intent)
         }
     }
 }
