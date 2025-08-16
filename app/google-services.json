@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1075917099444",
+    "project_id": "projetosaveit",
+    "storage_bucket": "projetosaveit.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075917099444:android:bc2872052df1e42019a2e1",
+        "android_client_info": {
+          "package_name": "com.example.projetosaveit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdzV098boe5rJaTtS0XxIYqj5xCmsCLOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

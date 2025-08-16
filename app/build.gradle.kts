@@ -19,6 +19,8 @@ android {
     namespace = "com.example.projetosaveit"
     compileSdk = 36
 
+    useLibrary("org.apache.http.legacy")
+
     defaultConfig {
         applicationId = "com.example.projetosaveit"
         minSdk = 33

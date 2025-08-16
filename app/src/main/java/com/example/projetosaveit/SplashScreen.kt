@@ -20,17 +20,17 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        val imageView: ImageView = findViewById(R.id.imageView)
-        val tempoSplash = 5000 // 5 segundos
+        val imageView : ImageView = findViewById(R.id.imageView)
+        val tempoSplash = 5000
 
         Handler(Looper.getMainLooper()).postDelayed({
             val userLogin : FirebaseUser? = objAutenticacao.currentUser;
             if (userLogin != null) {
-                val intent: Intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                return@postDelayed
             }
-            startActivity(Intent(this, Login
-            ::class.java))
+            startActivity(Intent(this, Login::class.java))
             finish()
         }, tempoSplash.toLong())
     }
