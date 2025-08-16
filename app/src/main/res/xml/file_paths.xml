@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Permite acesso à pasta de imagens internas -->
+    <external-files-path
+        name="images"
+        path="Pictures/" />
+
+    <!-- Permite acesso ao cache do app -->
+    <cache-path
+        name="camera_cache"
+        path="." />
+
+    <!-- Caso use diretório privado -->
+    <files-path
+        name="internal_files"
+        path="." />
+</paths>
