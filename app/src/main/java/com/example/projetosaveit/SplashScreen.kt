@@ -21,7 +21,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         val imageView : ImageView = findViewById(R.id.imageView)
-        val tempoSplash = 5000
+        val tempoSplash = 2500
 
         Handler(Looper.getMainLooper()).postDelayed({
             val userLogin : FirebaseUser? = objAutenticacao.currentUser;

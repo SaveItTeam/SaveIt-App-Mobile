@@ -1,25 +1,31 @@
 package com.example.projetosaveit
 
+import android.Manifest
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import java.io.File
-import java.io.IOException
-import java.io.ObjectInput
+import java.io.FileOutputStream
 
 /**
  * A simple [Fragment] subclass.
@@ -34,9 +40,19 @@ class Perfil : Fragment() {
     private val REQUEST_IMAGE_PICK = 2
     private val CAMERA_REQUEST_CODE = 100
     private var photoUri: Uri? = null
+    private val requestCameraPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                // Permissão concedida. Agora pode abrir a câmera.
+                openCamera()
+            } else {
+                // Permissão negada. Avise o usuário.
+                Toast.makeText(requireContext(), "Permissão de câmera é necessária para tirar fotos.", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     val config = hashMapOf(
-        "cloud_name" to "mediaflows_056bef3f-c7ee-465c-969d-f27f6d076ac7",
+        "cloud_name" to "dxdjsvo0e",
         "api_key" to "515376282616285",
         "api_secret" to "T2BSV6xtsGY9Bk3Cxm4dfhKC7H4"
     )
@@ -100,32 +116,58 @@ class Perfil : Fragment() {
 
             when (requestCode) {
                 REQUEST_IMAGE_CAPTURE -> {
-                    val file = File(photoUri?.path!!) // Arquivo local
+                    if (photoUri != null) {
+                        // ✅ Caso 1: Foto salva no arquivo (via EXTRA_OUTPUT)
+                        val file = File(photoUri!!.path!!)
+                        uploadToCloudinary(file,
+                            onSuccess = { url ->
+                                Glide.with(this)
+                                    .load(url)
+                                    .circleCrop()
+                                    .into(avatar!!)
+                            },
+                            onError = { e ->
+                                Toast.makeText(requireContext(), "Erro no upload: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
+                        )
+                    } else if (data?.extras?.get("data") != null) {
+                        // ✅ Caso 2: Só veio o bitmap em baixa resolução
+                        val bitmap = data.extras?.get("data") as Bitmap
+                        avatar?.setImageBitmap(bitmap)
 
-                    // Mostra a imagem na tela imediatamente
-                    Glide.with(this)
-                        .load(file)
-                        .circleCrop()
-                        .into(avatar!!)
-
-                    // Em paralelo, faz o upload para o Cloudinary
-                    uploadToCloudinary(file,
-                        onSuccess = { url ->
-                            // A URL está pronta, mas a imagem já foi exibida
-                            // Você pode salvar a URL em uma variável ou banco de dados
-                        },
-                        onError = { e ->
-                            Toast.makeText(requireContext(), "Erro no upload: ${e.message}", Toast.LENGTH_SHORT).show()
+                        // se ainda quiser mandar pro Cloudinary, precisa salvar esse bitmap como arquivo temporário:
+                        val tempFile = File(requireContext().cacheDir, "temp.jpg")
+                        FileOutputStream(tempFile).use {
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
                         }
-                    )
+                        uploadToCloudinary(tempFile,
+                            onSuccess = { url ->
+                                Glide.with(this)
+                                    .load(url)
+                                    .circleCrop()
+                                    .into(avatar!!)
+                            },
+                            onError = { e ->
+                                Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
+                                Log.d(TAG, "${e.message}")
+                            }
+                        )
+                    } else {
+                        Toast.makeText(requireContext(), "Erro: Nenhuma imagem recebida", Toast.LENGTH_SHORT).show()
+                    }
                 }
+
 
                 REQUEST_IMAGE_PICK -> {
                     val selectedImageUri = data?.data
                     val file = File(getRealPathFromUri(selectedImageUri!!))
                     uploadToCloudinary(file,
                         onSuccess = { url ->
-                            avatar?.setImageURI(selectedImageUri)
+                            Glide.with(this)
+                                .load(url)
+                                .circleCrop()
+                                .into(avatar!!)
+                            Toast.makeText(requireContext(), "Foi inserido com sucesso!", Toast.LENGTH_SHORT).show()
                         },
                         onError = { e ->
                             Toast.makeText(requireContext(), "Erro no upload: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -139,6 +181,7 @@ class Perfil : Fragment() {
     private fun uploadToCloudinary(file: File, onSuccess: (String) -> Unit, onError: (Exception) -> Unit) {
         Thread {
             try {
+                Log.d(TAG, "inserindo")
                 val result = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
                 var url = result["secure_url"] as String
                 requireActivity().runOnUiThread {
@@ -183,27 +226,32 @@ class Perfil : Fragment() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, REQUEST_IMAGE_PICK)
     }
+
     private fun openCamera() {
-        val storageDir: File? = context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        if (storageDir != null && !storageDir.exists()) {
-            storageDir.mkdirs()
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            val storageDir: File? = context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+            if (storageDir != null && !storageDir.exists()) {
+                storageDir.mkdirs()
+            }
+
+            val photoFile = File.createTempFile(
+                "profile_",
+                ".jpg",
+                storageDir
+            )
+
+            val photoURI: Uri = FileProvider.getUriForFile(
+                requireContext(),
+                "${requireContext().packageName}.provider",
+                photoFile
+            )
+
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+        } else {
+            requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
         }
-
-        val photoFile = File.createTempFile(
-            "profile_",
-            ".jpg",
-            storageDir
-        )
-
-        val photoURI: Uri = FileProvider.getUriForFile(
-            requireContext(),
-            "${requireContext().packageName}.provider",
-            photoFile
-        )
-
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-        startActivityForResult(intent, CAMERA_REQUEST_CODE)
     }
 
 }
