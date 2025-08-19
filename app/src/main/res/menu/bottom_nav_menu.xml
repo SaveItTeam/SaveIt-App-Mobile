@@ -12,14 +12,14 @@
         android:title="@string/title_dashboard" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/icon_box"
-        android:title="@string/title_notifications" />
-
-    <item
         android:id="@+id/relatorio"
         android:icon="@drawable/icon_report"
         android:title="Relatório" />
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/icon_bot"
+        android:title="Chatbot" />
+
     <item
         android:id="@+id/perfil"
         android:icon="@drawable/icon_profile"

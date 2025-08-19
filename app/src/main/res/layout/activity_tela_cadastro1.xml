@@ -11,7 +11,7 @@
     tools:layout_editor_absoluteY="17dp">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btAdm"
         android:layout_width="219dp"
         android:layout_height="52dp"
         android:layout_marginBottom="76dp"
@@ -21,7 +21,6 @@
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="Administrador"
-        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/md_theme_surface"
         android:textSize="16sp"
@@ -69,14 +68,13 @@
         android:background="@drawable/bt_cadastro_estilizacao"
         android:drawableLeft="@drawable/icon_admin"
         android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
         android:paddingLeft="20dp"
         android:text="Comercial"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/md_theme_surface"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/btAdm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

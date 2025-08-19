@@ -30,5 +30,11 @@ class TelaCadastro1 : AppCompatActivity() {
             val intent = Intent(this, TelaCadastro2Comercio::class.java)
             startActivity(intent)
         }
+
+        val btAdm : Button = findViewById(R.id.btAdm)
+        btAdm.setOnClickListener {
+            val intent = Intent(this, TelaCadastroIndustria::class.java)
+            startActivity(intent)
+        }
     }
 }

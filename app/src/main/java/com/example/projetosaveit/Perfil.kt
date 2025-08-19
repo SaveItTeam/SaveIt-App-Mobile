@@ -13,7 +13,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -24,18 +26,15 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import java.io.File
 import java.io.FileOutputStream
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Perfil.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Perfil : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var mParam1: String? = null
-    private var mParam2: String? = null
+
+    val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
+
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_IMAGE_PICK = 2
     private val CAMERA_REQUEST_CODE = 100
@@ -61,10 +60,6 @@ class Perfil : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments != null) {
-            mParam1 = arguments!!.getString(ARG_PARAM1)
-            mParam2 = arguments!!.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -74,9 +69,19 @@ class Perfil : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
+        val empresaLogada : FirebaseUser = objAutenticar.getCurrentUser()!!
+
+        view.findViewById<TextView>(R.id.nomePerfil).text = empresaLogada.displayName
+
         val avatar = view.findViewById<ImageView>(R.id.imagemPerfil)
         avatar.setOnClickListener {
             showImagePickerOptions()
+        }
+
+        view.findViewById<TextView>(R.id.logout).setOnClickListener {
+            objAutenticar.signOut()
+            val intent = Intent(this.activity, Login::class.java)
+            startActivity(intent)
         }
 
         return view
@@ -117,7 +122,7 @@ class Perfil : Fragment() {
             when (requestCode) {
                 REQUEST_IMAGE_CAPTURE -> {
                     if (photoUri != null) {
-                        // ✅ Caso 1: Foto salva no arquivo (via EXTRA_OUTPUT)
+
                         val file = File(photoUri!!.path!!)
                         uploadToCloudinary(file,
                             onSuccess = { url ->
@@ -131,11 +136,10 @@ class Perfil : Fragment() {
                             }
                         )
                     } else if (data?.extras?.get("data") != null) {
-                        // ✅ Caso 2: Só veio o bitmap em baixa resolução
+
                         val bitmap = data.extras?.get("data") as Bitmap
                         avatar?.setImageBitmap(bitmap)
 
-                        // se ainda quiser mandar pro Cloudinary, precisa salvar esse bitmap como arquivo temporário:
                         val tempFile = File(requireContext().cacheDir, "temp.jpg")
                         FileOutputStream(tempFile).use {
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
