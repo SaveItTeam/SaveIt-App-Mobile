@@ -16,8 +16,8 @@
         <item name="colorOnError">@color/md_theme_onError</item>
         <item name="colorErrorContainer">@color/md_theme_errorContainer</item>
         <item name="colorOnErrorContainer">@color/md_theme_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_background</item>
-        <item name="colorOnBackground">@color/md_theme_onBackground</item>
+        <item name="android:colorBackground">#FFF5E0</item>
+        <item name="colorOnBackground">#FFF5E0</item>
         <item name="colorSurface">@color/md_theme_surface</item>
         <item name="colorOnSurface">@color/md_theme_onSurface</item>
         <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
@@ -46,5 +46,26 @@
         <item name="colorSurfaceContainer">@color/md_theme_surfaceContainer</item>
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
+        <item name="textAppearanceBodyLarge">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceBodyMedium">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceBodySmall">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceTitleLarge">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceTitleMedium">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceTitleSmall">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceDisplayLarge">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceDisplayMedium">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceDisplaySmall">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceHeadlineLarge">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceHeadlineMedium">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceHeadlineSmall">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceLabelLarge">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceLabelMedium">@style/MyDefaultTextStyle</item>
+        <item name="textAppearanceLabelSmall">@style/MyDefaultTextStyle</item>
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
+    </style>
+
+    <style name="MyDefaultTextStyle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/inclusive_sans</item>
     </style>
 </resources>

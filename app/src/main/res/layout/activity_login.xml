@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
-    tools:context=".Login"
+    android:background="#FFF5E0"
+    tools:context=".ui.Login"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-16dp">
 
@@ -48,11 +48,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2"
+        app:layout_constraintTop_toBottomOf="@+id/senhaLogin"
         app:layout_constraintVertical_bias="0.112" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText4"
+        android:id="@+id/emailLogin"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:layout_marginTop="24dp"
@@ -62,6 +62,7 @@
         android:hint="Digite seu email"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
+        android:textColor="@color/md_theme_onPrimaryFixed"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +89,8 @@
         android:id="@+id/textView8"
         android:layout_width="211dp"
         android:layout_height="38dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="360dp"
         android:fontFamily="@font/inclusive_sans"
         android:text="“Bom para seu negócio e ótimo para o planeta”"
         android:textAlignment="center"
@@ -96,10 +98,12 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText2"
+        android:id="@+id/senhaLogin"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:layout_marginTop="40dp"
@@ -109,11 +113,12 @@
         android:hint="Senha"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
+        android:textColor="@color/md_theme_onPrimaryFixed"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
 
     <Button
         android:id="@+id/botaoLogin"
@@ -130,14 +135,14 @@
         android:textColorHint="@color/md_theme_surface"
         android:textColorLink="@color/md_theme_surface"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintBottom_toTopOf="@+id/btIrCadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:layout_constraintVertical_bias="0.619" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/btIrCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
@@ -146,6 +151,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

@@ -1,4 +1,4 @@
-package com.example.projetosaveit
+package com.example.projetosaveit.ui
 
 import android.os.Bundle
 import android.view.View
@@ -6,12 +6,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.projetosaveit.R
 
-class TelaCadastroIndustria : AppCompatActivity() {
+class TelaCadastro2Comercio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.enableEdgeToEdge()
-        setContentView(R.layout.activity_tela_cadastro_industria)
+        setContentView(R.layout.activity_tela_cadastro2_comercio)
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v: View, insets: WindowInsetsCompat ->

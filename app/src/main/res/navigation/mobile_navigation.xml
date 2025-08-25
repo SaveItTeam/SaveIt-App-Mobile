@@ -24,12 +24,12 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/relatorio"
-        android:name="com.example.projetosaveit.Relatorio"
+        android:name="com.example.projetosaveit.ui.Relatorio"
         android:label="Relatório"
         tools:layout="@layout/fragment_relatorio" />
     <fragment
         android:id="@+id/perfil"
-        android:name="com.example.projetosaveit.Perfil"
+        android:name="com.example.projetosaveit.ui.Perfil"
         android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
 </navigation>

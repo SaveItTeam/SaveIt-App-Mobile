@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1ECE3"
-    tools:context=".Perfil">
+    tools:context=".ui.Perfil">
 
     <ImageView
         android:id="@+id/imageView20"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/fotoPerfil"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="156dp"
@@ -71,7 +71,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/fotoPerfil" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -247,6 +247,18 @@
         android:src="@drawable/icon_suporte"
         app:layout_constraintEnd_toStartOf="@+id/textView21"
         app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="DESLOGAR"
+        android:textColor="#FF0000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 

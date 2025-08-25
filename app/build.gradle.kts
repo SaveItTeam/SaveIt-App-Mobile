@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
-    kotlin("android") version "1.9.0"
+    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.kotlin.android)
 }
 
 buildscript {
@@ -16,7 +17,9 @@ buildscript {
 
 android {
     namespace = "com.example.projetosaveit"
-    compileSdk = 35
+    compileSdk = 36
+
+    useLibrary("org.apache.http.legacy")
 
     defaultConfig {
         applicationId = "com.example.projetosaveit"
@@ -44,6 +47,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
 
 dependencies {
@@ -56,8 +62,16 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.activity)
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation(libs.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.google.android.material:material:1.9.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.cloudinary:cloudinary-android:2.3.1")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 }

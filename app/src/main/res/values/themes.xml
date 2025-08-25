@@ -61,9 +61,8 @@
         <item name="textAppearanceLabelLarge">@style/MyDefaultTextStyle</item>
         <item name="textAppearanceLabelMedium">@style/MyDefaultTextStyle</item>
         <item name="textAppearanceLabelSmall">@style/MyDefaultTextStyle</item>
-    </style>
-
-    <style name="MyDefaultTextStyle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
         <item name="fontFamily">@font/inclusive_sans</item>
     </style>
 </resources>

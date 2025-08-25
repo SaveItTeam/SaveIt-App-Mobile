@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Projeto Save It</string>
+    <string name="app_name">SaveIt</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Vitrine</string>
     <string name="title_notifications">Estoque</string>

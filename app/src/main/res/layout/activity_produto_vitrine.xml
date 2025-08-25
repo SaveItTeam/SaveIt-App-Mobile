@@ -5,9 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
-    android:backgroundTint="#F1ECE3"
-    tools:context=".ProdutoVitrine">
+    android:background="#FFF5E0"
+    tools:context=".ui.ProdutoVitrine">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
-    tools:context=".Relatorio">
+    android:background="#FFF5E0"
+    tools:context=".ui.Relatorio">
 
 
     <ImageView
@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Mês"
+                android:textColor="@color/colorOnCustomColor1_highContrast"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView43"
@@ -68,6 +69,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Entrada"
+                android:textColor="@color/colorOnCustomColor1_highContrast"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView44"
@@ -82,6 +84,7 @@
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Saída"
+                android:textColor="@color/colorOnCustomColor1_highContrast"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView45"
@@ -96,6 +99,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Perda"
+                android:textColor="@color/colorOnCustomColor1_highContrast"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -5,9 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
+    android:background="#FFF5E0"
     android:textAlignment="viewStart"
-    tools:context=".TelaCadastroIndustria">
+    tools:context=".ui.TelaCadastroIndustria">
 
     <ImageView
         android:id="@+id/imageView14"
@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/onda_verde_escura_quatro" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btCadastrar"
         android:layout_width="124dp"
         android:layout_height="37dp"
         android:background="@drawable/bt_cadastro_estilizacao"
@@ -64,7 +64,7 @@
         app:layout_constraintVertical_bias="0.235" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText10"
+        android:id="@+id/cnpjCadastro"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -84,13 +84,13 @@
         app:layout_constraintVertical_bias="0.399" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText11"
+        android:id="@+id/emailCadastro"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite seu email"
+        android:hint="Digite seu e-mail"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColor="@color/PlaceHolderColor"
@@ -104,13 +104,13 @@
         app:layout_constraintVertical_bias="0.572" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText3"
+        android:id="@+id/nomeCadastro"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite o nome da sua indústria"
+        android:hint="Digite o nome da sua empresa"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColor="@color/PlaceHolderColor"
@@ -124,7 +124,7 @@
         app:layout_constraintVertical_bias="0.486" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText12"
+        android:id="@+id/senhaCadastro"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -144,7 +144,7 @@
         app:layout_constraintVertical_bias="0.659" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText13"
+        android:id="@+id/senhaRepetidaCadastro"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -215,7 +215,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
-        android:text="Cadastro comercial"
+        android:text="Cadastro"
         android:textColor="@color/md_theme_onPrimaryFixed"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
