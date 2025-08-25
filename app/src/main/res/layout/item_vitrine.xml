@@ -14,7 +14,7 @@
         android:layout_height="232dp">
 
         <ImageView
-            android:id="@+id/imageView17"
+            android:id="@+id/imagemVitrine"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="56dp"
@@ -37,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/botaoVitrine"
             android:layout_width="99dp"
             android:layout_height="23dp"
             android:layout_marginBottom="3dp"
@@ -50,21 +50,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView17"
+            app:layout_constraintTop_toBottomOf="@+id/imagemVitrine"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/nomeProdutoVitrine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="4dp"
             android:text="TextView"
             android:textColor="@color/md_theme_onPrimaryFixed"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintBottom_toTopOf="@+id/botaoVitrine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView17"
+            app:layout_constraintTop_toBottomOf="@+id/imagemVitrine"
             app:layout_constraintVertical_bias="0.333" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

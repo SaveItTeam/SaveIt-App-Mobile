@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1ECE3"
-    tools:context=".Login"
+    tools:context=".ui.Login"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-16dp">
 

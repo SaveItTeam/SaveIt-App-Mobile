@@ -1,11 +1,11 @@
-package com.example.projetosaveit
+package com.example.projetosaveit.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.example.projetosaveit.R
 import com.example.projetosaveit.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

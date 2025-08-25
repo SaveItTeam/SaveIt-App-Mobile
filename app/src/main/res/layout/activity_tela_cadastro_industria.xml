@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F1ECE3"
     android:textAlignment="viewStart"
-    tools:context=".TelaCadastroIndustria">
+    tools:context=".ui.TelaCadastroIndustria">
 
     <ImageView
         android:id="@+id/imageView14"

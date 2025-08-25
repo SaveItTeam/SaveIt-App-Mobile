@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F1ECE3"
     android:backgroundTint="#F1ECE3"
-    tools:context=".ProdutoVitrine">
+    tools:context=".ui.ProdutoVitrine">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1ECE3"
-    tools:context=".TelaCadastro1"
+    tools:context=".ui.TelaCadastro1"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="17dp">
 
