@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#F1ECE3"
-    android:backgroundTint="#F1ECE3"
+    android:background="#FFF5E0"
     app:cardCornerRadius="10dp"
     app:cardPreventCornerOverlap="true">
 
