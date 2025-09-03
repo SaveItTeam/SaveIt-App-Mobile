@@ -17,7 +17,7 @@ buildscript {
 
 android {
     namespace = "com.example.projetosaveit"
-    compileSdk = 35
+    compileSdk = 36
 
     useLibrary("org.apache.http.legacy")
 

@@ -3,23 +3,23 @@ package com.example.projetosaveit.model
 class ProdutoDTO {
     var id : Long
     var sku : String
-    var nome : String
-    var marca : String
+    var name : String
+    var brand : String
     var descricao : String
-    var empresa_id : Long
+    var enterprise_id : Long
 
     constructor(
-        empresa_id: Long,
+        enterprise_id: Long,
         descricao: String,
-        marca: String,
-        nome: String,
+        brand: String,
+        name: String,
         sku: String,
         id: Long
     ) {
-        this.empresa_id = empresa_id
+        this.enterprise_id = enterprise_id
         this.descricao = descricao
-        this.marca = marca
-        this.nome = nome
+        this.brand = brand
+        this.name = name
         this.sku = sku
         this.id = id
     }

@@ -26,7 +26,6 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
         var itemVitrine : Vitrine = listVitrine.get(position)
 
         if (itemVitrine != null) {
-            holder.nomeProduto.setText(itemVitrine.nome)
             holder.imagemVitrine.setText(itemVitrine.imagem.toString())
         }
         holder.botaoVitrine.setOnClickListener {
@@ -41,7 +40,6 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
     }
 
     class ViewHolder(itemView : View)  : RecyclerView.ViewHolder(itemView) {
-        var nomeProduto : TextView = itemView.findViewById(R.id.nomeProdutoVitrine)
         var imagemVitrine : TextView = itemView.findViewById(R.id.imagemVitrine)
         var botaoVitrine: TextView = itemView.findViewById(R.id.botaoVitrine)
     }

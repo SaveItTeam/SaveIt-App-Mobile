@@ -10,6 +10,7 @@ import com.cloudinary.android.uploadwidget.UploadWidget.startActivity
 import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.ui.TelaEstoque
+import com.google.android.material.appbar.MaterialToolbar
 import org.w3c.dom.Text
 
 class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
@@ -29,8 +30,6 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
 
         if (produto != null) {
             holder.nomeProduto.setText(produto.nomeProduto)
-            holder.validade.setText(produto.validade.toString())
-            holder.quantidade.setText(produto.quantidade)
         }
         holder.botao.setOnClickListener {
             val context = holder.itemView.context
@@ -45,9 +44,7 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nomeProduto : TextView = itemView.findViewById<TextView>(R.id.nomeProdutoTexto)
-        var validade : TextView = itemView.findViewById<TextView>(R.id.validadeTexto)
-        var quantidade : TextView = itemView.findViewById<TextView>(R.id.quantidadeTexto)
-        var botao : TextView = itemView.findViewById<TextView>(R.id.botao)
+        var botao : MaterialToolbar = itemView.findViewById<MaterialToolbar>(R.id.botao)
     }
 
 }
