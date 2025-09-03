@@ -2,6 +2,5 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/inclusive_sans</item>
-        <item>@font/plus_jakarta_sans_extralight</item>
     </array>
 </resources>

@@ -76,17 +76,21 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVitrine"
         android:layout_width="409dp"
         android:layout_height="610dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:layout_constraintVertical_bias="0.0"
+        app:spanCount="2"
         tools:listitem="@layout/item_vitrine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
