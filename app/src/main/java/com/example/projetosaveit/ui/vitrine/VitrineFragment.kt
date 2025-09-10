@@ -1,4 +1,4 @@
-package com.example.projetosaveit.ui.dashboard
+package com.example.projetosaveit.ui.vitrine
 
 import android.os.Bundle
 import android.view.LayoutInflater

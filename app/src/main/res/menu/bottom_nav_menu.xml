@@ -16,9 +16,9 @@
         android:icon="@drawable/icon_report"
         android:title="Relatório" />
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/icon_bot"
-        android:title="Chatbot" />
+        android:id="@+id/chat"
+        android:icon="@drawable/icon_chats"
+        android:title="Chat" />
 
     <item
         android:id="@+id/perfil"

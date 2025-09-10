@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1ECE3"
-    tools:context=".ui.dashboard.VitrineFragment">
+    tools:context=".ui.vitrine.VitrineFragment">
 
     <TextView
         android:id="@+id/text_dashboard"
@@ -54,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/bt_filtro_estilizacao"
             android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
             android:text="Todos" />
 
@@ -62,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/bt_filtro_estilizacao"
             android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
             android:text="Embutidos" />
 
@@ -70,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/bt_filtro_estilizacao"
             android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
             android:text="Laticínios" />
 

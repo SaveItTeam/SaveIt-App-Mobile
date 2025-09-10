@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration.Builder(
             R.id.navigation_home,
             R.id.navigation_vitrine,
-            R.id.navigation_notifications,
+            R.id.chat,
             R.id.relatorio,
             R.id.perfil
         )

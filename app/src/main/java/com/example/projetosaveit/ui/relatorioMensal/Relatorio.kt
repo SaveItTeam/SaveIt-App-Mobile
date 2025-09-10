@@ -1,4 +1,4 @@
-package com.example.projetosaveit.ui
+package com.example.projetosaveit.ui.relatorioMensal
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.projetosaveit.R
 
 /**
- * A simple [Fragment] subclass.
+ * A simple [androidx.fragment.app.Fragment] subclass.
  * Use the [Relatorio.newInstance] factory method to
  * create an instance of this fragment.
  */
