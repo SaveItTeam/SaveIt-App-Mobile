@@ -1,7 +1,7 @@
-package com.example.projetosaveit.ui
+package com.example.projetosaveit.ui.perfil
 
 import android.Manifest
-import android.content.ContentValues.TAG
+import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -26,6 +26,7 @@ import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
+import com.example.projetosaveit.ui.Login
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import java.io.File
@@ -153,7 +154,7 @@ class Perfil : Fragment() {
                             },
                             onError = { e ->
                                 Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
-                                Log.d(TAG, "${e.message}")
+                                Log.d(ContentValues.TAG, "${e.message}")
                             }
                         )
                     } else {
@@ -185,7 +186,7 @@ class Perfil : Fragment() {
     private fun uploadToCloudinary(file: File, onSuccess: (String) -> Unit, onError: (Exception) -> Unit) {
         Thread {
             try {
-                Log.d(TAG, "inserindo")
+                Log.d(ContentValues.TAG, "inserindo")
                 val result = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
                 var url = result["secure_url"] as String
                 requireActivity().runOnUiThread {

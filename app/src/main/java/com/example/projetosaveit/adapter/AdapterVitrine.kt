@@ -7,12 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetosaveit.R
-import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.ui.ProdutoVitrine
-import com.example.projetosaveit.ui.TelaEstoque
 
-class AdapterVitrine : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
+class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
     var listVitrine = listOf<Vitrine>()
 
     override fun onCreateViewHolder(
@@ -28,9 +26,7 @@ class AdapterVitrine : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
         var itemVitrine : Vitrine = listVitrine.get(position)
 
         if (itemVitrine != null) {
-            holder.nomeProduto.setText(itemVitrine.nomeProduto)
-            holder.imagemVitrine.setText(itemVitrine.imagemProduto.toString())
-            holder.botaoVitrine.setText(itemVitrine.botaoProduto)
+            holder.imagemVitrine.setText(itemVitrine.imagem.toString())
         }
         holder.botaoVitrine.setOnClickListener {
             val context = holder.itemView.context
@@ -44,7 +40,6 @@ class AdapterVitrine : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
     }
 
     class ViewHolder(itemView : View)  : RecyclerView.ViewHolder(itemView) {
-        var nomeProduto : TextView = itemView.findViewById(R.id.nomeProdutoVitrine)
         var imagemVitrine : TextView = itemView.findViewById(R.id.imagemVitrine)
         var botaoVitrine: TextView = itemView.findViewById(R.id.botaoVitrine)
     }

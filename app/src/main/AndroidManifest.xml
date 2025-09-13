@@ -27,7 +27,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".ui.tela_estoque"
+            android:name=".ui.TelaEstoque"
             android:exported="false" />
         <activity
             android:name=".ui.AdicionarProduto"

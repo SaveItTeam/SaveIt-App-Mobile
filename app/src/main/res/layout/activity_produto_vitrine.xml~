@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5E0"
+    tools:context=".ui.ProdutoVitrine">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/seta_esquerda" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="377dp"
+            android:layout_height="224dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="nomeProduto"
+            android:textColor="@color/md_theme_onPrimaryFixed"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="180dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bt_cadastro_estilizacao"
+            android:backgroundTint="@color/colorCustomColor2_highContrast"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Acessar"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Peso"
+            android:textColor="@color/PlaceHolderColor" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="99Kg"
+            android:textColor="@color/md_theme_onPrimaryContainer"
+            android:textSize="34sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Cidade"
+                android:textColor="@color/PlaceHolderColor" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:gravity="right"
+                android:text="Empresa"
+                android:textColor="@color/PlaceHolderColor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Cidade Tal, São Pinto (SP)"
+                android:textColor="@color/md_theme_onPrimaryFixed" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="137dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:gravity="right"
+                android:text="Amil"
+                android:textColor="@color/md_theme_onPrimaryFixed" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Validade"
+            android:textColor="@color/PlaceHolderColor"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="00/00/0000"
+            android:textColor="@color/md_theme_onPrimaryFixed"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Descrição"
+            android:textColor="@color/PlaceHolderColor"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem nisl, tristique interdum euismod id, elementum iaculis eros. Aenean orci ligula, tincidunt nec mauris convallis, lacinia efficitur elit. Praesent elementum, justo sit amet sodales suscipit, diam arcu posuere odio, et semper dolor nisl sit amet felis. Cl"
+            android:textColor="@color/md_theme_onPrimaryFixed"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

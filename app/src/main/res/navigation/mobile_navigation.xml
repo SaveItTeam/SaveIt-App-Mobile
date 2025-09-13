@@ -13,23 +13,24 @@
 
     <fragment
         android:id="@+id/navigation_vitrine"
-        android:name="com.example.projetosaveit.ui.dashboard.VitrineFragment"
+        android:name="com.example.projetosaveit.ui.vitrine.VitrineFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_vitrine" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.projetosaveit.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/chat"
+        android:name="com.example.projetosaveit.ui.chats.ChatsFragment"
+        android:label="chats"
+        tools:layout="@layout/fragment_chats" />
+
     <fragment
         android:id="@+id/relatorio"
-        android:name="com.example.projetosaveit.ui.Relatorio"
+        android:name="com.example.projetosaveit.ui.relatorioMensal.Relatorio"
         android:label="Relatório"
         tools:layout="@layout/fragment_relatorio" />
     <fragment
         android:id="@+id/perfil"
-        android:name="com.example.projetosaveit.ui.Perfil"
+        android:name="com.example.projetosaveit.ui.perfil.Perfil"
         android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
 </navigation>

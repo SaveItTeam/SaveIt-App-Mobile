@@ -1,14 +1,14 @@
-package com.example.projetosaveit.ui.notifications
+package com.example.projetosaveit.ui.vitrine
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class VitrineViewModel : ViewModel() {
     private val mText = MutableLiveData<String?>()
 
     init {
-        mText.value = "This is notifications fragment"
+        mText.value = "This is dashboard fragment"
     }
 
     val text: LiveData<String?>

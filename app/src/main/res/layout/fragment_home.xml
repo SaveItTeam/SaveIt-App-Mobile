@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF5E0"
+    android:background="#F1ECE3"
     tools:context=".ui.home.HomeFragment">
 
     <TextView
@@ -78,6 +78,7 @@
         app:layout_constraintVertical_bias="0.047" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleProdutos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF5E0"
+    android:background="#F1ECE3"
     tools:context=".ui.TelaCadastro1"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="17dp">
@@ -16,7 +16,7 @@
         android:layout_height="52dp"
         android:layout_marginBottom="76dp"
         android:background="@drawable/bt_cadastro_estilizacao"
-        android:drawableLeft="@drawable/store_icon"
+        android:drawableLeft="@drawable/icon_store"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"

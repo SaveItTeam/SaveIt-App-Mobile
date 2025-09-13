@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF5E0"
-    tools:context=".ui.dashboard.VitrineFragment">
+    android:background="#F1ECE3"
+    tools:context=".ui.vitrine.VitrineFragment">
 
     <TextView
         android:id="@+id/text_dashboard"
@@ -50,43 +50,50 @@
         app:layout_constraintVertical_bias="0.24">
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/button9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/bt_filtro_estilizacao"
             android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
-            android:text="Laticínios" />
+            android:text="Todos" />
 
         <Button
             android:id="@+id/button15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/bt_filtro_estilizacao"
             android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
             android:text="Embutidos" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/button14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/bt_filtro_estilizacao"
             android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
-            android:text="Todos" />
+            android:text="Laticínios" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVitrine"
         android:layout_width="409dp"
         android:layout_height="610dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:layout_constraintVertical_bias="0.0"
+        app:spanCount="2"
         tools:listitem="@layout/item_vitrine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
