@@ -4,6 +4,7 @@
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
         <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+        <item name="colorAccent">@color/buttonColor</item>
         <item name="colorSecondary">@color/md_theme_secondary</item>
         <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
         <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
@@ -64,5 +65,9 @@
         <item name="android:statusBarColor">@color/md_theme_primary</item>
         <item name="android:navigationBarColor">#FFFFFF</item>
         <item name="fontFamily">@font/inclusive_sans</item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.MyMaterialCalendar</item>
     </style>
+    <style name="ThemeOverlay.MyMaterialCalendar" parent="ThemeOverlay.MaterialComponents.MaterialCalendar" />
+
+
 </resources>

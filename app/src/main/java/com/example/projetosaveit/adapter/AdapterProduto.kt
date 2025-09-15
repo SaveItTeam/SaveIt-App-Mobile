@@ -4,8 +4,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.cloudinary.android.uploadwidget.UploadWidget.startActivity
 import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.recycleView.Produto
@@ -30,6 +32,12 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
 
         if (produto != null) {
             holder.nomeProduto.setText(produto.nomeProduto)
+            Glide.with(holder.itemView.context)
+                .load(produto.imagem)
+                .circleCrop()
+                .into(holder.imagem)
+            holder.validade.setText(produto.validade.toString())
+            holder.quantidade.setText(produto.quantidade.toString())
         }
         holder.botao.setOnClickListener {
             val context = holder.itemView.context
@@ -45,6 +53,9 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nomeProduto : TextView = itemView.findViewById<TextView>(R.id.nomeProdutoTexto)
         var botao : MaterialToolbar = itemView.findViewById<MaterialToolbar>(R.id.botao)
+        var imagem : ImageView = itemView.findViewById<ImageView>(R.id.imagemProduto)
+        var validade : TextView = itemView.findViewById<TextView>(R.id.validadeTexto)
+        var quantidade : TextView = itemView.findViewById<TextView>(R.id.quantidadeTexto)
     }
 
 }

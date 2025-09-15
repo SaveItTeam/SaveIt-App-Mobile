@@ -63,7 +63,9 @@
         <item name="textAppearanceLabelSmall">@style/MyDefaultTextStyle</item>
         <item name="android:statusBarColor">@color/md_theme_primary</item>
         <item name="android:navigationBarColor">#FFFFFF</item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.MyMaterialCalendar</item>
     </style>
+    <style name="ThemeOverlay.MyMaterialCalendar" parent="ThemeOverlay.MaterialComponents.MaterialCalendar" />
 
     <style name="MyDefaultTextStyle" parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">@font/inclusive_sans</item>

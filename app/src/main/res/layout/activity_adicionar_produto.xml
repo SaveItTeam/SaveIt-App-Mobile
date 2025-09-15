@@ -11,34 +11,14 @@
     tools:layout_editor_absoluteY="12dp">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText5"
+        android:id="@+id/marcaProdutoInput"
         android:layout_width="310dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="396dp"
+        android:layout_marginBottom="312dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite o nome da sua indústria"
-        android:paddingLeft="10dp"
-        android:textAlignment="viewStart"
-        android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.073" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText6"
-        android:layout_width="310dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="396dp"
-        android:background="@drawable/caixa_texto"
-        android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
-        android:hint="Digite o nome da sua indústria"
+        android:hint="Digite a marca do produto"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColorHint="@color/PlaceHolderColor"
@@ -51,14 +31,14 @@
         app:layout_constraintVertical_bias="0.073" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText7"
+        android:id="@+id/quantidadeProdutoInput"
         android:layout_width="310dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="340dp"
+        android:layout_marginBottom="128dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite o nome da sua indústria"
+        android:hint="Digite a quantidade em estoque"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColorHint="@color/PlaceHolderColor"
@@ -71,14 +51,14 @@
         app:layout_constraintVertical_bias="0.073" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText8"
+        android:id="@+id/unidadeMedidaProdutoInput"
         android:layout_width="310dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite o nome da sua indústria"
+        android:hint="Digite a unidade de medida do produto"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColorHint="@color/PlaceHolderColor"
@@ -91,14 +71,41 @@
         app:layout_constraintVertical_bias="0.073" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText9"
+        android:id="@+id/skuProdutoInput"
         android:layout_width="310dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="268dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite o nome da sua indústria"
+        android:hint="Digite a SKU do poduto"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.073" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Selecione uma data">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nomeProdutoInput"
+        android:layout_width="310dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="356dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite o nome do produto"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColorHint="@color/PlaceHolderColor"
@@ -111,7 +118,7 @@
         app:layout_constraintVertical_bias="0.073" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/botaoCadastrarProduto"
         android:layout_width="124dp"
         android:layout_height="37dp"
         android:background="@drawable/bt_cadastro_estilizacao"
@@ -126,24 +133,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText5"
-        app:layout_constraintVertical_bias="0.761" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:fontFamily="@font/inclusive_sans"
-        android:text="Já possui uma conta? Faça login"
-        android:textColor="@color/md_theme_onPrimaryFixed"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.191" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.969" />
 
     <ImageView
         android:id="@+id/imageView24"
@@ -196,7 +187,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
-        android:text="Cadastro comercial"
+        android:text="Adicionar produto"
         android:textColor="@color/md_theme_onPrimaryFixed"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -204,5 +195,76 @@
         app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349" />
+        app:layout_constraintVertical_bias="0.335" />
+
+    <ImageView
+        android:id="@+id/imagemProdutoInput"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.747"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@android:drawable/ic_menu_add" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inclusive_sans"
+        android:text="Insira a imagem aqui"
+        android:textColor="@color/md_theme_onSurface_mediumContrast"
+        app:layout_constraintBottom_toTopOf="@+id/nomeProdutoInput"
+        app:layout_constraintEnd_toStartOf="@+id/imagemProdutoInput"
+        app:layout_constraintHorizontal_bias="0.716"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:layout_constraintVertical_bias="0.496" />
+
+    <EditText
+        android:id="@+id/validadeProdutoInput"
+        android:layout_width="310dp"
+        android:layout_height="32dp"
+        android:background="@drawable/caixa_texto"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/inclusive_sans"
+        android:hint="Digite a data de validade do produto"
+        android:inputType="none"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/quantidadeProdutoInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skuProdutoInput"
+        app:layout_constraintVertical_bias="0.802" />
+
+    <EditText
+        android:id="@+id/entradaProdutoInput"
+        android:layout_width="310dp"
+        android:layout_height="32dp"
+        android:background="@drawable/caixa_texto"
+        android:clickable="true"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/inclusive_sans"
+        android:hint="Digite a data de entrada do produto"
+        android:inputType="none"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/validadeProdutoInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

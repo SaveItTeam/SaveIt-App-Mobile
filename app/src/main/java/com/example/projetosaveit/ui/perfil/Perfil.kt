@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -26,6 +27,7 @@ import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
+import com.example.projetosaveit.ui.ConfiguracoesPerfil
 import com.example.projetosaveit.ui.Login
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -58,7 +60,6 @@ class Perfil : Fragment() {
     )
     val cloudinary = Cloudinary(config)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -79,9 +80,8 @@ class Perfil : Fragment() {
             showImagePickerOptions()
         }
 
-        view.findViewById<TextView>(R.id.logout).setOnClickListener {
-            objAutenticar.signOut()
-            val intent = Intent(this.activity, Login::class.java)
+        view.findViewById<FrameLayout>(R.id.botaoConfiguracoes).setOnClickListener {
+            val intent = Intent(this.activity, ConfiguracoesPerfil::class.java)
             startActivity(intent)
         }
 
@@ -172,6 +172,7 @@ class Perfil : Fragment() {
                                 .load(url)
                                 .circleCrop()
                                 .into(avatar!!)
+
                             Toast.makeText(requireContext(), "Foi inserido com sucesso!", Toast.LENGTH_SHORT).show()
                         },
                         onError = { e ->
