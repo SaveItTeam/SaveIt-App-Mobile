@@ -17,7 +17,7 @@ interface ApiService {
     @GET("api/lote/listarProdutosLote/{enterpriseId}")
     fun getProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<Produto>>
 
-    @GET("api/vitrine/selecionar")
+    @GET("api/image/showcase-images")
     fun getVitrine(): Call<List<VitrineDTO>>
 
     @POST("api/lote/inserir")

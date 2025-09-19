@@ -30,6 +30,9 @@
             android:name=".ui.ConfiguracoesPerfil"
             android:exported="false" />
         <activity
+            android:name=".ui.Planos"
+            android:exported="false" />
+        <activity
             android:name=".ui.TelaEstoque"
             android:exported="false" />
         <activity

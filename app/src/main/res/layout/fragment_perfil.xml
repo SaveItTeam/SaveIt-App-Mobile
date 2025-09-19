@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
+    android:background="@color/Branco"
     tools:context=".ui.perfil.Perfil">
 
     <ImageView
         android:id="@+id/imageView20"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="455dp"
+        android:layout_height="227dp"
         android:src="@drawable/onda_verde_clara_seis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +18,11 @@
 
     <ImageView
         android:id="@+id/imageView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="444dp"
+        android:layout_height="155dp"
         android:src="@drawable/onda_verde_escura_seis"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,8 +67,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/inclusive_sans"
-        android:text="Olimpo"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:text="nome"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +82,6 @@
         android:orientation="vertical"
         android:paddingVertical="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomePerfil">
 
@@ -98,6 +98,7 @@
             app:cardCornerRadius="20dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/termos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingStart="16dp"
@@ -107,7 +108,7 @@
                     android:id="@+id/iconNotify3"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/icon_settings"
+                    android:src="@drawable/icon_termos"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -116,14 +117,15 @@
                     android:id="@+id/titleTerms3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
+                    android:layout_marginStart="12dp"
                     android:fontFamily="@font/inclusive_sans"
-                    android:text="Configurações"
-                    android:textColor="#000000"
+                    android:text="Termos de uso"
+                    android:textColor="@color/PretoNaoPuro"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iconNotify3"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.542" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
 
@@ -149,7 +151,7 @@
                     android:id="@+id/iconNotify"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/icon_termos"
+                    android:src="@drawable/icon_settings"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -160,12 +162,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/inclusive_sans"
-                    android:text="Termos de uso"
-                    android:textColor="#000000"
+                    android:text="Configurações"
+                    android:textColor="@color/PretoNaoPuro"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iconNotify"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.514" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
 
@@ -192,7 +195,7 @@
                     android:id="@+id/icon22"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/icon_seguranca"
+                    android:src="@drawable/icon_funcionario"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -203,13 +206,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/inclusive_sans"
-                    android:text="Segurança"
-                    android:textColor="#000000"
+                    android:text="Inserir funcionário"
+                    android:textColor="@color/PretoNaoPuro"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/icon22"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </FrameLayout>
 
         <FrameLayout
@@ -246,11 +250,12 @@
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/inclusive_sans"
                     android:text="Planos"
-                    android:textColor="#000000"
+                    android:textColor="@color/PretoNaoPuro"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/icon3"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
 
@@ -262,10 +267,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
         android:text="Plano Atual: Avançado"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -273,26 +278,25 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/inclusive_sans"
-        android:text="Suporte"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:text="Chatbot"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <ImageView
         android:id="@+id/imageView22"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/icon_suporte"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon_bot"
         app:layout_constraintEnd_toStartOf="@+id/textView21"
-        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

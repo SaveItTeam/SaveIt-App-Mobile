@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
+    android:background="@color/Branco"
     tools:context=".ui.vitrine.VitrineFragment">
 
     <TextView
@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/inclusive_sans"
+        android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Vitrine Virtual"
         android:textAlignment="center"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +29,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/inclusive_sans"
         android:text="Categorias"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
@@ -55,8 +56,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/bt_filtro_estilizacao"
-            android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
-            android:text="Todos" />
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Todos"
+            android:textAllCaps="false"
+            android:textColor="@color/BrancoNaoPuro" />
 
         <Button
             android:id="@+id/button15"
@@ -64,8 +67,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/bt_filtro_estilizacao"
-            android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
-            android:text="Embutidos" />
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Embutidos"
+            android:textAllCaps="false"
+            android:textColor="@color/BrancoNaoPuro" />
 
         <Button
             android:id="@+id/button14"
@@ -73,8 +78,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/bt_filtro_estilizacao"
-            android:backgroundTint="@color/md_theme_inversePrimary_mediumContrast"
-            android:text="Laticínios" />
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Laticínios"
+            android:textAllCaps="false"
+            android:textColor="@color/BrancoNaoPuro" />
 
     </LinearLayout>
 

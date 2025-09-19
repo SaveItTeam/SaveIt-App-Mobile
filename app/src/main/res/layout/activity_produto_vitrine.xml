@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
+    android:background="@color/Branco"
     tools:context=".ui.ProdutoVitrine">
 
     <LinearLayout
@@ -45,7 +45,7 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="nomeProduto"
-            android:textColor="@color/md_theme_onPrimaryFixed"
+            android:textColor="@color/PretoNaoPuro"
             android:textSize="20sp" />
 
         <Button
@@ -54,10 +54,11 @@
             android:layout_height="44dp"
             android:layout_gravity="center"
             android:background="@drawable/bt_cadastro_estilizacao"
-            android:backgroundTint="@color/colorCustomColor2_highContrast"
+            android:backgroundTint="@color/Bordo"
             android:fontFamily="@font/inclusive_sans"
             android:text="Acessar"
             android:textAllCaps="false"
+            android:textColor="@color/BrancoNaoPuro"
             android:textSize="20sp" />
 
         <TextView
@@ -77,7 +78,7 @@
             android:layout_marginLeft="30dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="99Kg"
-            android:textColor="@color/md_theme_onPrimaryContainer"
+            android:textColor="@color/VerdeEscuro"
             android:textSize="34sp" />
 
         <LinearLayout
@@ -119,8 +120,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:fontFamily="@font/inclusive_sans"
-                android:text="Cidade Tal, São Pinto (SP)"
-                android:textColor="@color/md_theme_onPrimaryFixed" />
+                android:text="Cidade Tal, São Paulo (SP)"
+                android:textColor="@color/PretoNaoPuro" />
 
             <TextView
                 android:id="@+id/textView25"
@@ -130,7 +131,7 @@
                 android:fontFamily="@font/inclusive_sans"
                 android:gravity="right"
                 android:text="Amil"
-                android:textColor="@color/md_theme_onPrimaryFixed" />
+                android:textColor="@color/PretoNaoPuro" />
 
         </LinearLayout>
 
@@ -153,7 +154,7 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="00/00/0000"
-            android:textColor="@color/md_theme_onPrimaryFixed"
+            android:textColor="@color/PretoNaoPuro"
             android:textSize="14sp" />
 
         <TextView
@@ -176,7 +177,7 @@
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem nisl, tristique interdum euismod id, elementum iaculis eros. Aenean orci ligula, tincidunt nec mauris convallis, lacinia efficitur elit. Praesent elementum, justo sit amet sodales suscipit, diam arcu posuere odio, et semper dolor nisl sit amet felis. Cl"
-            android:textColor="@color/md_theme_onPrimaryFixed"
+            android:textColor="@color/PretoNaoPuro"
             android:textSize="14sp" />
 
     </LinearLayout>

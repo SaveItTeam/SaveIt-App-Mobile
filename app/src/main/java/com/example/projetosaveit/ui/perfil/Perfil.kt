@@ -20,12 +20,16 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
+import com.example.projetosaveit.ui.Planos
 import com.example.projetosaveit.R
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
 import com.example.projetosaveit.ui.Login
@@ -59,6 +63,7 @@ class Perfil : Fragment() {
         "api_secret" to "T2BSV6xtsGY9Bk3Cxm4dfhKC7H4"
     )
     val cloudinary = Cloudinary(config)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
