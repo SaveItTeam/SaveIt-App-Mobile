@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
+    android:background="@color/Branco"
     tools:context=".ui.chats.ChatsFragment">
 
     <ImageView
@@ -25,7 +25,7 @@
         android:layout_marginTop="156dp"
         android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Histórico de chat"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textFontWeight="@integer/material_motion_duration_long_1"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,8 @@
                 android:hint="Pesquisar"
                 android:inputType="text"
                 android:paddingStart="8dp"
-                android:textColorHint="@color/md_theme_onPrimaryFixed"
+                android:textColor="@color/PretoNaoPuro"
+                android:textColorHint="@color/PlaceHolderColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.289"
                 app:layout_constraintStart_toEndOf="@+id/imageView29"
@@ -92,6 +93,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="Todos"
         android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,6 +108,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="Não lidos"
         android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"

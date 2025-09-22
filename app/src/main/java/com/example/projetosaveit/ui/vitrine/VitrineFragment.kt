@@ -47,6 +47,8 @@ class VitrineFragment : Fragment() {
         binding!!.rvVitrine.setLayoutManager(StaggeredGridLayoutManager(2,
             StaggeredGridLayoutManager.VERTICAL))
 
+        carregarVitrine()
+
         return root
     }
 
@@ -58,8 +60,8 @@ class VitrineFragment : Fragment() {
                         vitrineDTO ->
                         val vitrineModel: List<Vitrine> = vitrineDTO.map { dto ->
                             Vitrine (
-                                id = dto.id,
-                                imagem = dto.imagem
+                                productId = dto.productId,
+                                image = dto.image
                             )
                         }
 

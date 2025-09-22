@@ -27,10 +27,17 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".ui.ConfiguracoesPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Planos"
+            android:exported="false" />
+        <activity
             android:name=".ui.TelaEstoque"
             android:exported="false" />
         <activity
             android:name=".ui.AdicionarProduto"
+
             android:exported="false" />
         <activity
             android:name=".ui.ProdutoVitrine"

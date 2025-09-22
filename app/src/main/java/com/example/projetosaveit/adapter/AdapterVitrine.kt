@@ -4,8 +4,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.ui.ProdutoVitrine
@@ -26,7 +28,9 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
         var itemVitrine : Vitrine = listVitrine.get(position)
 
         if (itemVitrine != null) {
-            holder.imagemVitrine.setText(itemVitrine.imagem.toString())
+            Glide.with(holder.itemView.context)
+                .load(itemVitrine.image)
+                .into(holder.imagemVitrine)
         }
         holder.botaoVitrine.setOnClickListener {
             val context = holder.itemView.context
@@ -40,7 +44,7 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
     }
 
     class ViewHolder(itemView : View)  : RecyclerView.ViewHolder(itemView) {
-        var imagemVitrine : TextView = itemView.findViewById(R.id.imagemVitrine)
+        var imagemVitrine : ImageView = itemView.findViewById<ImageView>(R.id.imagemVitrine)
         var botaoVitrine: TextView = itemView.findViewById(R.id.botaoVitrine)
     }
 }

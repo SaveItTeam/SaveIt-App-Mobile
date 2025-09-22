@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="14sp"
-    app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+    app:cardBackgroundColor="@color/BrancoNaoPuro"
     app:cardCornerRadius="32dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +32,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="Camil"
-            android:textColor="@color/md_theme_onPrimaryFixed"
+            android:textColor="@color/PretoNaoPuro"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,10 +47,10 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="Bla bla bla"
-            android:textColor="@color/md_theme_outlineVariant_mediumContrast"
+            android:textColor="@color/PretoNaoPuro"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.262"
+            app:layout_constraintHorizontal_bias="0.283"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaCard" />
 

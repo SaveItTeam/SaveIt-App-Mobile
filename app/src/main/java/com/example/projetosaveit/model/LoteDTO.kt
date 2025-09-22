@@ -3,31 +3,27 @@ package com.example.projetosaveit.model
 import java.util.Date
 
 class LoteDTO {
-    var id : Long
-    var unite_measure : String
-    var entry_date : Date
-    var batch_code : String
-    var expiration_date : Date
-    var quantity : Int
-    var product_id : Int
+    val id: Long = 0
+    val unite_measure: String?
+    val entry_date: Date?
+    val batch_code: String?
+    val expiriation_date: Date?
+    val quantity : Int
+    val product_id: Long
 
     constructor(
-        product_id: Int,
+        unite_measure: String?,
+        entry_date: Date?,
+        batch_code: String?,
+        expiriation_date: Date?,
         quantity: Int,
-        expiration_date: Date,
-        batch_code: String,
-        entry_date: Date,
-        unite_measure: String,
-        id: Long
+        product_id: Long
     ) {
-        this.product_id = product_id
-        this.quantity = quantity
-        this.expiration_date = expiration_date
-        this.batch_code = batch_code
-        this.entry_date = entry_date
         this.unite_measure = unite_measure
-        this.id = id
+        this.entry_date = entry_date
+        this.batch_code = batch_code
+        this.expiriation_date = expiriation_date
+        this.quantity = quantity
+        this.product_id = product_id
     }
-
-
 }

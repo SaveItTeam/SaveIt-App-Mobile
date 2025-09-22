@@ -45,14 +45,18 @@ class Login : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {
-                        try {
-                            task.exception
-                        } catch (e: FirebaseAuthInvalidUserException) {
-                            Toast.makeText(this, "Usuário não cadastrado", Toast.LENGTH_LONG).show()
-                        } catch (e: FirebaseAuthInvalidCredentialsException) {
-                            Toast.makeText(this, "E-mail e senha não correspondem a um usuário cadastrado", Toast.LENGTH_LONG).show()
-                        } catch (e: Exception) {
-                            println(e.message)
+                        val exception = task.exception
+                        when (exception) {
+                            is FirebaseAuthInvalidUserException -> {
+                                Toast.makeText(this, "Usuário não cadastrado", Toast.LENGTH_LONG).show()
+                            }
+                            is FirebaseAuthInvalidCredentialsException -> {
+                                Toast.makeText(this, "E-mail ou senha inválidos", Toast.LENGTH_LONG).show()
+                            }
+                            else -> {
+                                Toast.makeText(this, "Erro: ${exception?.message}", Toast.LENGTH_LONG).show()
+                                exception?.printStackTrace()
+                            }
                         }
                     }
                 }

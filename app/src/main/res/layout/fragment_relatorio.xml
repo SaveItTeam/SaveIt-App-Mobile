@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
+    android:background="@color/Branco"
     tools:context=".ui.relatorioMensal.Relatorio">
-
 
     <ImageView
         android:id="@+id/imageView23"
@@ -24,7 +23,7 @@
         android:layout_marginTop="100dp"
         android:fontFamily="@font/inclusive_sans"
         android:text="Relatório"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
@@ -36,12 +35,12 @@
         android:layout_width="363dp"
         android:layout_height="49dp"
         android:layout_marginTop="36dp"
-        app:cardBackgroundColor="@color/VerdeEscuroColor1"
+        app:cardBackgroundColor="@color/VerdeEscuro"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView23" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView23">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Mês"
-                android:textColor="@color/colorOnCustomColor1_highContrast"
+                android:textColor="@color/BrancoNaoPuro"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView43"
@@ -69,7 +68,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Entrada"
-                android:textColor="@color/colorOnCustomColor1_highContrast"
+                android:textColor="@color/BrancoNaoPuro"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView44"
@@ -84,7 +83,7 @@
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Saída"
-                android:textColor="@color/colorOnCustomColor1_highContrast"
+                android:textColor="@color/BrancoNaoPuro"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView45"
@@ -99,7 +98,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Perda"
-                android:textColor="@color/colorOnCustomColor1_highContrast"
+                android:textColor="@color/BrancoNaoPuro"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -131,15 +130,15 @@
                 android:padding="8dp"
                 android:stretchColumns="1,2,3,4">
 
+                <!-- Janeiro -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="Janeiro"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:layout_width="10dp"
@@ -149,7 +148,7 @@
                         android:gravity="center"
                         android:padding="4dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -157,7 +156,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -165,18 +164,18 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
                 </TableRow>
 
+                <!-- Fevereiro -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="Fevereiro"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -184,7 +183,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -192,7 +191,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -200,18 +199,18 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
                 </TableRow>
 
+                <!-- Março -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="Março"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -219,7 +218,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -227,7 +226,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -235,18 +234,18 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
                 </TableRow>
 
+                <!-- Abril -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="Abril"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -254,7 +253,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -262,7 +261,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
@@ -270,292 +269,10 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Maio"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Junho"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Julho"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Agosto"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Setembro"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Outubro"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Novembro"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Dezembro"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/md_theme_onPrimaryFixed" />
+                        android:textColor="@color/PretoNaoPuro" />
                 </TableRow>
 
             </TableLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

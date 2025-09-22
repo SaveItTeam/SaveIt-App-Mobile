@@ -1,15 +1,28 @@
 package com.example.projetosaveit.api.network
 
 import com.example.projetosaveit.adapter.recycleView.Produto
+import com.example.projetosaveit.model.EmpresaDTO
+import com.example.projetosaveit.model.LoteDTO
+import com.example.projetosaveit.model.LoteInsertDTO
 import com.example.projetosaveit.model.ProdutoDTO
 import com.example.projetosaveit.model.VitrineDTO
+import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
-    @GET("api/produto/selecionar")
-    fun getProdutos(): Call<List<ProdutoDTO>>
+    @GET("api/lote/listarProdutosLote/{enterpriseId}")
+    fun getProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<Produto>>
 
-    @GET("api/vitrine/selecionar")
+    @GET("api/image/showcase-images")
     fun getVitrine(): Call<List<VitrineDTO>>
+
+    @POST("api/lote/inserir")
+    fun postLote(@Body produto: LoteInsertDTO): Call<ResponseBody>
+
+    @GET("api/empresa/listarEmail/{email}")
+    fun getEmrpresaEmail(@Path("email") email : String): Call<EmpresaDTO>
 }

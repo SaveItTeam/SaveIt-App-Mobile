@@ -1,19 +1,41 @@
 package com.example.projetosaveit.model
 
 class VitrineDTO {
-    var id : Long
-    var descricao : String
-    var preco : Double
-    var lote_id : Long
-    var nome : String
-    var imagem : String
+    var name: String
+    var description: String
+    var image: String
+    var price: Double
+    var productId: Long
+    var loteId: Long
+    var tipoPeso: String
+    var quantidadeGeral: Int
+    var empresa: String
+    var localizacao: String
+    var validade: String
 
-    constructor(lote_id: Long, preco: Double, descricao: String, id: Long, nome: String, imagem: String) {
-        this.lote_id = lote_id
-        this.preco = preco
-        this.descricao = descricao
-        this.id = id
-        this.nome = nome
-        this.imagem = imagem
+    constructor(
+        name: String,
+        description: String,
+        image: String,
+        price: Double,
+        productId: Long,
+        loteId: Long,
+        tipoPeso: String,
+        quantidadeGeral: Int,
+        empresa: String,
+        localizacao: String,
+        validade: String
+    ) {
+        this.name = name
+        this.description = description
+        this.image = image
+        this.price = price
+        this.productId = productId
+        this.loteId = loteId
+        this.tipoPeso = tipoPeso
+        this.quantidadeGeral = quantidadeGeral
+        this.empresa = empresa
+        this.localizacao = localizacao
+        this.validade = validade
     }
 }
