@@ -2,6 +2,7 @@ package com.example.projetosaveit.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,18 +44,19 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding!!.root
 
-        var emailEmp : String = objAutenticar.currentUser?.email.toString()
-        pegarEmpresaPorEmail(emailEmp) { empresa ->
-            if (empresa != null) {
-                idEmpresa = empresa.id
-            }
-        }
-
         adapter = AdapterProduto()
         binding!!.recycleProdutos.adapter = adapter
         binding!!.recycleProdutos.layoutManager =
             androidx.recyclerview.widget.LinearLayoutManager(requireContext())
-        carregarProdutos(idEmpresa)
+        var emailEmp : String = objAutenticar.currentUser?.email.toString()
+        pegarEmailEmpresa(emailEmp) { empresa ->
+            if ((empresa != null)&&(empresa.id.toInt() != 0)) {
+                idEmpresa = empresa.id
+                carregarProdutos(idEmpresa)
+            }else {
+                Toast.makeText(context, "não conseguiu pegar o id da empresa", Toast.LENGTH_LONG).show()
+            }
+        }
 
         binding!!.botaoAdicionarProduto.setOnClickListener {
             val intent = Intent(requireContext(), AdicionarProduto::class.java)
@@ -82,17 +84,23 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun pegarEmpresaPorEmail(email: String, onResult: (EmpresaDTO?) -> Unit) {
+    private fun pegarEmailEmpresa(email: String, onResult: (EmpresaDTO?) -> Unit) {
+        Log.d("erro", "pegarEmailEmpresa: buscando empresa para email = $email")
         repositoryEmp.getEmpresa(email).enqueue(object : retrofit2.Callback<EmpresaDTO> {
-            override fun onResponse(
-                call: Call<EmpresaDTO>,
-                response: Response<EmpresaDTO>
-            ) {
-                onResult(response.body())
+            override fun onResponse(call: Call<EmpresaDTO>, response: Response<EmpresaDTO>) {
+                Log.d("pinto", "getEmpresa onResponse code=${response.code()}")
+                if (response.isSuccessful) {
+                    Log.d("pinto", "getEmpresa body=${response.body()}")
+                    onResult(response.body())
+                } else {
+                    val err = try { response.errorBody()?.string() } catch (e: Exception) { "erro lendo body" }
+                    Log.e("erro", "getEmpresa erro do servidor: code=${response.code()} body=$err")
+                    onResult(null)
+                }
             }
 
             override fun onFailure(call: Call<EmpresaDTO>, t: Throwable) {
-                Toast.makeText(context, "Erro na API: ${t.message}", Toast.LENGTH_SHORT).show()
+                Log.e("erro", "getEmpresa onFailure", t)
                 onResult(null)
             }
         })

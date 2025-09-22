@@ -114,7 +114,10 @@ class AdicionarProduto : AppCompatActivity() {
                 this,
                 { _, year, month, dayOfMonth ->
                     // mês começa do zero, então soma +1
-                    val dataSelecionada = "$dayOfMonth/${month+1}/$year"
+                    val dataSelecionada = String.format(
+                        "%04d-%02d-%02dT%02d:%02d:%02d",
+                        year, month + 1, dayOfMonth, 0, 0, 0
+                    )
                     validadeProdutoDate.setText(dataSelecionada)
                 },
                 ano, mes, dia
@@ -132,7 +135,10 @@ class AdicionarProduto : AppCompatActivity() {
                 this,
                 { _, year, month, dayOfMonth ->
                     // mês começa do zero, então soma +1
-                    val dataSelecionada = "$dayOfMonth/${month+1}/$year"
+                    val dataSelecionada = String.format(
+                        "%04d-%02d-%02dT%02d:%02d:%02d",
+                        year, month + 1, dayOfMonth, 0, 0, 0
+                    )
                     entradaProdutoDate.setText(dataSelecionada)
                 },
                 ano, mes, dia
@@ -166,10 +172,10 @@ class AdicionarProduto : AppCompatActivity() {
                 Toast.makeText(this@AdicionarProduto, "a quantidade de produso não pode ser vazia!!", Toast.LENGTH_SHORT).show()
             }
             else {
-                var produtoInserir : ProdutoDTO = ProdutoDTO(nomeProduto, marcaProduto, idEmpresa)
-                var loteInserir : LoteDTO = LoteDTO(unidadeMedidaProduto,Date(dataEntradaProduto),skuProduto, Date(dataValidadeProduto), quantidadeProduto.toInt(), 1)
-                var imageInserir : ImagemDTO = ImagemDTO(imageUrl, 1)
-                var lote : LoteInsertDTO = LoteInsertDTO(produtoInserir,imageInserir,loteInserir)
+                var produtoInserir : ProdutoDTO = ProdutoDTO(0,nomeProduto, marcaProduto, idEmpresa)
+                var loteInserir : LoteDTO = LoteDTO(0,unidadeMedidaProduto,dataEntradaProduto,skuProduto, dataValidadeProduto, quantidadeProduto.toInt(), 1)
+                var imageInserir : ImagemDTO = ImagemDTO(0,imageUrl, 1)
+                var lote : LoteInsertDTO = LoteInsertDTO(loteInserir, produtoInserir, imageInserir)
                 inserirProduto(lote)
             }
         }
@@ -183,13 +189,25 @@ class AdicionarProduto : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        if(!imageUrl.isEmpty()) {
+            destroyFromCloudinary(imageUrl)
+        }
+    }
+
     private fun inserirProduto(lote : LoteInsertDTO) {
         repositoryLote.postLote(lote).enqueue(object : retrofit2.Callback<ResponseBody> {
             override fun onResponse(
                 p0: Call<ResponseBody?>,
                 p1: Response<ResponseBody?>
             ) {
-                Toast.makeText(this@AdicionarProduto, "Inserido com sucesso", Toast.LENGTH_SHORT).show()
+                if(p1.isSuccessful) {
+                    Toast.makeText(this@AdicionarProduto, "Inserido com sucesso. Resultado: " + p1.body(), Toast.LENGTH_SHORT).show()
+                }else {
+                    Log.i("ERROR", "erro na api: " + p1.errorBody().toString())
+                }
             }
 
             override fun onFailure(
@@ -278,7 +296,8 @@ class AdicionarProduto : AppCompatActivity() {
             try {
                 val result = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
                 var url = result["secure_url"] as String
-                imageUrl = result["public_id"] as String
+                imageUrl = url
+                //imageUrl = result["public_id"] as String
                 this@AdicionarProduto.runOnUiThread {
                     onSuccess(url)
 

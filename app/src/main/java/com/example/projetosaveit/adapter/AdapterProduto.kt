@@ -8,12 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.cloudinary.android.uploadwidget.UploadWidget.startActivity
 import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.ui.TelaEstoque
 import com.google.android.material.appbar.MaterialToolbar
-import org.w3c.dom.Text
+import java.text.SimpleDateFormat
+import java.util.Locale
+
 
 class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
     var listProdutos = listOf<Produto>()
@@ -31,13 +32,15 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
         var produto : Produto = listProdutos.get(position)
 
         if (produto != null) {
-            holder.nomeProduto.setText(produto.nomeProduto)
+            holder.nomeProduto.setText(produto.name)
             Glide.with(holder.itemView.context)
-                .load(produto.imagem)
+                .load(produto.image)
                 .circleCrop()
                 .into(holder.imagem)
-            holder.validade.setText(produto.validade.toString())
-            holder.quantidade.setText(produto.quantidade.toString())
+            val sdf: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+            holder.validade.setText("Validade: "+ sdf.format(produto.expiration_date))
+            holder.quantidade.setText("Quantidade: " + produto.quantity.toString())
         }
         holder.botao.setOnClickListener {
             val context = holder.itemView.context
