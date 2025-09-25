@@ -1,14 +1,11 @@
 package com.example.projetosaveit.model
 
-class ProdutoDTO {
-    var id : Long = 0
-    var name : String
-    var brand : String
-    var enterprise_id : Long
+import com.google.gson.annotations.SerializedName
 
-    constructor(name: String, brand: String, enterprise_id: Long) {
-        this.name = name
-        this.brand = brand
-        this.enterprise_id = enterprise_id
-    }
+class ProdutoDTO(
+    var id : Long = 0,
+    @SerializedName("name") var name : String,
+    @SerializedName("brand") var brand : String,
+    var enterprise_id : Long
+) {
 }

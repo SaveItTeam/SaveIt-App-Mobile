@@ -1,12 +1,10 @@
 package com.example.projetosaveit.model
 
-class ImagemDTO {
-    var id : Long = 0
-    var image : String
-    var product_id : Long
+import com.google.gson.annotations.SerializedName
 
-    constructor(image: String, product_id: Long) {
-        this.image = image
-        this.product_id = product_id
-    }
+class ImagemDTO(
+    var id : Long = 0,
+    @SerializedName("image") var image : String,
+    var product_id : Long
+) {
 }

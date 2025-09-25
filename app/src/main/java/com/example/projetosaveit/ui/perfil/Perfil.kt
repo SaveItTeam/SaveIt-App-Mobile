@@ -20,19 +20,17 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
-import com.example.projetosaveit.ui.Planos
 import com.example.projetosaveit.R
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
-import com.example.projetosaveit.ui.Login
+import com.example.projetosaveit.ui.InserirFuncionario
+import com.example.projetosaveit.ui.Planos
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import java.io.File
@@ -49,10 +47,10 @@ class Perfil : Fragment() {
     private val requestCameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
-                // Permissão concedida. Agora pode abrir a câmera.
+
                 openCamera()
             } else {
-                // Permissão negada. Avise o usuário.
+
                 Toast.makeText(requireContext(), "Permissão de câmera é necessária para tirar fotos.", Toast.LENGTH_SHORT).show()
             }
         }
@@ -85,8 +83,18 @@ class Perfil : Fragment() {
             showImagePickerOptions()
         }
 
-        view.findViewById<FrameLayout>(R.id.botaoConfiguracoes).setOnClickListener {
+        view.findViewById<ConstraintLayout>(R.id.btConfiguracoes).setOnClickListener {
             val intent = Intent(this.activity, ConfiguracoesPerfil::class.java)
+            startActivity(intent)
+        }
+
+        view.findViewById<ConstraintLayout>(R.id.btInserirFunc).setOnClickListener {
+            val intent = Intent(this.activity, InserirFuncionario::class.java)
+            startActivity(intent)
+        }
+
+        view.findViewById<ConstraintLayout>(R.id.btPlanos).setOnClickListener {
+            val intent = Intent(this.activity, Planos::class.java)
             startActivity(intent)
         }
 

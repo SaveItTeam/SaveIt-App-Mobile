@@ -1,0 +1,43 @@
+package com.example.projetosaveit.ui
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.projetosaveit.R
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.Button
+import android.widget.Toast
+import com.google.android.material.textfield.TextInputEditText
+
+class InserirFuncionario : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_inserir_funcionario)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        findViewById<Button>(R.id.btCadastrarFunc).setOnClickListener {
+            val nome = findViewById<TextInputEditText>(R.id.nomeFunc).text.toString()
+            val email = findViewById<TextInputEditText>(R.id.emailFunc).text.toString()
+            val matricula = findViewById<TextInputEditText>(R.id.matriculaFunc).text.toString()
+            val senha = findViewById<TextInputEditText>(R.id.senhaFunc).text.toString()
+            Toast.makeText(this, "Funcionário cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, "nome: " + nome, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "email: " + email, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "matricula: " + matricula, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "senha: " + senha, Toast.LENGTH_SHORT).show()
+
+            finish()
+        }
+
+        findViewById<Button>(R.id.bt)
+    }
+}
