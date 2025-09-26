@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projetosaveit.R
@@ -32,7 +33,7 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
                 .load(itemVitrine.image)
                 .into(holder.imagemVitrine)
         }
-        holder.botaoVitrine.setOnClickListener {
+        holder.itemVitrine.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, ProdutoVitrine::class.java)
             context.startActivity(intent)
@@ -45,6 +46,6 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
 
     class ViewHolder(itemView : View)  : RecyclerView.ViewHolder(itemView) {
         var imagemVitrine : ImageView = itemView.findViewById<ImageView>(R.id.imagemVitrine)
-        var botaoVitrine: TextView = itemView.findViewById(R.id.botaoVitrine)
+        var itemVitrine: ConstraintLayout = itemView.findViewById<ConstraintLayout>(R.id.itemVitrine)
     }
 }
