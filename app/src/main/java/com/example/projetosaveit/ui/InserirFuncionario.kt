@@ -9,6 +9,7 @@ import com.example.projetosaveit.R
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 
@@ -38,7 +39,7 @@ class InserirFuncionario : AppCompatActivity() {
             finish()
         }
 
-        findViewById<Button>(R.id.voltarInserirFunc).setOnClickListener {
+        findViewById<ImageView>(R.id.voltarInserirFunc).setOnClickListener {
             finish()
         }
     }

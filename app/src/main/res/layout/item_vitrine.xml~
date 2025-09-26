@@ -10,7 +10,6 @@
     app:cardPreventCornerOverlap="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/itemVitrine"
         android:layout_width="180dp"
         android:layout_height="232dp">
 
