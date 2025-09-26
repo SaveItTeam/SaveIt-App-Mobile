@@ -11,10 +11,12 @@
         android:id="@+id/imageView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="585dp"
         android:src="@drawable/onda_verde_escuraeclara_sete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView32"
@@ -34,13 +36,13 @@
         android:id="@+id/cardView2"
         android:layout_width="363dp"
         android:layout_height="49dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         app:cardBackgroundColor="@color/VerdeEscuro"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView23">
+        app:layout_constraintTop_toBottomOf="@+id/textView32">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -132,6 +134,7 @@
 
                 <!-- Janeiro -->
                 <TableRow>
+
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
@@ -169,6 +172,7 @@
 
                 <!-- Fevereiro -->
                 <TableRow>
+
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
@@ -204,6 +208,7 @@
 
                 <!-- Março -->
                 <TableRow>
+
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
@@ -239,6 +244,7 @@
 
                 <!-- Abril -->
                 <TableRow>
+
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"

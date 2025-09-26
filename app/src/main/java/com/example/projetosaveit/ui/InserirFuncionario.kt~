@@ -41,7 +41,7 @@ class InserirFuncionario : AppCompatActivity() {
                     }
                 }
             }
-
+            
             Toast.makeText(this, "Funcionário cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
 
             Toast.makeText(this, "nome: " + nome, Toast.LENGTH_SHORT).show()
