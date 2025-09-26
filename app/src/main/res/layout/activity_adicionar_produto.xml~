@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Branco"
+    android:background="@color/BrancoNaoPuro"
     tools:context=".ui.AdicionarProduto"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="12dp">
@@ -208,10 +208,10 @@
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintHorizontal_bias="0.762"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView23"
-        app:layout_constraintVertical_bias="0.372"
+        app:layout_constraintVertical_bias="0.307"
         tools:srcCompat="@android:drawable/ic_menu_add" />
 
     <TextView
