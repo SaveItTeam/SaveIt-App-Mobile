@@ -2,6 +2,7 @@ package com.example.projetosaveit.api.network
 
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.model.EmpresaDTO
+import com.example.projetosaveit.model.EmpresaInsertDTO
 import com.example.projetosaveit.model.LoteDTO
 import com.example.projetosaveit.model.LoteInsertDTO
 import com.example.projetosaveit.model.ProdutoDTO
@@ -25,4 +26,7 @@ interface ApiService {
 
     @GET("api/empresa/listarEmail/{email}")
     fun getEmrpresaEmail(@Path("email") email : String): Call<EmpresaDTO>
+
+    @POST("api/enterprise/inserir")
+    fun postEmpresa(@Body empresa : EmpresaInsertDTO) : Call<ResponseBody>
 }

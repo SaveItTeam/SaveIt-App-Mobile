@@ -27,12 +27,6 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".ui.AtualizarSenha"
-            android:exported="false" />
-        <activity
-            android:name=".ui.InserirFuncionario"
-            android:exported="false" />
-        <activity
             android:name=".ui.ConfiguracoesPerfil"
             android:exported="false" />
         <activity
@@ -44,6 +38,9 @@
         <activity
             android:name=".ui.AdicionarProduto"
             android:exported="false" />
+        <activity
+            android:name=".ui.CadastroEndereco"
+            android:exported="false"/>
         <activity
             android:name=".ui.ProdutoVitrine"
             android:exported="false" />
@@ -58,9 +55,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.TelaCadastro1"
             android:exported="false" />
         <activity
             android:name=".ui.SplashScreen"

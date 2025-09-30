@@ -34,6 +34,8 @@ class Login : AppCompatActivity() {
             insets
         }
 
+
+
         val bt : Button = findViewById(R.id.botaoLogin)
         bt.setOnClickListener {
             val txtEmail: String = findViewById<EditText>(R.id.emailLogin).text.toString()
@@ -62,9 +64,9 @@ class Login : AppCompatActivity() {
                 }
         }
 
-        val btCadastro : TextView = findViewById(R.id.btIrCadastro)
+        val btCadastro : TextView = findViewById(R.id.btnCadastro)
         btCadastro.setOnClickListener {
-            val intent = Intent(this, TelaCadastro1::class.java)
+            val intent = Intent(this, TelaCadastro2Comercio::class.java)
             startActivity(intent)
         }
     }
