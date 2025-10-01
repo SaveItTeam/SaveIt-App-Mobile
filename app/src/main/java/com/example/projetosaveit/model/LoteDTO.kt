@@ -11,5 +11,4 @@ data class LoteDTO(
     @SerializedName("expiration_date") val expiration_date: String,
     val quantity : Int,
     @SerializedName("product_id") val product_id: Long
-) {
-}
+)

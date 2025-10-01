@@ -6,5 +6,4 @@ class ImagemDTO(
     var id : Long = 0,
     @SerializedName("image") var image : String,
     var product_id : Long
-) {
-}
+)

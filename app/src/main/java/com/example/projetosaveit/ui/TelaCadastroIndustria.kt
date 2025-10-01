@@ -43,9 +43,8 @@ class TelaCadastroIndustria : AppCompatActivity() {
         val cnpjTxt : String = findViewById<EditText>(R.id.cnpjCadastro).text.toString()
         val senhaTxt : String = findViewById<EditText>(R.id.senhaCadastro).text.toString()
         val senhaTxt2 : String = findViewById<EditText>(R.id.senhaRepetidaCadastro).text.toString()
-        val categoriaTxt : String = findViewById<EditText>(R.id.editText14).text.toString()
 
-        if (nomeTxt.isEmpty() || emailTxt.isEmpty() || cnpjTxt.isEmpty() || senhaTxt.isEmpty() || categoriaTxt.isEmpty()) {
+        if (nomeTxt.isEmpty() || emailTxt.isEmpty() || cnpjTxt.isEmpty() || senhaTxt.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             return
         }
