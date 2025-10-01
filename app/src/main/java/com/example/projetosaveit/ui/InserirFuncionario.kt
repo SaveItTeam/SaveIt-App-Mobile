@@ -1,22 +1,38 @@
 package com.example.projetosaveit.ui
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projetosaveit.R
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RadioGroup
-import android.widget.Toast
+import com.example.projetosaveit.api.repository.EmpresaRepository
+import com.example.projetosaveit.api.repository.FuncionarioRepository
+import com.example.projetosaveit.model.EmpresaDTO
+import com.example.projetosaveit.model.FuncionarioInsertDTO
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class InserirFuncionario : AppCompatActivity() {
+
+    private val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
+    private val repository = FuncionarioRepository()
+    private val empresaRepo = EmpresaRepository()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_inserir_funcionario)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -26,34 +42,77 @@ class InserirFuncionario : AppCompatActivity() {
         findViewById<Button>(R.id.btCadastrarFunc).setOnClickListener {
             val nome = findViewById<TextInputEditText>(R.id.nomeFunc).text.toString()
             val email = findViewById<TextInputEditText>(R.id.emailFunc).text.toString()
-            val matricula = findViewById<TextInputEditText>(R.id.matriculaFunc).text.toString()
             val senha = findViewById<TextInputEditText>(R.id.senhaFunc).text.toString()
-            var tipoFunc = false
-            val tipoCheck = findViewById<RadioGroup>(R.id.radioGrupo)
 
-            tipoCheck.setOnCheckedChangeListener { group, checkedId ->
-                when (checkedId) {
-                    R.id.radioSim -> {
-                        tipoFunc = true
-                    }
-                    R.id.radioNao -> {
-                        tipoFunc = false
-                    }
-                }
+            val tipoCheck = findViewById<RadioGroup>(R.id.radioGrupo)
+            val tipoFunc = when (tipoCheck.checkedRadioButtonId) {
+                R.id.radioSim -> true
+                else -> false
             }
 
-            Toast.makeText(this, "Funcionário cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+            val empresaLogada: FirebaseUser = objAutenticar.currentUser!!
 
-            Toast.makeText(this, "nome: " + nome, Toast.LENGTH_SHORT).show()
-            Toast.makeText(this, "email: " + email, Toast.LENGTH_SHORT).show()
-            Toast.makeText(this, "matricula: " + matricula, Toast.LENGTH_SHORT).show()
-            Toast.makeText(this, "senha: " + senha, Toast.LENGTH_SHORT).show()
-            if (tipoFunc == true)
-                Toast.makeText(this, "É administrador", Toast.LENGTH_SHORT).show()
-            else
-                Toast.makeText(this, "Não é administrador", Toast.LENGTH_SHORT).show()
+            // Buscar ID da empresa antes de cadastrar funcionário
+            empresaRepo.getEmpresa(empresaLogada.email!!).enqueue(object : Callback<EmpresaDTO> {
+                override fun onResponse(call: Call<EmpresaDTO>, response: Response<EmpresaDTO>) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val idEmpresa = response.body()!!.id
 
-            finish()
+                        val funcionario = FuncionarioInsertDTO(
+                            enterprise_id = idEmpresa,
+                            email = email,
+                            name = nome,
+                            password = senha,
+                            is_admin = tipoFunc
+                        )
+
+                        // Cadastrar funcionário
+                        repository.postFuncionario(funcionario).enqueue(object : Callback<ResponseBody> {
+                            override fun onResponse(
+                                call: Call<ResponseBody>,
+                                response: Response<ResponseBody>
+                            ) {
+                                if (response.isSuccessful) {
+                                    Toast.makeText(
+                                        this@InserirFuncionario,
+                                        "Funcionário cadastrado com sucesso!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    finish()
+                                } else {
+                                    Toast.makeText(
+                                        this@InserirFuncionario,
+                                        "Erro ao cadastrar: ${response.code()}",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+
+                            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                                Toast.makeText(
+                                    this@InserirFuncionario,
+                                    "Erro na API: ${t.message}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        })
+                    } else {
+                        Toast.makeText(
+                            this@InserirFuncionario,
+                            "Erro ao buscar empresa",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<EmpresaDTO>, t: Throwable) {
+                    Toast.makeText(
+                        this@InserirFuncionario,
+                        "Erro na API: ${t.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
         }
 
         findViewById<ImageView>(R.id.voltarInserirFunc).setOnClickListener {

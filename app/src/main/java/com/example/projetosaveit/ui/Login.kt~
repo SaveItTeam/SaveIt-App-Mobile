@@ -44,6 +44,14 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btEsqueceuSenha : TextView = findViewById(R.id.esqueciSenha)
+
+        btEsqueceuSenha.setOnClickListener {
+            val intent = Intent(this, AtualizarSenha::class.java)
+            intent.putExtra("origem", "esqueceu")
+            startActivity(intent)
+        }
+
         val bt : Button = findViewById(R.id.botaoLogin)
         bt.setOnClickListener {
             val txtEmail: String = findViewById<EditText>(R.id.emailLogin).text.toString()
