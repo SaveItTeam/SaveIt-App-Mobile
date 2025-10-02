@@ -39,6 +39,7 @@ import java.io.FileOutputStream
 class Perfil : Fragment() {
 
     val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
+    val imageURl : String = ""
 
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_IMAGE_PICK = 2

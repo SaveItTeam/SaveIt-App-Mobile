@@ -88,9 +88,9 @@ class HomeFragment : Fragment() {
         Log.d("erro", "pegarEmailEmpresa: buscando empresa para email = $email")
         repositoryEmp.getEmpresa(email).enqueue(object : retrofit2.Callback<EmpresaDTO> {
             override fun onResponse(call: Call<EmpresaDTO>, response: Response<EmpresaDTO>) {
-                Log.d("pinto", "getEmpresa onResponse code=${response.code()}")
+                Log.d("teste", "getEmpresa onResponse code=${response.code()}")
                 if (response.isSuccessful) {
-                    Log.d("pinto", "getEmpresa body=${response.body()}")
+                    Log.d("teste", "getEmpresa body=${response.body()}")
                     onResult(response.body())
                 } else {
                     val err = try { response.errorBody()?.string() } catch (e: Exception) { "erro lendo body" }
