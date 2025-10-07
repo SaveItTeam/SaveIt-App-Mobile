@@ -1,11 +1,8 @@
 package com.example.projetosaveit.adapter.recycleView
 
-class Vitrine {
-    var productId : Long
+class Vitrine(
+    var id : Long,
+    var name : String,
     var image : String
-
-    constructor(productId: Long, image: String) {
-        this.productId = productId
-        this.image = image
-    }
+) {
 }

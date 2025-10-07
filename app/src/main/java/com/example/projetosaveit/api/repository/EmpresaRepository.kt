@@ -13,4 +13,8 @@ class EmpresaRepository {
     fun postEmpresa(empresa : EmpresaInsertDTO) : Call<ResponseBody> {
         return RetrofitClient.instance.postEmpresa(empresa)
     }
+
+    fun patchEmpresa(id : Long, updates : Map<String, @JvmSuppressWildcards Any>) : Call<ResponseBody> {
+        return RetrofitClient.instance.patchEmpresaId(id, updates)
+    }
 }

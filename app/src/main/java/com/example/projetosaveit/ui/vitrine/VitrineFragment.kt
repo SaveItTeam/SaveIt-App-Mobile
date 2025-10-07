@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.AdapterVitrine
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.api.repository.VitrineRepository
@@ -21,8 +22,6 @@ class VitrineFragment : Fragment() {
 
     private lateinit var adapter: AdapterVitrine
     private val repository = VitrineRepository()
-    private var vitrine: List<Vitrine> = listOf()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,13 +32,24 @@ class VitrineFragment : Fragment() {
         binding = FragmentVitrineBinding.inflate(inflater, container, false)
         val root: View = binding!!.root
 
-        val textView = binding!!.textDashboard
-        dashboardViewModel.text.observe(
-            viewLifecycleOwner
-        ) { text: String? ->
-            textView.text =
-                text
+        val botoes = listOf(binding!!.button9, binding!!.button15, binding!!.button14)
+
+        botoes.forEach { botao ->
+            botao.setOnClickListener {
+                botoes.forEach { it.isSelected = false }
+                botao.isSelected = true
+
+                botoes.forEach { it.setBackgroundResource(R.drawable.bt_filtro_estilizacao)
+                                it.setTextColor(resources.getColor(R.color.BrancoNaoPuro))}
+                botao.setBackgroundResource(R.drawable.bt_filtro_estilizacao_selecionado)
+                botao.setTextColor(resources.getColor(R.color.PretoNaoPuro))
+
+                carregarVitrine(botao.text.toString())
+
+            }
         }
+
+
 
         adapter = AdapterVitrine()
 
@@ -47,36 +57,29 @@ class VitrineFragment : Fragment() {
         binding!!.rvVitrine.setLayoutManager(StaggeredGridLayoutManager(2,
             StaggeredGridLayoutManager.VERTICAL))
 
-        carregarVitrine()
-
         return root
     }
 
-    fun carregarVitrine() {
-        repository.getVitrine().enqueue(object: retrofit2.Callback<List<VitrineDTO>> {
-            override fun onResponse(call: Call<List<VitrineDTO>>, response: Response<List<VitrineDTO>>) {
+    fun carregarVitrine(filtro : String) {
+        repository.getVitrineProdutos(filtro).enqueue(object : retrofit2.Callback<List<Vitrine>> {
+            override fun onResponse(
+                call: Call<List<Vitrine>>,
+                response: Response<List<Vitrine>>
+            ) {
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        vitrineDTO ->
-                        val vitrineModel: List<Vitrine> = vitrineDTO.map { dto ->
-                            Vitrine (
-                                productId = dto.productId,
-                                image = dto.image
-                            )
-                        }
-
-                        adapter.listVitrine = vitrineModel
-                        adapter.notifyDataSetChanged()
-                        binding?.rvVitrine?.adapter = adapter
-                    }
-
+                    val produtos = response.body()
+                    adapter.listVitrine = produtos ?: emptyList()
+                    adapter.notifyDataSetChanged()
+                } else {
+                    Toast.makeText(context, "Falha ao carregar a vitrine", Toast.LENGTH_LONG).show()
                 }
             }
 
-            override fun onFailure(call: Call<List<VitrineDTO>>, t: Throwable) {
-                Toast.makeText(context, "Erro ao carregar Vitrine | " + t.message, Toast.LENGTH_SHORT).show()
+            override fun onFailure(call: Call<List<Vitrine>>, t: Throwable) {
+                Toast.makeText(context, "Erro na requisição: ${t.message}", Toast.LENGTH_LONG).show()
             }
         })
+
     }
 
     override fun onDestroyView() {

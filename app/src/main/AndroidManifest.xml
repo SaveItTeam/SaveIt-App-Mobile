@@ -30,6 +30,9 @@
             android:name=".ui.CadastrarRelatorio"
             android:exported="false" />
         <activity
+            android:name=".ui.AtualizarSenha"
+            android:exported="false"/>
+        <activity
             android:name=".ui.ConfiguracoesPerfil"
             android:exported="false" />
         <activity

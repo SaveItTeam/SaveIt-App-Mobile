@@ -12,11 +12,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projetosaveit.R
+import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 
 class AtualizarSenha : AppCompatActivity() {
     val objAutenticar = FirebaseAuth.getInstance()
+    var idUsuario : Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,15 @@ class AtualizarSenha : AppCompatActivity() {
         var senhaNova2 = findViewById<EditText>(R.id.senhaNova2)
         var senhaAtual = findViewById<EditText>(R.id.senhaAtual)
         val voltar = findViewById<ImageView>(R.id.voltarSenha)
+
+        GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email.toString()) { empresa ->
+            if (empresa != null) {
+                idUsuario = empresa.id
+            } else {
+                Toast.makeText(this, "Erro ao obter ID da empresa.", Toast.LENGTH_SHORT).show()
+            }
+
+        }
 
         voltar.setOnClickListener {
             finish()
@@ -83,6 +94,7 @@ class AtualizarSenha : AppCompatActivity() {
                 if (reauthTask.isSuccessful) {
                     user.updatePassword(senhaNovaStr).addOnCompleteListener { updateTask ->
                         if (updateTask.isSuccessful) {
+                            patchSenhaEmpresa(idUsuario, senhaNova.text.toString())
                             Toast.makeText(this, "Senha alterada com sucesso!", Toast.LENGTH_SHORT).show()
                             finish()
                         } else {
@@ -95,6 +107,29 @@ class AtualizarSenha : AppCompatActivity() {
             }
         }
     }
+
+    fun patchSenhaEmpresa(id: Long, senha: String) {
+        val updates = mapOf("password" to senha)
+        val empresaRepository = EmpresaRepository()
+        empresaRepository.patchEmpresa(id, updates).enqueue(object : retrofit2.Callback<okhttp3.ResponseBody> {
+            override fun onResponse(
+                call: retrofit2.Call<okhttp3.ResponseBody>,
+                response: retrofit2.Response<okhttp3.ResponseBody>
+            ) {
+                if (response.isSuccessful) {
+                    Toast.makeText(this@AtualizarSenha, "Senha atualizada com sucesso!", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    Toast.makeText(this@AtualizarSenha, "Erro ao atualizar senha!", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: retrofit2.Call<okhttp3.ResponseBody>, t: Throwable) {
+                Toast.makeText(this@AtualizarSenha, "Erro: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 
     fun esqueceuSenha() {
 
