@@ -1,6 +1,7 @@
 package com.example.projetosaveit.model
 
-data class VitrineDTO (
+class VitrineDTO(
+    val id : Long,
     var name: String,
     var description: String,
     var image: String,
@@ -12,4 +13,5 @@ data class VitrineDTO (
     var empresa: String,
     var localizacao: String,
     var validade: String
-)
+) {
+}

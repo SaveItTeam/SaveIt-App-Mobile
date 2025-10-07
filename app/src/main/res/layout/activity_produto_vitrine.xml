@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/imageView20"
+            android:id="@+id/setaEsquerdaVoltar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/seta_esquerda" />
 
         <ImageView
-            android:id="@+id/imageView19"
+            android:id="@+id/imgProdutoVitrine"
             android:layout_width="377dp"
             android:layout_height="224dp"
             android:layout_marginLeft="15dp"
@@ -37,7 +37,7 @@
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/nomeProdutoVItrine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -49,7 +49,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/BotaoAcessar"
             android:layout_width="180dp"
             android:layout_height="44dp"
             android:layout_gravity="center"
@@ -62,7 +62,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/pesoProdutoVitrine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -72,7 +72,7 @@
             android:textColor="@color/PlaceHolderColor" />
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/pesoProdutoResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -87,7 +87,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/cidadeProdutoVItrine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -97,7 +97,7 @@
                 android:textColor="@color/PlaceHolderColor" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/empresaProdutoVitrine"
                 android:layout_width="291dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -115,7 +115,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/cidadeProdutoResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -124,19 +124,20 @@
                 android:textColor="@color/PretoNaoPuro" />
 
             <TextView
-                android:id="@+id/textView25"
-                android:layout_width="137dp"
+                android:id="@+id/empresaProdutoResult"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="30dp"
                 android:fontFamily="@font/inclusive_sans"
-                android:gravity="right"
+                android:gravity="right|end"
                 android:text="Amil"
                 android:textColor="@color/PretoNaoPuro" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/validadeProdutoVitrine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -147,7 +148,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/validadeProdutoResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -158,7 +159,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/descricaoProdutoVitrine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -169,7 +170,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/descricaoProdutoResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"

@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -28,17 +29,27 @@ import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
+import com.example.projetosaveit.api.repository.ImagemRepository
+import com.example.projetosaveit.model.ImagemDTO
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
+import com.example.projetosaveit.ui.GetEmpresa
 import com.example.projetosaveit.ui.InserirFuncionario
 import com.example.projetosaveit.ui.Planos
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Response
 import java.io.File
 import java.io.FileOutputStream
 
 class Perfil : Fragment() {
 
     val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
+    val imageURl : String = ""
+    var imagePublicId : String = ""
+    val repository : ImagemRepository = ImagemRepository()
+    var idEmpresa : Long = 0
 
     private val REQUEST_IMAGE_CAPTURE = 1
     private val REQUEST_IMAGE_PICK = 2
@@ -67,6 +78,8 @@ class Perfil : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -78,10 +91,21 @@ class Perfil : Fragment() {
 
         view.findViewById<TextView>(R.id.nomePerfil).text = empresaLogada.displayName
 
+        GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email.toString()) {
+            if (it != null) {
+                idEmpresa = it.id
+                pegarImagemEmpresa(idEmpresa)
+            } else {
+                Toast.makeText(context, "não conseguiu pegar o id da empresa", Toast.LENGTH_LONG).show()
+            }
+        }
+
         val avatar = view.findViewById<ImageView>(R.id.imagemPerfil)
         avatar.setOnClickListener {
             showImagePickerOptions()
         }
+
+
 
         view.findViewById<ConstraintLayout>(R.id.btConfiguracoes).setOnClickListener {
             val intent = Intent(this.activity, ConfiguracoesPerfil::class.java)
@@ -203,7 +227,10 @@ class Perfil : Fragment() {
                 Log.d(ContentValues.TAG, "inserindo")
                 val result = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
                 var url = result["secure_url"] as String
+                imagePublicId = result["public_id"] as String
+                var imagemRequest : ImagemDTO = ImagemDTO(0, url, idEmpresa)
                 requireActivity().runOnUiThread {
+                    postImagem(imagemRequest)
                     onSuccess(url)
                 }
             } catch (e: Exception) {
@@ -271,6 +298,83 @@ class Perfil : Fragment() {
         } else {
             requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
         }
+    }
+
+    fun pegarImagemEmpresa(id: Long) {
+        repository.getImagemPorProduto(id).enqueue(object : retrofit2.Callback<ImagemDTO> {
+            override fun onResponse(
+                p0: Call<ImagemDTO?>,
+                p1: Response<ImagemDTO?>
+            ) {
+                if (p1.isSuccessful) {
+                    val imagemDTO = p1.body()
+                    Log.d("teste", "ImagemDTO: $imagemDTO")
+                    if (imagemDTO != null) {
+                        val avatar = view?.findViewById<ImageView>(R.id.imagemPerfil)
+                        Glide.with(this@Perfil)
+                            .load(imagemDTO.image)
+                            .circleCrop()
+                            .into(avatar!!)
+                    } else {
+                        Log.d("teste", "ImagemDTO é nulo")
+                    }
+                } else {
+                    Log.d("teste", "Resposta não foi bem-sucedida: ${p1.code()}")
+                }
+            }
+
+            override fun onFailure(
+                p0: Call<ImagemDTO?>,
+                p1: Throwable
+            ) {
+                Toast.makeText(context, "Erro ao carregar imagem: ${p1.message}", Toast.LENGTH_LONG).show()
+            }
+
+        })
+    }
+
+    fun postImagem(imagemInsert : ImagemDTO) {
+        repository.postImagem(imagemInsert).enqueue(object : retrofit2.Callback<ResponseBody> {
+            override fun onResponse(
+                p0: Call<ResponseBody?>,
+                p1: Response<ResponseBody?>
+            ) {
+                if(p1.isSuccessful) {
+                    Toast.makeText(context, "Imagem inserida com sucesso!", Toast.LENGTH_LONG).show()
+                }else {
+                    Toast.makeText(context, "Erro ao inserir imagem!", Toast.LENGTH_LONG).show()
+                    deleteImageFromCloudinary(imagePublicId, onSuccess = {
+                        Log.d("teste", "Imagem deletada com sucesso do Cloudinary")
+                    }, onError = { e ->
+                        Log.e("teste", "Erro ao deletar imagem do Cloudinary: ${e.message}", e)
+                    })
+                }
+            }
+
+            override fun onFailure(
+                p0: Call<ResponseBody?>,
+                p1: Throwable
+            ) {
+                Toast.makeText(context, "Deu erro na API: " + p1.message, Toast.LENGTH_LONG).show()
+            }
+
+        })
+    }
+
+    //função para tirar a imagem do cloudnary
+    fun deleteImageFromCloudinary(publicId: String, onSuccess: () -> Unit, onError: (Exception) -> Unit) {
+        Thread {
+            try {
+                val result = cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap())
+                requireActivity().runOnUiThread {
+                    onSuccess()
+                }
+            } catch (e: Exception) {
+                requireActivity().runOnUiThread {
+                    onError(e)
+                }
+            }
+        }.start()
     }
 
 }

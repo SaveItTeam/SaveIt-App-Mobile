@@ -71,7 +71,7 @@ class CadastroEndereco : AppCompatActivity() {
                     Toast.LENGTH_LONG).show()
             }else {
                 val empresaDTO : EmpresaDTO = EmpresaDTO(0,cnpjEmpresa.toString(), nomeEmpresa.toString(), emailEmpresa.toString(), plan_id = 2, telefoneEmpresa.toString(), 0, senhaEmpresa.toString())
-                val enderecoDTO : EnderecoDTO = EnderecoDTO(estadoEmpresa.toString(), cidadeEmpresa.toString(), ruaEmpresa.toString(), cepEmpresa.toString(), bairroEmpresa.toString(), complementoEmpresa.toString(), numeroEmpresa.toString())
+                val enderecoDTO : EnderecoDTO = EnderecoDTO(0,estadoEmpresa.toString(), cidadeEmpresa.toString(), ruaEmpresa.toString(), cepEmpresa.toString(), bairroEmpresa.toString(), complementoEmpresa.toString(), numeroEmpresa.toInt())
                 val empresaInsertDTO : EmpresaInsertDTO = EmpresaInsertDTO(empresaDTO, enderecoDTO)
                 postEmpresa(empresaInsertDTO)
             }

@@ -55,6 +55,7 @@ class AdicionarProduto : AppCompatActivity() {
     private val CAMERA_REQUEST_CODE = 100
     private var photoUri: Uri? = null
     var imageUrl : String = ""
+    var publicIdImage : String = ""
     val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
     val repositoryEmp : EmpresaRepository = EmpresaRepository()
     val repositoryLote : LoteRepository = LoteRepository()
@@ -103,6 +104,18 @@ class AdicionarProduto : AppCompatActivity() {
 
         val entradaProdutoDate = findViewById<EditText>(R.id.entradaProdutoInput)
         val validadeProdutoDate = findViewById<EditText>(R.id.validadeProdutoInput)
+        val unidadeMedidaProduto = findViewById<TextInputEditText>(R.id.unidadeMedidaProdutoInput)
+        val options = arrayOf("ML", "L", "KG","G")
+
+
+        unidadeMedidaProduto.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Selecione uma opção")
+                .setItems(options) { dialog, which ->
+                    unidadeMedidaProduto.setText(options[which])
+                }
+                .show()
+        }
 
         validadeProdutoDate.setOnClickListener {
             val calendario = Calendar.getInstance()
@@ -150,6 +163,7 @@ class AdicionarProduto : AppCompatActivity() {
             var nomeProduto : String = findViewById<TextInputEditText>(R.id.nomeProdutoInput).text.toString()
             var marcaProduto : String = findViewById<TextInputEditText>(R.id.marcaProdutoInput).text.toString()
             var skuProduto : String = findViewById<TextInputEditText>(R.id.skuProdutoInput).text.toString()
+            var descricaoProduto : String = findViewById<TextInputEditText>(R.id.descricaoProdutoInput).text.toString()
             var dataEntradaProduto : String = findViewById<EditText>(R.id.entradaProdutoInput).text.toString()
             var dataValidadeProduto : String = findViewById<EditText>(R.id.validadeProdutoInput).text.toString()
             var quantidadeProduto : String = findViewById<TextInputEditText>(R.id.quantidadeProdutoInput).text.toString()
@@ -172,7 +186,7 @@ class AdicionarProduto : AppCompatActivity() {
                 Toast.makeText(this@AdicionarProduto, "a quantidade de produso não pode ser vazia!!", Toast.LENGTH_SHORT).show()
             }
             else {
-                var produtoInserir : ProdutoDTO = ProdutoDTO(0,nomeProduto, marcaProduto, idEmpresa)
+                var produtoInserir : ProdutoDTO = ProdutoDTO(0,nomeProduto, marcaProduto, descricaoProduto, idEmpresa)
                 var loteInserir : LoteDTO = LoteDTO(0,unidadeMedidaProduto,dataEntradaProduto,skuProduto, dataValidadeProduto, quantidadeProduto.toInt(), 1)
                 var imageInserir : ImagemDTO = ImagemDTO(0,imageUrl, 1)
                 var lote : LoteInsertDTO = LoteInsertDTO(loteInserir, produtoInserir, imageInserir)
@@ -185,7 +199,7 @@ class AdicionarProduto : AppCompatActivity() {
         super.onStop()
 
         if(!imageUrl.isEmpty()) {
-            destroyFromCloudinary(imageUrl)
+            destroyFromCloudinary(publicIdImage)
         }
     }
 
@@ -193,7 +207,7 @@ class AdicionarProduto : AppCompatActivity() {
         super.onDestroy()
 
         if(!imageUrl.isEmpty()) {
-            destroyFromCloudinary(imageUrl)
+            destroyFromCloudinary(publicIdImage)
         }
     }
 
@@ -297,7 +311,7 @@ class AdicionarProduto : AppCompatActivity() {
                 val result = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
                 var url = result["secure_url"] as String
                 imageUrl = url
-                //imageUrl = result["public_id"] as String
+                publicIdImage = result["public_id"] as String
                 this@AdicionarProduto.runOnUiThread {
                     onSuccess(url)
 
