@@ -27,11 +27,14 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".ui.AdicionarProdutoVitrine"
+            android:exported="false" />
+        <activity
             android:name=".ui.CadastrarRelatorio"
             android:exported="false" />
         <activity
             android:name=".ui.AtualizarSenha"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.ConfiguracoesPerfil"
             android:exported="false" />

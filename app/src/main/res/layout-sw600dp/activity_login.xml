@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Branco"
+    tools:context=".ui.Login"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-16dp">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="263dp"
+        android:layout_height="248dp"
+        android:layout_marginTop="312dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/saveitlogo" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inclusive_sans"
+        android:text="SaveIt"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/esqueciSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inclusive_sans"
+        android:text="Esqueci minha senha"
+        android:textColor="@android:color/system_error_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/senhaLogin"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailLogin"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center"
+        android:hint="Digite seu email"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/plus_jakarta_sans_extralight"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="360dp"
+        android:fontFamily="@font/inclusive_sans"
+        android:text="“Bom para seu negócio e ótimo para o planeta”"
+        android:textAlignment="center"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/senhaLogin"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Senha"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
+
+    <Button
+        android:id="@+id/botaoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao_tablet"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="Entrar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textColorHighlight="@color/BrancoNaoPuro"
+        android:textColorHint="@color/BrancoNaoPuro"
+        android:textColorLink="@color/BrancoNaoPuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esqueciSenha"
+        app:layout_constraintVertical_bias="0.443" />
+
+    <TextView
+        android:id="@+id/btnCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="176dp"
+        android:text="Não possui uma conta? Cadastre-se!"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="340dp"
+        android:layout_marginBottom="1368dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/onda_verde_claro_um" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="313dp"
+        android:layout_marginBottom="1436dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/onda_verde_escura_um" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

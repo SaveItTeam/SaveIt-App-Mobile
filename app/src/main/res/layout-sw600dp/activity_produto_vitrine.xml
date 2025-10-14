@@ -21,16 +21,16 @@
 
         <ImageView
             android:id="@+id/setaEsquerdaVoltar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             app:srcCompat="@drawable/seta_esquerda" />
 
         <ImageView
             android:id="@+id/imgProdutoVitrine"
-            android:layout_width="377dp"
-            android:layout_height="224dp"
+            android:layout_width="908dp"
+            android:layout_height="524dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
@@ -46,7 +46,7 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="nomeProduto"
             android:textColor="@color/PretoNaoPuro"
-            android:textSize="20sp" />
+            android:textSize="48sp" />
 
         <TextView
             android:id="@+id/pesoProdutoVitrine"
@@ -56,7 +56,8 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="Peso"
-            android:textColor="@color/PlaceHolderColor" />
+            android:textColor="@color/PlaceHolderColor"
+            android:textSize="34sp" />
 
         <TextView
             android:id="@+id/pesoProdutoResult"
@@ -70,7 +71,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="33dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -81,24 +82,27 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Cidade"
-                android:textColor="@color/PlaceHolderColor" />
+                android:textColor="@color/PlaceHolderColor"
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/empresaProdutoVitrine"
-                android:layout_width="291dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right|end"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/inclusive_sans"
-                android:gravity="right"
+                android:gravity="end"
                 android:text="Empresa"
-                android:textColor="@color/PlaceHolderColor" />
+                android:textColor="@color/PlaceHolderColor"
+                android:textSize="34sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="28dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -108,7 +112,8 @@
                 android:layout_marginLeft="30dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Cidade Tal, São Paulo (SP)"
-                android:textColor="@color/PretoNaoPuro" />
+                android:textColor="@color/PretoNaoPuro"
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/empresaProdutoResult"
@@ -119,7 +124,8 @@
                 android:fontFamily="@font/inclusive_sans"
                 android:gravity="right|end"
                 android:text="Amil"
-                android:textColor="@color/PretoNaoPuro" />
+                android:textColor="@color/PretoNaoPuro"
+                android:textSize="34sp" />
 
         </LinearLayout>
 
@@ -132,7 +138,7 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="Validade"
             android:textColor="@color/PlaceHolderColor"
-            android:textSize="14sp" />
+            android:textSize="34sp" />
 
         <TextView
             android:id="@+id/validadeProdutoResult"
@@ -143,7 +149,7 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="00/00/0000"
             android:textColor="@color/PretoNaoPuro"
-            android:textSize="14sp" />
+            android:textSize="34sp" />
 
         <TextView
             android:id="@+id/descricaoProdutoVitrine"
@@ -154,7 +160,7 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="Descrição"
             android:textColor="@color/PlaceHolderColor"
-            android:textSize="14sp" />
+            android:textSize="34sp" />
 
         <TextView
             android:id="@+id/descricaoProdutoResult"
@@ -166,21 +172,21 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem nisl, tristique interdum euismod id, elementum iaculis eros. Aenean orci ligula, tincidunt nec mauris convallis, lacinia efficitur elit. Praesent elementum, justo sit amet sodales suscipit, diam arcu posuere odio, et semper dolor nisl sit amet felis. Cl"
             android:textColor="@color/PretoNaoPuro"
-            android:textSize="14sp" />
+            android:textSize="34sp" />
 
         <Button
             android:id="@+id/BotaoAcessar"
-            android:layout_width="180dp"
-            android:layout_height="44dp"
+            android:layout_width="388dp"
+            android:layout_height="117dp"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/bt_cadastro_estilizacao"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/bt_cadastro_estilizacao_tablet"
             android:backgroundTint="@color/Bordo"
             android:fontFamily="@font/inclusive_sans"
             android:text="Acessar"
             android:textAllCaps="false"
             android:textColor="@color/BrancoNaoPuro"
-            android:textSize="20sp" />
+            android:textSize="48sp" />
 
     </LinearLayout>
 

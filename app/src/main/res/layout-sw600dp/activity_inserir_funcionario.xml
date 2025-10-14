@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Branco"
+    tools:context=".ui.InserirFuncionario"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="37dp">
+
+    <ImageView
+        android:id="@+id/imageView36"
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="124dp"
+        android:src="@drawable/onda_verde_escuraeclara_onze"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btCadastrarFunc" />
+
+    <ImageView
+        android:id="@+id/imageView31"
+        android:layout_width="721dp"
+        android:layout_height="414dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/onda_verde_escura_dez" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="94dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/saveitlogo" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inclusive_sans"
+        android:text="SaveIt"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nomeFunc"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginEnd="51dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite o nome do funcionário"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView31" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailFunc"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="51dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite o e-mail do funcionário"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.349" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/matriculaFunc"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="51dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite a matrícula do funcionário"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailFunc"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/senhaFunc"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="51dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite a senha do funcionário"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.558" />
+
+
+    <Button
+        android:id="@+id/btCadastrarFunc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="Cadastrar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.781" />
+
+    <ImageView
+        android:id="@+id/voltarInserirFunc"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView31"
+        app:srcCompat="@drawable/seta_esquerda" />
+
+    <RadioGroup
+        android:id="@+id/radioGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="227dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18">
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="222dp"
+        android:fontFamily="@font/inclusive_sans"
+        android:text="É administrador?"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/senhaFunc"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <RadioButton
+        android:id="@+id/radioNao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Não"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <RadioButton
+        android:id="@+id/radioSim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sim"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintVertical_bias="0.026" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

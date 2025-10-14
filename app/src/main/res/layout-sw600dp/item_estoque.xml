@@ -9,11 +9,11 @@
     android:background="@color/Branco"
     android:backgroundTint="@color/Branco"
     android:padding="10dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="40dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="99dp">
+        android:layout_height="180dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/botao"
@@ -29,8 +29,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imagemProduto"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="Nome do Produto"
             android:textColor="@color/BrancoNaoPuro"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/botao"
@@ -65,7 +65,7 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="Validade: 00/00/0000"
             android:textColor="@color/BrancoNaoPuro"
-            android:textSize="10sp"
+            android:textSize="24sp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
             android:fontFamily="@font/inclusive_sans"
             android:text="quantidade: 999kg"
             android:textColor="@color/BrancoNaoPuro"
-            android:textSize="10sp"
+            android:textSize="24sp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
