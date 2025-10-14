@@ -146,7 +146,6 @@
         android:layout_height="37dp"
         android:background="@drawable/bt_cadastro_estilizacao"
         android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
         android:text="Cadastrar"
         android:textAlignment="center"
         android:textAllCaps="false"
