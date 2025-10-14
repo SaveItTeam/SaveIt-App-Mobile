@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Branco"
-    tools:context=".ui.tela_estoque">
+    tools:context=".ui.TelaEstoque">
 
     <ImageView
         android:id="@+id/imageView18"
