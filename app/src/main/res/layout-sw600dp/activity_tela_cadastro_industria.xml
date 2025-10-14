@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="961dp"
-        android:layout_height="244dp"
+        android:layout_width="411dp"
+        android:layout_height="105dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,13 +21,35 @@
 
     <ImageView
         android:id="@+id/imageView13"
-        android:layout_width="0dp"
-        android:layout_height="160dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/onda_verde_escura_quatro" />
+
+    <Button
+        android:id="@+id/btCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao_tablet"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="Cadastrar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916" />
 
     <TextView
         android:id="@+id/textView12"
@@ -45,30 +67,12 @@
         app:layout_constraintVertical_bias="0.235" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText14"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
-        android:background="@drawable/caixa_texto"
-        android:fontFamily="@font/inclusive_sans"
-        android:hint="Selecione a categoria da sua indústria"
-        android:paddingLeft="10dp"
-        android:textAlignment="viewStart"
-        android:textColor="@color/PretoNaoPuro"
-        android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.847" />
-
-    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cnpjCadastro"
         android:layout_width="755dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
         android:hint="Digite seu CNPJ"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
@@ -77,29 +81,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.421" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nomeCadastro"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
-        android:background="@drawable/caixa_texto"
-        android:fontFamily="@font/inclusive_sans"
-        android:hint="Digite o nome da sua empresa"
-        android:paddingLeft="10dp"
-        android:textAlignment="viewStart"
-        android:textColor="@color/PretoNaoPuro"
-        android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.399" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailCadastro"
@@ -107,6 +92,7 @@
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
         android:hint="Digite seu e-mail"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
@@ -115,10 +101,30 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.572" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nomeCadastro"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite o nome da sua empresa"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/senhaCadastro"
@@ -126,6 +132,7 @@
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
         android:hint="Crie uma senha"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
@@ -134,10 +141,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintVertical_bias="0.659" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/senhaRepetidaCadastro"
@@ -145,6 +152,7 @@
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
         android:hint="Repita a senha"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
@@ -153,44 +161,42 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
+        app:layout_constraintVertical_bias="0.743" />
 
-    <Button
-        android:id="@+id/btCadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bt_cadastro_estilizacao_tablet"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editText14"
+        android:layout_width="755dp"
+        android:layout_height="50dp"
+        android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
-        android:padding="20dp"
-        android:paddingStart="40dp"
-        android:paddingEnd="40dp"
-        android:text="Cadastrar"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/BrancoNaoPuro"
-        android:textSize="34sp"
+        android:gravity="center_vertical"
+        android:hint="Selecione a categoria da sua indústria"
+        android:paddingLeft="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939" />
+        app:layout_constraintVertical_bias="0.825" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="276dp"
         android:layout_height="253dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="164dp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/saveitlogo"
-        tools:ignore="UnknownIdInLayout" />
+        app:srcCompat="@drawable/saveitlogo" />
 
     <TextView
         android:id="@+id/textView10"
@@ -206,7 +212,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintVertical_bias="0.257" />
 
     <TextView
         android:id="@+id/textView11"
@@ -221,5 +227,5 @@
         app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359" />
+        app:layout_constraintVertical_bias="0.323" />
 </androidx.constraintlayout.widget.ConstraintLayout>

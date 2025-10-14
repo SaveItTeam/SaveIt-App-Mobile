@@ -10,6 +10,13 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="12dp">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Selecione uma data">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <ImageView
         android:id="@+id/imageView24"
         android:layout_width="wrap_content"
@@ -157,6 +164,7 @@
                 android:fontFamily="@font/inclusive_sans"
                 android:hint="Digite a marca do produto"
                 android:paddingLeft="10dp"
+                android:textAlignment="viewStart"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
                 android:textSize="12sp" />
@@ -170,8 +178,10 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/caixa_texto"
                 android:fontFamily="@font/inclusive_sans"
+                android:gravity="center_vertical"
                 android:hint="Digite a quantidade em estoque"
                 android:paddingLeft="10dp"
+                android:textAlignment="viewStart"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
                 android:textSize="12sp" />
