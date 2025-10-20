@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/icone_app"
+        android:label="SaveIt"
+        android:roundIcon="@mipmap/icone_app_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:targetApi="31">
+        <activity
+            android:name=".Conversa"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AdicionarProdutoVitrine"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CadastrarRelatorio"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AtualizarSenha"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ConfiguracoesPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".ui.InserirFuncionario"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Planos"
+            android:exported="false" />
+        <activity
+            android:name=".ui.TelaEstoque"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AdicionarProduto"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CadastroEndereco"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ProdutoVitrine"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Login"
+            android:exported="false" />
+        <activity
+            android:name=".ui.TelaCadastroIndustria"
+            android:exported="false" />
+        <activity
+            android:name=".ui.TelaCadastro2Comercio"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashScreen"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

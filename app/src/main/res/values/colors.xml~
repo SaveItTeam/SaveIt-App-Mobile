@@ -1,0 +1,12 @@
+<resources>
+    <color name="Verde">#6B8E4E</color>
+    <color name="VerdeEscuro">#3E5C47</color>
+    <color name="Verde50">#B0BE9B</color>
+    <color name="Branco">#F1ECE3</color>
+    <color name="Marrom">#A28A6D</color>
+    <color name="PretoNaoPuro">#272727</color>
+    <color name="BrancoNaoPuro">#FCFCFC</color>
+    <color name="PlaceHolderColor">#8C8A8A</color>
+    <color name="Bordo">#561336</color>
+    <color name="vermelhoErro">#D91E12</color>
+</resources>

@@ -7,5 +7,5 @@ data class ProdutoDTO(
     @SerializedName("name") var name : String,
     @SerializedName("brand") var brand : String,
     var description : String,
-    var enterprise_id : Long
+    var enterpriseId : Long
 )

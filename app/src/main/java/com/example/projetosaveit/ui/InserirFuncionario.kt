@@ -59,11 +59,11 @@ class InserirFuncionario : AppCompatActivity() {
                         val idEmpresa = response.body()!!.id
 
                         val funcionario = FuncionarioInsertDTO(
-                            enterprise_id = idEmpresa,
+                            enterpriseId = idEmpresa,
                             email = email,
                             name = nome,
                             password = senha,
-                            is_admin = tipoFunc
+                            isAdmin = tipoFunc
                         )
 
                         // Cadastrar funcionário

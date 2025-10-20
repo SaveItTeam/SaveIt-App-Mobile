@@ -9,6 +9,7 @@
     app:cardCornerRadius="80dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemConversa"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:padding="8dp">

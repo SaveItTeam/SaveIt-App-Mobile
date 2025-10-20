@@ -2,7 +2,7 @@ package com.example.projetosaveit.model
 
 import okhttp3.Address
 
-class EmpresaInsertDTO(
+data class EmpresaInsertDTO(
     val enterprise : EmpresaDTO,
-    val address: EnderecoDTO,
-) {}
+    val address: EnderecoDTO
+)

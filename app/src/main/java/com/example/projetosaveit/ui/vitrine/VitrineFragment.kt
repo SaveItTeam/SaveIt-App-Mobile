@@ -49,8 +49,6 @@ class VitrineFragment : Fragment() {
             }
         }
 
-
-
         adapter = AdapterVitrine()
 
         binding!!.rvVitrine.adapter = adapter

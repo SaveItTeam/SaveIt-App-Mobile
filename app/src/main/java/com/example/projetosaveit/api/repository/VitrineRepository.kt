@@ -1,7 +1,9 @@
 package com.example.projetosaveit.api.repository
 
-class VitrineRepository {
-    fun getVitrine(showcaseId : Long) = RetrofitClient.instance.getVitrine(showcaseId)
+import com.example.projetosaveit.api.network.RetrofitClientSql
 
-    fun getVitrineProdutos(category : String) = RetrofitClient.instance.getVitrineProdutos(category)
+class VitrineRepository {
+    fun getVitrine(showcaseId : Long) = RetrofitClientSql.instance.getVitrine(showcaseId)
+
+    fun getVitrineProdutos(category : String) = RetrofitClientSql.instance.getVitrineProdutos(category)
 }

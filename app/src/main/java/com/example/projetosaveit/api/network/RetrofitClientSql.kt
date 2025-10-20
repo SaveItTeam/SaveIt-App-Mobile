@@ -1,8 +1,9 @@
-import com.example.projetosaveit.api.network.ApiService
+package com.example.projetosaveit.api.network
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClient {
+object RetrofitClientSql {
     private const val BASE_URL = "https://apisaveit.onrender.com/"
 
     val instance: ApiService by lazy {

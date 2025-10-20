@@ -9,17 +9,6 @@
     tools:context=".ui.InserirFuncionario">
 
     <ImageView
-        android:id="@+id/imageView36"
-        android:layout_width="412dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/onda_verde_escuraeclara_onze"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btCadastrarFunc" />
-
-    <ImageView
         android:id="@+id/imageView31"
         android:layout_width="372dp"
         android:layout_height="215dp"
@@ -185,14 +174,16 @@
             android:id="@+id/radioSim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sim" />
+            android:text="Sim"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/radioNao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Não" />
+            android:text="Não"
+            android:textSize="18sp" />
 
     </RadioGroup>
 
