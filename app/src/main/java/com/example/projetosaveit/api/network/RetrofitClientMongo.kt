@@ -1,9 +1,10 @@
-import com.example.projetosaveit.api.network.ApiService
+package com.example.projetosaveit.api.network
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClient {
-    private const val BASE_URL = "https://suaapi.com/"
+object RetrofitClientMongo {
+    private const val BASE_URL = "https://apimongosaveit.onrender.com/"
 
     val instance: ApiService by lazy {
         val retrofit = Retrofit.Builder()

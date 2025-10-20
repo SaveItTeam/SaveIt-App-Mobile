@@ -39,8 +39,8 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                 .into(holder.imagem)
             val sdf: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
-            holder.validade.setText("Validade: "+ sdf.format(produto.expiration_date))
-            holder.quantidade.setText("Quantidade: " + produto.quantity.toString() + " " + produto.unit_measure)
+            holder.validade.setText("Validade: "+ sdf.format(produto.expirationDate))
+            holder.quantidade.setText("Quantidade: " + produto.quantity.toString() + " " + produto.unitMeasure)
         }
         holder.botao.setOnClickListener {
             val context = holder.itemView.context

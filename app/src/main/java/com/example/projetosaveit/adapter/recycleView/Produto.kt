@@ -2,11 +2,11 @@ package com.example.projetosaveit.adapter.recycleView
 
 import java.util.Date
 
-class Produto(
+data class Produto(
     var name : String,
     var quantity : Int,
-    var expiration_date : Date,
-    var unit_measure : String,
+    var expirationDate : Date,
+    var unitMeasure : String,
     var image : String,
     var id : Long
-) {}
+)

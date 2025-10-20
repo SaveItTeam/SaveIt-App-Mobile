@@ -26,6 +26,7 @@ import retrofit2.Response
 class CadastroEndereco : AppCompatActivity() {
     val autenticao : FirebaseAuth = FirebaseAuth.getInstance()
     val repository : EmpresaRepository = EmpresaRepository()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -70,7 +71,7 @@ class CadastroEndereco : AppCompatActivity() {
                 Toast.makeText(this@CadastroEndereco, "O complemento da empresa não pode ser vazio",
                     Toast.LENGTH_LONG).show()
             }else {
-                val empresaDTO : EmpresaDTO = EmpresaDTO(0,cnpjEmpresa.toString(), nomeEmpresa.toString(), emailEmpresa.toString(), plan_id = 2, telefoneEmpresa.toString(), 0, senhaEmpresa.toString())
+                val empresaDTO : EmpresaDTO = EmpresaDTO(0,cnpjEmpresa.toString(), nomeEmpresa.toString(), emailEmpresa.toString(), planId = 2, telefoneEmpresa.toString(), 0, senhaEmpresa.toString(), "")
                 val enderecoDTO : EnderecoDTO = EnderecoDTO(0,estadoEmpresa.toString(), cidadeEmpresa.toString(), ruaEmpresa.toString(), cepEmpresa.toString(), bairroEmpresa.toString(), complementoEmpresa.toString(), numeroEmpresa.toInt())
                 val empresaInsertDTO : EmpresaInsertDTO = EmpresaInsertDTO(empresaDTO, enderecoDTO)
                 postEmpresa(empresaInsertDTO)
@@ -88,8 +89,6 @@ class CadastroEndereco : AppCompatActivity() {
                             UserProfileChangeRequest.Builder()
                                 .setDisplayName(nomeEmpresa)
                                 .build()
-
-
 
                         user?.updateProfile(profileUpdate)
                             ?.addOnCompleteListener { task ->

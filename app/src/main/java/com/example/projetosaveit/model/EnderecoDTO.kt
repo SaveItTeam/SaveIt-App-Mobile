@@ -1,14 +1,12 @@
 package com.example.projetosaveit.model
 
-import android.R
-
-class EnderecoDTO(
+data class EnderecoDTO(
     var id : Long,
     var state : String,
     var city : String,
-    var public_place : String,
+    var publicPlace : String,
     var cep : String,
     var neighbourhood : String,
     var complement : String,
-    var house_number : Int
-) {}
+    var houseNumber : Int
+)

@@ -156,17 +156,20 @@
 
     <Button
         android:id="@+id/btAlterarSenha2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="124dp"
+        android:layout_height="45dp"
         android:layout_marginStart="161dp"
         android:layout_marginTop="212dp"
         android:layout_marginEnd="162dp"
         android:background="@drawable/bt_cadastro_estilizacao"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center"
         android:text="Alterar"
         android:textAllCaps="false"
         android:textColor="@color/BrancoNaoPuro"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailAtualizarS" />
 </androidx.constraintlayout.widget.ConstraintLayout>

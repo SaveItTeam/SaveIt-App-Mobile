@@ -177,6 +177,7 @@
             android:background="@drawable/bt_cadastro_estilizacao"
             android:backgroundTint="@color/Bordo"
             android:fontFamily="@font/inclusive_sans"
+            android:gravity="center"
             android:text="Acessar"
             android:textAllCaps="false"
             android:textColor="@color/BrancoNaoPuro"
