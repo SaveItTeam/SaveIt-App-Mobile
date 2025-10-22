@@ -29,6 +29,7 @@ import com.bumptech.glide.Glide
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
+import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.ImagemRepository
 import com.example.projetosaveit.model.ImagemDTO
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
@@ -49,6 +50,7 @@ class Perfil : Fragment() {
     val imageURl : String = ""
     var imagePublicId : String = ""
     val repository : ImagemRepository = ImagemRepository()
+    val repositoryEmpresa : EmpresaRepository = EmpresaRepository()
     var idEmpresa : Long = 0
 
     private val REQUEST_IMAGE_CAPTURE = 1
@@ -228,9 +230,8 @@ class Perfil : Fragment() {
                 val result = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
                 var url = result["secure_url"] as String
                 imagePublicId = result["public_id"] as String
-                var imagemRequest : ImagemDTO = ImagemDTO(0, url, idEmpresa)
                 requireActivity().runOnUiThread {
-                    postImagem(imagemRequest)
+                    inserirImagemEmpresa(url)
                     onSuccess(url)
                 }
             } catch (e: Exception) {
@@ -301,67 +302,49 @@ class Perfil : Fragment() {
     }
 
     fun pegarImagemEmpresa(id: Long) {
-        repository.getImagemPorProduto(id).enqueue(object : retrofit2.Callback<ImagemDTO> {
+        repositoryEmpresa.getEmpresaId(id).enqueue(object : retrofit2.Callback<com.example.projetosaveit.model.EmpresaDTO> {
             override fun onResponse(
-                p0: Call<ImagemDTO?>,
-                p1: Response<ImagemDTO?>
+                call: retrofit2.Call<com.example.projetosaveit.model.EmpresaDTO>,
+                response: retrofit2.Response<com.example.projetosaveit.model.EmpresaDTO>
             ) {
-                if (p1.isSuccessful) {
-                    val imagemDTO = p1.body()
-                    Log.d("teste", "ImagemDTO: $imagemDTO")
-                    if (imagemDTO != null) {
-                        val avatar = view?.findViewById<ImageView>(R.id.imagemPerfil)
-                        Glide.with(this@Perfil)
-                            .load(imagemDTO.image)
+                if (response.isSuccessful) {
+                    val imagemUrl = response.body()?.enterpriseImage
+                    val avatar = view?.findViewById<ImageView>(R.id.imagemPerfil)
+                    if (!imagemUrl.isNullOrEmpty()) {
+                        Glide.with(requireContext())
+                            .load(imagemUrl)
                             .circleCrop()
                             .into(avatar!!)
-                    } else {
-                        Log.d("teste", "ImagemDTO é nulo")
                     }
                 } else {
-                    Log.d("teste", "Resposta não foi bem-sucedida: ${p1.code()}")
+                    Toast.makeText(context, "Erro ao carregar imagem!", Toast.LENGTH_LONG).show()
                 }
             }
-
-            override fun onFailure(
-                p0: Call<ImagemDTO?>,
-                p1: Throwable
-            ) {
-                Toast.makeText(context, "Erro ao carregar imagem: ${p1.message}", Toast.LENGTH_LONG).show()
+            override fun onFailure(call: retrofit2.Call<com.example.projetosaveit.model.EmpresaDTO>, t: Throwable) {
+                Toast.makeText(context, "Erro: ${t.message}", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 
-    fun postImagem(imagemInsert : ImagemDTO) {
-        repository.postImagem(imagemInsert).enqueue(object : retrofit2.Callback<ResponseBody> {
+    fun inserirImagemEmpresa(imagem : String) {
+        val updates = mapOf("enterpriseImage" to imagem)
+        repositoryEmpresa.patchEmpresa(idEmpresa, updates).enqueue(object : retrofit2.Callback<ResponseBody> {
             override fun onResponse(
-                p0: Call<ResponseBody?>,
-                p1: Response<ResponseBody?>
+                call: retrofit2.Call<ResponseBody>,
+                response: retrofit2.Response<ResponseBody>
             ) {
-                if(p1.isSuccessful) {
-                    Toast.makeText(context, "Imagem inserida com sucesso!", Toast.LENGTH_LONG).show()
-                }else {
-                    Toast.makeText(context, "Erro ao inserir imagem!", Toast.LENGTH_LONG).show()
-                    deleteImageFromCloudinary(imagePublicId, onSuccess = {
-                        Log.d("teste", "Imagem deletada com sucesso do Cloudinary")
-                    }, onError = { e ->
-                        Log.e("teste", "Erro ao deletar imagem do Cloudinary: ${e.message}", e)
-                    })
+                if (response.isSuccessful) {
+                    Toast.makeText(context, "Imagem atualizada com sucesso!", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(context, "Erro ao atualizar imagem!", Toast.LENGTH_LONG).show()
                 }
             }
-
-            override fun onFailure(
-                p0: Call<ResponseBody?>,
-                p1: Throwable
-            ) {
-                Toast.makeText(context, "Deu erro na API: " + p1.message, Toast.LENGTH_LONG).show()
+            override fun onFailure(call: retrofit2.Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(context, "Erro: ${t.message}", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 
-    //função para tirar a imagem do cloudnary
     fun deleteImageFromCloudinary(publicId: String, onSuccess: () -> Unit, onError: (Exception) -> Unit) {
         Thread {
             try {

@@ -5,16 +5,20 @@ import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.model.ChatDTO
 import com.example.projetosaveit.model.EmpresaDTO
 import com.example.projetosaveit.model.EmpresaInsertDTO
+import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
 import com.example.projetosaveit.model.ImagemDTO
 import com.example.projetosaveit.model.LoteInsertDTO
+import com.example.projetosaveit.model.ProdutoInfoDTO
 import com.example.projetosaveit.model.VitrineDTO
+import com.example.projetosaveit.model.VitrineInsertDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -22,20 +26,35 @@ interface ApiService {
 
 //    API de SQL
 
+    @POST("/api/product/inserir")
+    fun postEstoque(@Body estoque : EstoqueDTO) : Call<ResponseBody>
+
     @GET("api/batch/listarProdutosLote/{enterpriseId}")
     fun getProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<Produto>>
 
     @GET("api/image/showcase-images/{showcaseId}")
     fun getVitrine(@Path("showcaseId") showcaseId : Long): Call<VitrineDTO>
 
-    @PATCH("/api/enterprise/atualizarParcial/{id}")
+    @GET("api/batch/informacoesProduto/{batchId}")
+    fun getProdutoId(@Path("batchId") idProduto : Long): Call<ProdutoInfoDTO>
+
+    @PATCH("api/enterprise/atualizarParcial/{id}")
     fun patchEmpresaId(@Path("id") id : Long, @Body updates: Map<String, @JvmSuppressWildcards Any>): Call<ResponseBody>
+
+    @PATCH("/api/batch/atualizarParcial/{id}")
+    fun patchProdutoId(@Path("id") id : Long, @Body updates: Map<String, @JvmSuppressWildcards Any>): Call<ResponseBody>
 
     @GET("api/showcase/listarVitrine/{category}")
     fun getVitrineProdutos(@Path("category") category : String): Call<List<Vitrine>>
 
     @GET("api/image/selecionarPorProduto/{productId}")
     fun getImagemProduto(@Path("productId") idProduto : Long): Call<ImagemDTO>
+
+    @GET("api/showcase/selecionarPorEmpresa/{enterpriseId}")
+    fun getVitrinesEmpresa(@Path("enterpriseId") idEmpresa : Long): Call<List<Vitrine>>
+
+    @POST("api/showcase/inserir")
+    fun postVitrine(@Body vitrine : VitrineInsertDTO) : Call<ResponseBody>
 
     @POST("api/image/inserir")
     fun postImagem(@Body imagem : ImagemDTO) : Call<ResponseBody>

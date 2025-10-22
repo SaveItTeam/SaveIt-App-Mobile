@@ -1,5 +1,6 @@
 package com.example.projetosaveit.ui.vitrine
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.databinding.FragmentVitrineBinding
 import com.example.projetosaveit.model.VitrineDTO
+import com.example.projetosaveit.ui.AdicionarProdutoVitrine
 import retrofit2.Call
 import retrofit2.Response
 
@@ -48,6 +50,15 @@ class VitrineFragment : Fragment() {
 
             }
         }
+
+        binding!!.botaoAdicionarVitrine?.setOnClickListener { v ->
+            val intent : Intent = Intent(v.context, AdicionarProdutoVitrine::class.java)
+            startActivity(intent)
+        }
+
+
+
+
 
         adapter = AdapterVitrine()
 

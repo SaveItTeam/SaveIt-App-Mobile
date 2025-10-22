@@ -56,6 +56,7 @@ class AdicionarProduto : AppCompatActivity() {
     private var photoUri: Uri? = null
     var imageUrl : String = ""
     var publicIdImage : String = ""
+    var isInsert = false
     val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
     val repositoryEmp : EmpresaRepository = EmpresaRepository()
     val repositoryLote : LoteRepository = LoteRepository()
@@ -89,6 +90,15 @@ class AdicionarProduto : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val previousHandler = Thread.getDefaultUncaughtExceptionHandler()
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            if (imageUrl.isNotEmpty() && !isInsert) {
+                destroyFromCloudinarySync(publicIdImage)
+            }
+            previousHandler?.uncaughtException(thread, throwable)
+        }
+
         val activityContext: Context = this
         var emailEmpresa : String  = objAutenticar.currentUser?.email.toString()
 
@@ -105,6 +115,8 @@ class AdicionarProduto : AppCompatActivity() {
         val entradaProdutoDate = findViewById<EditText>(R.id.entradaProdutoInput)
         val validadeProdutoDate = findViewById<EditText>(R.id.validadeProdutoInput)
         val unidadeMedidaProduto = findViewById<TextInputEditText>(R.id.unidadeMedidaProdutoInput)
+        val categoriaProduto = findViewById<TextInputEditText>(R.id.categoriaProduto)
+        val optionsCategory = arrayOf("Embutidos", "Laticínios", "Grãos", "Frutas", "Salgados", "Doces", "Bebidas", "Outros")
         val options = arrayOf("ML", "L", "KG","G")
 
 
@@ -113,6 +125,15 @@ class AdicionarProduto : AppCompatActivity() {
                 .setTitle("Selecione uma opção")
                 .setItems(options) { dialog, which ->
                     unidadeMedidaProduto.setText(options[which])
+                }
+                .show()
+        }
+
+        categoriaProduto.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Selecione uma opção")
+                .setItems(optionsCategory) { dialog, which ->
+                    categoriaProduto.setText(optionsCategory[which])
                 }
                 .show()
         }
@@ -166,8 +187,10 @@ class AdicionarProduto : AppCompatActivity() {
             var descricaoProduto : String = findViewById<TextInputEditText>(R.id.descricaoProdutoInput).text.toString()
             var dataEntradaProduto : String = findViewById<EditText>(R.id.entradaProdutoInput).text.toString()
             var dataValidadeProduto : String = findViewById<EditText>(R.id.validadeProdutoInput).text.toString()
-            var quantidadeProduto : String = findViewById<TextInputEditText>(R.id.quantidadeProdutoInput).text.toString()
+            var quantidadeProduto : String = findViewById<EditText>(R.id.quantidadeProdutoInput).text.toString()
             var unidadeMedidaProduto : String = findViewById<TextInputEditText>(R.id.unidadeMedidaProdutoInput).text.toString()
+            var quantidadeMaximaProduto : String = findViewById<EditText>(R.id.quantidadeMaximaProdutoInput).text.toString()
+            var categoriaProduto : String = findViewById<TextInputEditText>(R.id.categoriaProduto).text.toString()
 
 
             if (nomeProduto.isEmpty()) {
@@ -186,8 +209,8 @@ class AdicionarProduto : AppCompatActivity() {
                 Toast.makeText(this@AdicionarProduto, "a quantidade de produso não pode ser vazia!!", Toast.LENGTH_SHORT).show()
             }
             else {
-                var produtoInserir : ProdutoDTO = ProdutoDTO(0,nomeProduto, marcaProduto, descricaoProduto, idEmpresa)
-                var loteInserir : LoteDTO = LoteDTO(0,unidadeMedidaProduto,dataEntradaProduto,skuProduto, dataValidadeProduto, quantidadeProduto.toInt(), 1)
+                var produtoInserir : ProdutoDTO = ProdutoDTO(0,nomeProduto, marcaProduto,categoriaProduto, descricaoProduto, idEmpresa.toLong())
+                var loteInserir : LoteDTO = LoteDTO(0,unidadeMedidaProduto,dataEntradaProduto,skuProduto, dataValidadeProduto,quantidadeMaximaProduto.toInt(), quantidadeProduto.toInt(), 1)
                 var imageInserir : ImagemDTO = ImagemDTO(0,imageUrl, 1)
                 var lote : LoteInsertDTO = LoteInsertDTO(loteInserir, produtoInserir, imageInserir)
                 inserirProduto(lote)
@@ -195,10 +218,12 @@ class AdicionarProduto : AppCompatActivity() {
         }
     }
 
+
+
     override fun onStop() {
         super.onStop()
 
-        if(!imageUrl.isEmpty()) {
+        if ((!imageUrl.isEmpty())&&(!isInsert)) {
             destroyFromCloudinary(publicIdImage)
         }
     }
@@ -206,7 +231,7 @@ class AdicionarProduto : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        if(!imageUrl.isEmpty()) {
+        if ((!imageUrl.isEmpty())&&(!isInsert)) {
             destroyFromCloudinary(publicIdImage)
         }
     }
@@ -248,6 +273,15 @@ class AdicionarProduto : AppCompatActivity() {
                 onResult(null)
             }
         })
+    }
+
+    private fun destroyFromCloudinarySync(publicId: String) {
+        try {
+            cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap())
+            Log.d("Cloudinary", "Destroy sync OK: $publicId")
+        } catch (e: Exception) {
+            Log.e("Cloudinary", "Erro ao excluir imagem no destroySync: ${e.message}")
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

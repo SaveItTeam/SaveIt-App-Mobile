@@ -33,6 +33,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.MinhaVitrine"
+            android:exported="false" />
+        <activity
             android:name=".ui.AdicionarProdutoVitrine"
             android:exported="false" />
         <activity

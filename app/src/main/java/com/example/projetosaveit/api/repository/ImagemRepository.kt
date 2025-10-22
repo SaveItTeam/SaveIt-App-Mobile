@@ -11,7 +11,4 @@ class ImagemRepository {
         return RetrofitClientSql.instance.getImagemProduto(idProduto)
     }
 
-    fun postImagem(imagem: ImagemDTO) : Call<ResponseBody> {
-        return RetrofitClientSql.instance.postImagem(imagem)
-    }
 }

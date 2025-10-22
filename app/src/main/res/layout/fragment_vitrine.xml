@@ -19,36 +19,38 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/inclusive_sans"
         android:text="Categorias"
         android:textColor="@color/PretoNaoPuro"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
+        app:layout_constraintTop_toBottomOf="@+id/text_dashboard"
+        app:layout_constraintVertical_bias="0.009" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="450dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24">
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:layout_constraintVertical_bias="0.028">
 
         <Button
             android:id="@+id/button9"
@@ -87,20 +89,54 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVitrine"
-        android:layout_width="409dp"
-        android:layout_height="610dp"
+        android:layout_width="0dp"
+        android:layout_height="560dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.99"
         app:spanCount="2"
         tools:listitem="@layout/item_vitrine" />
+
+    <Button
+        android:id="@+id/botaoAdicionarVitrine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Adicionar produto"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textColorHighlight="@color/BrancoNaoPuro"
+        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.423" />
+
+    <Button
+        android:id="@+id/botaoMinhaVitrine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Meus produtos"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textColorHighlight="@color/BrancoNaoPuro"
+        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.423" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
