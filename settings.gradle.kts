@@ -7,9 +7,9 @@ pluginManagement {
                 includeGroupByRegex("androidx.*")
             }
         }
-        maven { url = uri("https://jitpack.io") }
         mavenCentral()
         gradlePluginPortal()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 dependencyResolutionManagement {
@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Projeto Save It"
 include(":app")
+ 

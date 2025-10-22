@@ -51,6 +51,9 @@ class AdapterChat : RecyclerView.Adapter<AdapterChat.ViewHolder>() {
 
         holder.itemConversa.setOnClickListener {
             val intent = Intent(holder.itemView.context, Conversa::class.java)
+            intent.putExtra("empresaFoto", empresa?.enterpriseImage)
+            intent.putExtra("empresaId", empresa?.id)
+            intent.putExtra("chatId", chat.chatId)
             holder.itemView.context.startActivity(intent)
         }
     }

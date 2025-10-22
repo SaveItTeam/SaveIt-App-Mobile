@@ -18,8 +18,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/fotoEmpresaDireita"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
         app:layout_constraintEnd_toStartOf="@id/mensagem_direita"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone" />

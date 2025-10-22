@@ -90,15 +90,24 @@ class Perfil : Fragment() {
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
         val empresaLogada : FirebaseUser = objAutenticar.getCurrentUser()!!
+        var plano: String
 
         view.findViewById<TextView>(R.id.nomePerfil).text = empresaLogada.displayName
 
         GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email.toString()) {
             if (it != null) {
                 idEmpresa = it.id
+                if (it.planId == 1) {
+                    plano = "Essential"
+                } else {
+                    plano = "Nenhum"
+                }
+
+                view.findViewById<TextView>(R.id.planoAtual).text = plano
+
                 pegarImagemEmpresa(idEmpresa)
             } else {
-                Toast.makeText(context, "não conseguiu pegar o id da empresa", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Não conseguiu pegar o id da empresa", Toast.LENGTH_LONG).show()
             }
         }
 

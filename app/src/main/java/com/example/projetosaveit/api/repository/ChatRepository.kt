@@ -16,4 +16,8 @@ class ChatRepository {
     fun getChatOutraEmpresa(idChat: Long, idEmpresa: Long): Call<ChatDTO> {
         return RetrofitClientMongo.instance.getChatOutraEmpresa(idChat, idEmpresa)
     }
+
+    fun getChatHistorico(idChat: Long): Call<List<ChatDTO>> {
+        return RetrofitClientMongo.instance.getChatsHistorico(idChat)
+    }
 }

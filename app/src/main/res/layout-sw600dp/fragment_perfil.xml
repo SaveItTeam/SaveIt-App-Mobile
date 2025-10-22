@@ -271,7 +271,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/pesoProdutoVitrine"
+        android:id="@+id/planoAtual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -285,7 +285,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/nomeProdutoVItrine"
+        android:id="@+id/chatBotTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

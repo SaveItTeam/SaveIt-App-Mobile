@@ -161,12 +161,13 @@
 
     <RadioGroup
         android:id="@+id/radioGrupo"
-        android:layout_width="134dp"
+        android:layout_width="144dp"
         android:layout_height="32dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="227dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18">
 
@@ -179,7 +180,7 @@
 
         <RadioButton
             android:id="@+id/radioNao"
-            android:layout_width="wrap_content"
+            android:layout_width="86dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Não"

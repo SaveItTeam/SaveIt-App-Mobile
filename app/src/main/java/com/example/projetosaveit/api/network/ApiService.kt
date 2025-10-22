@@ -81,7 +81,6 @@ interface ApiService {
         @Path("enterpriseId") idEmpresa: Long
     ): Call<List<ChatDTO>>
 
-
     @GET("chats/ultimamensagem")
     fun getChatUltimaMensagem(
         @Query("chatId") idChat: Long, @Query("enterpriseId") idEmpresa: Long
@@ -92,4 +91,8 @@ interface ApiService {
         @Query("chatId") idChat: Long, @Query("enterpriseId") idEmpresa: Long
     ): Call<ChatDTO>
 
+    @GET("chats/buscarchatweb")
+    fun getChatsHistorico(
+        @Query("chatId") idChat: Long
+    ): Call<List<ChatDTO>>
 }

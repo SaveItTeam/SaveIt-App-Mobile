@@ -11,17 +11,6 @@
     tools:layout_editor_absoluteY="37dp">
 
     <ImageView
-        android:id="@+id/imageView36"
-        android:layout_width="0dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="124dp"
-        android:src="@drawable/onda_verde_escuraeclara_onze"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btCadastrarFunc" />
-
-    <ImageView
         android:id="@+id/imageView31"
         android:layout_width="721dp"
         android:layout_height="414dp"

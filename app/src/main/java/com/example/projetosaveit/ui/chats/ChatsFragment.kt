@@ -134,6 +134,7 @@ class ChatsFragment : Fragment() {
                                                     override fun onFailure(call: Call<EmpresaDTO>, t: Throwable) {
                                                         // Erro ao buscar empresa, passa para a próxima etapa/próximo chat
                                                         loadedChats++
+
                                                         if (loadedChats == totalChats) {
                                                             atualizarAdapter(chats)
                                                         }
