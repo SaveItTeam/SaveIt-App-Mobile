@@ -4,8 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class ProdutoDTO(
     var id : Long = 0,
-    @SerializedName("name") var name : String,
-    @SerializedName("brand") var brand : String,
+    var name : String,
+    var brand : String,
+    var category : String,
     var description : String,
     var enterpriseId : Long
 )

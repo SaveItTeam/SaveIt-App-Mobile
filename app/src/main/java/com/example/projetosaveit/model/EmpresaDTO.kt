@@ -6,8 +6,8 @@ data class EmpresaDTO(
     var name : String,
     var email : String,
     var planId : Int,
+    var enterpriseImage : String,
     var phoneNumber : String,
     var addressId : Long,
-    var password : String,
-    var enterpriseImage : String
+    var password : String
 )

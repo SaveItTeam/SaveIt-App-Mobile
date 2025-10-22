@@ -5,10 +5,11 @@ import java.util.Date
 
 data class LoteDTO(
     val id: Long = 0,
-    @SerializedName("unit_measure") val unitMeasure: String,
-    @SerializedName("entry_date") val entryDate: String,
-    @SerializedName("batch_code") val batchCode: String,
-    @SerializedName("expiration_date") val expirationDate: String,
-    val quantityMeasure : Int,
-    @SerializedName("product_id") val productId: Long
+    @SerializedName("unitMeasure") val unitMeasure: String,
+    @SerializedName("entryDate") val entryDate: String,
+    @SerializedName("batchCode")val batchCode: String,
+    @SerializedName("expirationDate") val expirationDate: String,
+    val maxQuantity : Int,
+    val quantity : Int,
+    @SerializedName("productId") val productId: Long
 )
