@@ -15,6 +15,7 @@ import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.AdapterProduto
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.api.repository.LoteRepository
+import com.example.projetosaveit.util.GetEmpresa
 import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Response

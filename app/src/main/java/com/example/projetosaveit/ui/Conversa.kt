@@ -21,6 +21,7 @@ import com.example.projetosaveit.api.repository.ChatRepository
 import com.example.projetosaveit.databinding.FragmentChatsBinding
 import com.example.projetosaveit.model.ChatDTO
 import com.example.projetosaveit.model.ChatInsertDTO
+import com.example.projetosaveit.util.GetEmpresa
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.gson.Gson

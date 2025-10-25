@@ -11,6 +11,7 @@ import com.example.projetosaveit.adapter.AdapterVitrine
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.VitrineRepository
+import com.example.projetosaveit.util.GetEmpresa
 import com.google.firebase.auth.FirebaseAuth
 
 class MinhaVitrine : AppCompatActivity() {

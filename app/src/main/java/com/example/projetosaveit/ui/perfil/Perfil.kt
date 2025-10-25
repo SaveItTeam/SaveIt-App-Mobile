@@ -33,7 +33,7 @@ import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.ImagemRepository
 import com.example.projetosaveit.model.ImagemDTO
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
-import com.example.projetosaveit.ui.GetEmpresa
+import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.ui.InserirFuncionario
 import com.example.projetosaveit.ui.Planos
 import com.google.firebase.auth.FirebaseAuth
@@ -92,11 +92,10 @@ class Perfil : Fragment() {
         val empresaLogada : FirebaseUser = objAutenticar.getCurrentUser()!!
         var plano: String
 
-        view.findViewById<TextView>(R.id.nomePerfil).text = empresaLogada.displayName
-
         GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email.toString()) {
             if (it != null) {
                 idEmpresa = it.id
+                view.findViewById<TextView>(R.id.nomePerfil).text = it.name
                 if (it.planId == 1) {
                     plano = "Essential"
                 } else {
