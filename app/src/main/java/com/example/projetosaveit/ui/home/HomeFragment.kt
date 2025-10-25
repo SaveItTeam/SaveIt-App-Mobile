@@ -79,7 +79,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Produto>?>, t: Throwable) {
-                binding?.textHome?.text = "Erro: ${t.message}"
+                Toast.makeText(context, "Erro ao carregar produtos: ${t.message}", Toast.LENGTH_LONG).show()
             }
         })
     }
