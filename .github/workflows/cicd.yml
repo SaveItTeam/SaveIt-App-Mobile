@@ -11,6 +11,7 @@ jobs:
 
     env:
       ANDROID_HOME: ${{ github.workspace }}/android-sdk
+      ANDROID_SDK_ROOT: ${{ github.workspace }}/android-sdk
 
     steps:
       - name: Checkout do código
@@ -30,8 +31,12 @@ jobs:
           mkdir -p $ANDROID_HOME/cmdline-tools
           unzip cmdline-tools.zip -d $ANDROID_HOME/cmdline-tools
           rm cmdline-tools.zip
+
           yes | $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --licenses
-          $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager \
+            "platform-tools" \
+            "platforms;android-34" \
+            "build-tools;34.0.0"
 
       - name: Dar permissão ao Gradle Wrapper
         run: chmod +x ./gradlew
