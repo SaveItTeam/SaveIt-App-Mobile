@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
-        android:text="Cadastro comercial"
+        android:text="Cadastro"
         android:textColor="@color/PretoNaoPuro"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,8 +27,8 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nomeEmpresaInput"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
+        android:layout_width="475dp"
+        android:layout_height="45dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:hint="Digite o nome da sua indústria"
@@ -36,7 +36,7 @@
         android:textAlignment="viewStart"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.397"
@@ -46,27 +46,27 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/telefoneEmpresaInput"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
+        android:layout_width="475dp"
+        android:layout_height="45dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="digite seu numero de telefone (xx xxxxx-xxxx)"
+        android:hint="Digite seu numero de telefone (xx xxxxx-xxxx)"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintVertical_bias="0.313" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/senhaEmpresaInput"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
+        android:layout_width="475dp"
+        android:layout_height="45dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
@@ -74,18 +74,18 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.45" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/repitirSenhaInput"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
+        android:layout_width="475dp"
+        android:layout_height="45dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
@@ -93,18 +93,18 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
-        app:layout_constraintVertical_bias="0.604" />
+        app:layout_constraintVertical_bias="0.587" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailEmpresaInput"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
+        android:layout_width="475dp"
+        android:layout_height="45dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
@@ -112,18 +112,18 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
-        app:layout_constraintVertical_bias="0.21" />
+        app:layout_constraintVertical_bias="0.176" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cnpjEmpresaInput"
-        android:layout_width="755dp"
-        android:layout_height="50dp"
+        android:layout_width="475dp"
+        android:layout_height="45dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
@@ -131,13 +131,13 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.037" />
 
     <Button
         android:id="@+id/btnProximo"
@@ -152,7 +152,7 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/BrancoNaoPuro"
-        android:textSize="34sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -176,8 +176,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -192,7 +192,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="SaveIt"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -203,7 +203,7 @@
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="0dp"
-        android:layout_height="240dp"
+        android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +213,7 @@
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="0dp"
-        android:layout_height="160dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

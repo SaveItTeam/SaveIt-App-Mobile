@@ -5,19 +5,19 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    android:background="#FFF5E0"
+    android:background="@color/Branco"
     app:cardCornerRadius="40dp"
     app:cardPreventCornerOverlap="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/itemVitrine"
-        android:layout_width="500dp"
-        android:layout_height="610dp">
+        android:layout_width="270dp"
+        android:layout_height="335dp">
 
         <ImageView
             android:id="@+id/imagemVitrine"
-            android:layout_width="496dp"
-            android:layout_height="499dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,8 +28,8 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/materialToolbar"
-            android:layout_width="500dp"
-            android:layout_height="115dp"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
             android:background="@color/Verde50"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
@@ -41,13 +41,12 @@
             android:id="@+id/nomeProdutoTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="nomeProduto"
             android:textColor="@color/PretoNaoPuro"
-            android:textSize="34sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/materialToolbar"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagemVitrine" />
 

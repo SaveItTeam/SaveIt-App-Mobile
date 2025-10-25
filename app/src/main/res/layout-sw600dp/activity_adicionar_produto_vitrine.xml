@@ -11,35 +11,34 @@
     <ImageView
         android:id="@+id/imageView19"
         android:layout_width="0dp"
-        android:layout_height="563dp"
-        android:layout_marginBottom="1144dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="345dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/onda_verde_escura_dez" />
 
     <ImageView
         android:id="@+id/imageView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.219"
-        app:srcCompat="@drawable/seta_esquerda" />
+        app:srcCompat="@drawable/seta_esquerda_tablet_2x" />
 
     <ImageView
         android:id="@+id/imageView32"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203"
+        app:layout_constraintVertical_bias="0.23"
         app:srcCompat="@drawable/saveitlogo" />
 
     <TextView
@@ -48,13 +47,14 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Adicionar na vitrine"
-        android:textSize="48sp"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.399" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="0dp"

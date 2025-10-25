@@ -16,7 +16,7 @@
         android:text="Vitrine Virtual"
         android:textAlignment="center"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="96sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
@@ -63,7 +63,7 @@
             android:text="Todos"
             android:textAllCaps="false"
             android:textColor="@color/BrancoNaoPuro"
-            android:textSize="48sp" />
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button15"
@@ -77,7 +77,7 @@
             android:text="Embutidos"
             android:textAllCaps="false"
             android:textColor="@color/BrancoNaoPuro"
-            android:textSize="48sp" />
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button14"
@@ -91,7 +91,7 @@
             android:text="Laticínios"
             android:textAllCaps="false"
             android:textColor="@color/BrancoNaoPuro"
-            android:textSize="48sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 

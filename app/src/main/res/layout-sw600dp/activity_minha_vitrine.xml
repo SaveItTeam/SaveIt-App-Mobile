@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView37"
-        android:layout_width="326dp"
-        android:layout_height="188dp"
+        android:layout_width="0dp"
+        android:layout_height="346dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -21,15 +21,15 @@
 
     <ImageView
         android:id="@+id/imageView38"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13"
-        app:srcCompat="@drawable/seta_esquerda" />
+        app:srcCompat="@drawable/seta_esquerda_tablet_2x" />
 
     <TextView
         android:id="@+id/textView20"
@@ -39,7 +39,7 @@
         android:text="Meus produtos da vitrine"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHighlight="@color/PretoNaoPuro"
-        android:textSize="20sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.102"
@@ -56,19 +56,21 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_vitrine" />
 
     <ImageView
         android:id="@+id/imageView39"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091"
+        app:layout_constraintVertical_bias="0.218"
         app:srcCompat="@drawable/saveitlogo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
