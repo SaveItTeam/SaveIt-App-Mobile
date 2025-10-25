@@ -1,9 +1,12 @@
-name: Android App
+name: Android CI/CD
 
 on:
   push:
+    branches:
+      - '**'      # qualquer branch
   pull_request:
-  workflow_dispatch:
+    branches:
+      - '**'      # qualquer branch
 
 jobs:
   build:
@@ -35,11 +38,22 @@ jobs:
           yes | $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --licenses
           $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager \
             "platform-tools" \
-            "platforms;android-34" \
-            "build-tools;34.0.0"
+            "platforms;android-36" \
+            "build-tools;36.0.0"
 
       - name: Dar permissão ao Gradle Wrapper
         run: chmod +x ./gradlew
 
-      - name: Build Gradle
+      - name: Build Debug e Release
         run: ./gradlew assembleDebug assembleRelease
+
+      - name: Upload APKs como artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: APKs
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk
+ |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk
