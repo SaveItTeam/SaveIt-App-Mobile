@@ -1,14 +1,11 @@
 name: Android App
 
 on:
+  push:
   pull_request:
-    branches:
-      - main
-    types: [opened, synchronize, reopened]
 
 jobs:
   build:
-    if: github.head_ref == 'dev-kt'
     runs-on: ubuntu-latest
 
     env:
