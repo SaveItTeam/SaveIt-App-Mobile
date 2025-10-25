@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/voltarSenha"
-        android:layout_width="415dp"
+        android:layout_width="0dp"
         android:layout_height="134dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
