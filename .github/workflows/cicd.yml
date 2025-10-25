@@ -3,6 +3,7 @@ name: Android App
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -31,6 +32,9 @@ jobs:
           rm cmdline-tools.zip
           yes | $ANDROID_SDK_ROOT/cmdline-tools/cmdline-tools/bin/sdkmanager --licenses
           $ANDROID_SDK_ROOT/cmdline-tools/cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+
+      - name: Dar permissão ao Gradle Wrapper
+        run: chmod +x ./gradlew
 
       - name: Build Gradle
         run: ./gradlew assembleDebug assembleRelease
