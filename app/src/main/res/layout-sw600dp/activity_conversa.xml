@@ -11,34 +11,21 @@
     <ImageView
         android:id="@+id/imageView38"
         android:layout_width="wrap_content"
-        android:layout_height="192dp"
+        android:layout_height="120dp"
         android:src="@drawable/onda_verde_escuraeclara_onze"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btVoltar"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="196dp"
-        android:background="@android:color/transparent"
-        android:padding="8dp"
-        android:src="@drawable/seta_esquerda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="1229dp"
+        android:layout_height="0dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:layout_constraintBottom_toTopOf="@id/chat_input_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView38">
+        app:layout_constraintTop_toBottomOf="@+id/imageView14">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -47,16 +34,16 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintVertical_bias="0.407"
+            tools:layout_editor_absoluteX="25dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/chat_input_container"
-        android:layout_width="826dp"
-        android:layout_height="119dp"
+        android:layout_width="505dp"
+        android:layout_height="89dp"
         android:layout_marginBottom="44dp"
         android:background="@drawable/caixa_texto"
         android:padding="8dp"
@@ -67,7 +54,7 @@
 
         <EditText
             android:id="@+id/escreverMsg"
-            android:layout_width="674dp"
+            android:layout_width="355dp"
             android:layout_height="67dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/fundo_campo_escrever_msg"
@@ -76,7 +63,7 @@
             android:inputType="textMultiLine"
             android:maxLines="4"
             android:padding="12dp"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/enviarMsg"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,10 +71,10 @@
 
         <ImageView
             android:id="@+id/enviarMsg"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_enviar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,5 +82,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView38"
+        app:srcCompat="@drawable/seta_esquerda_tablet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

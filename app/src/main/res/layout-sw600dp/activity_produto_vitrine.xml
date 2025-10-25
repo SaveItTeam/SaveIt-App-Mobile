@@ -8,186 +8,172 @@
     android:background="@color/Branco"
     tools:context=".ui.ProdutoVitrine">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <ImageView
-            android:id="@+id/setaEsquerdaVoltar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/seta_esquerda" />
-
-        <ImageView
-            android:id="@+id/imgProdutoVitrine"
-            android:layout_width="908dp"
-            android:layout_height="524dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-        <TextView
-            android:id="@+id/nomeProdutoVItrine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="nomeProduto"
-            android:textColor="@color/PretoNaoPuro"
-            android:textSize="48sp" />
-
-        <TextView
-            android:id="@+id/pesoProdutoVitrine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Peso"
-            android:textColor="@color/PlaceHolderColor"
-            android:textSize="34sp" />
-
-        <TextView
-            android:id="@+id/pesoProdutoResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="99Kg"
-            android:textColor="@color/VerdeEscuro"
-            android:textSize="34sp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <ImageView
+                android:id="@+id/setaEsquerdaVoltar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="Voltar"
+                android:src="@drawable/seta_esquerda_tablet" />
+
+            <ImageView
+                android:id="@+id/imgProdutoVitrine"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/cidadeProdutoVItrine"
+                android:id="@+id/nomeProdutoVitrine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/inclusive_sans"
-                android:text="Cidade"
-                android:textColor="@color/PlaceHolderColor"
-                android:textSize="34sp" />
+                android:gravity="center"
+                android:text="Nome do Produto"
+                android:textColor="@color/PretoNaoPuro"
+                android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/empresaProdutoVitrine"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|end"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/inclusive_sans"
-                android:gravity="end"
-                android:text="Empresa"
-                android:textColor="@color/PlaceHolderColor"
-                android:textSize="34sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/cidadeProdutoResult"
+                android:id="@+id/pesoProdutoVitrine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:fontFamily="@font/inclusive_sans"
-                android:text="Cidade Tal, São Paulo (SP)"
-                android:textColor="@color/PretoNaoPuro"
-                android:textSize="34sp" />
+                android:text="Peso"
+                android:textColor="@color/PlaceHolderColor"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/empresaProdutoResult"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:layout_marginEnd="30dp"
+                android:id="@+id/pesoProdutoResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/inclusive_sans"
-                android:gravity="right|end"
-                android:text="Amil"
+                android:text="99Kg"
+                android:textColor="@color/VerdeEscuro"
+                android:textSize="36sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/cidadeProdutoVitrine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inclusive_sans"
+                        android:text="Cidade"
+                        android:textColor="@color/PlaceHolderColor"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/cidadeProdutoResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inclusive_sans"
+                        android:text="Cidade Tal, São Paulo (SP)"
+                        android:textColor="@color/PretoNaoPuro"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/empresaProdutoVitrine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inclusive_sans"
+                        android:text="Empresa"
+                        android:textColor="@color/PlaceHolderColor"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/empresaProdutoResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inclusive_sans"
+                        android:text="Amil"
+                        android:textColor="@color/PretoNaoPuro"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/validadeProdutoVitrine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Validade"
+                android:textColor="@color/PlaceHolderColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/validadeProdutoResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="00/00/0000"
                 android:textColor="@color/PretoNaoPuro"
-                android:textSize="34sp" />
+                android:textSize="18sp" />
 
+            <TextView
+                android:id="@+id/descricaoProdutoVitrine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Descrição"
+                android:textColor="@color/PlaceHolderColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/descricaoProdutoResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem nisl, tristique interdum euismod id, elementum iaculis eros. Aenean orci ligula, tincidunt nec mauris convallis, lacinia efficitur elit. Praesent elementum, justo sit amet sodales suscipit, diam arcu posuere odio, et semper dolor nisl sit amet felis."
+                android:textColor="@color/PretoNaoPuro"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/BotaoAcessar"
+                android:layout_width="220dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bt_cadastro_estilizacao_tablet"
+                android:backgroundTint="@color/Bordo"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Acessar"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="26sp" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/validadeProdutoVitrine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Validade"
-            android:textColor="@color/PlaceHolderColor"
-            android:textSize="34sp" />
-
-        <TextView
-            android:id="@+id/validadeProdutoResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="00/00/0000"
-            android:textColor="@color/PretoNaoPuro"
-            android:textSize="34sp" />
-
-        <TextView
-            android:id="@+id/descricaoProdutoVitrine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Descrição"
-            android:textColor="@color/PlaceHolderColor"
-            android:textSize="34sp" />
-
-        <TextView
-            android:id="@+id/descricaoProdutoResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem nisl, tristique interdum euismod id, elementum iaculis eros. Aenean orci ligula, tincidunt nec mauris convallis, lacinia efficitur elit. Praesent elementum, justo sit amet sodales suscipit, diam arcu posuere odio, et semper dolor nisl sit amet felis. Cl"
-            android:textColor="@color/PretoNaoPuro"
-            android:textSize="34sp" />
-
-        <Button
-            android:id="@+id/BotaoAcessar"
-            android:layout_width="388dp"
-            android:layout_height="117dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/bt_cadastro_estilizacao_tablet"
-            android:backgroundTint="@color/Bordo"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Acessar"
-            android:textAllCaps="false"
-            android:textColor="@color/BrancoNaoPuro"
-            android:textSize="48sp" />
-
-    </LinearLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,9 +10,8 @@
 
     <ImageView
         android:id="@+id/imageView19"
-        android:layout_width="422dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="0dp"
+        android:layout_height="237dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +48,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Adicionar na vitrine"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

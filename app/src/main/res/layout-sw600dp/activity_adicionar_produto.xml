@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/imageView24"
-        android:layout_width="955dp"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
     <ImageView
         android:id="@+id/imageView23"
         android:layout_width="0dp"
-        android:layout_height="160dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,14 +32,14 @@
 
     <ImageView
         android:id="@+id/imageView25"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="128dp"
         app:layout_constraintBottom_toTopOf="@+id/textView31"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.25"
         app:srcCompat="@drawable/saveitlogo" />
 
     <TextView
@@ -49,7 +49,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="SaveIt"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="48sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Adicionar produto"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="48sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
@@ -103,12 +103,12 @@
                     android:fontFamily="@font/inclusive_sans"
                     android:text="Insira a imagem aqui"
                     android:textColor="@color/PretoNaoPuro"
-                    android:textSize="34sp" />
+                    android:textSize="24sp" />
 
                 <ImageView
                     android:id="@+id/imagemProdutoInput"
-                    android:layout_width="375dp"
-                    android:layout_height="276dp"
+                    android:layout_width="275dp"
+                    android:layout_height="175dp"
                     android:layout_gravity="end"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="100dp"
@@ -119,7 +119,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nomeProdutoInput"
-                android:layout_width="755dp"
+                android:layout_width="505dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -130,11 +130,11 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/descricaoProdutoInput"
-                android:layout_width="757dp"
+                android:layout_width="505dp"
                 android:layout_height="247dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -147,11 +147,11 @@
                 android:paddingTop="5dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/marcaProdutoInput"
-                android:layout_width="755dp"
+                android:layout_width="505dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -162,11 +162,11 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/quantidadeProdutoInput"
-                android:layout_width="755dp"
+                android:layout_width="505dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -177,11 +177,11 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/unidadeMedidaProdutoInput"
-                android:layout_width="755dp"
+                android:layout_width="505dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -194,11 +194,11 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/skuProdutoInput"
-                android:layout_width="755dp"
+                android:layout_width="505dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -209,11 +209,11 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/validadeProdutoInput"
-                android:layout_width="755dp"
+                android:layout_width="505dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -229,11 +229,11 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/entradaProdutoInput"
-                android:layout_width="755dp"
+                android:layout_width="505dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
@@ -248,21 +248,22 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/botaoCadastrarProduto"
-                android:layout_width="312dp"
-                android:layout_height="101dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/bt_cadastro_estilizacao"
+                android:background="@drawable/bt_cadastro_estilizacao_tablet"
                 android:fontFamily="@font/inclusive_sans"
+                android:padding="20dp"
                 android:text="Cadastrar"
                 android:textAllCaps="false"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>
 

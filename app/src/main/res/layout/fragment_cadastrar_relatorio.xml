@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/Branco"
-    tools:context=".ui.CadastrarRelatorio"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="17dp">
+    tools:context=".CadastrarRelatorio">
 
     <Button
         android:id="@+id/botaoCadastrarProduto2"
@@ -26,11 +23,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeFunc5"
+        app:layout_constraintTop_toBottomOf="@+id/dataHora"
         app:layout_constraintVertical_bias="0.181" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nomeFunc2"
+        android:id="@+id/qntdProd"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -49,7 +46,7 @@
         app:layout_constraintVertical_bias="0.52" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nomeFunc4"
+        android:id="@+id/nomeProd"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -68,13 +65,13 @@
         app:layout_constraintVertical_bias="0.448" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nomeFunc3"
+        android:id="@+id/qntdSaida"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="DIgite a quantidade que saiu"
+        android:hint="Digite a quantidade que saiu"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
@@ -87,7 +84,7 @@
         app:layout_constraintVertical_bias="0.59" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nomeFunc5"
+        android:id="@+id/dataHora"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -148,7 +145,7 @@
         android:text="Registrar relatório"
         android:textColor="@color/PretoNaoPuro"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/nomeFunc4"
+        app:layout_constraintBottom_toTopOf="@+id/nomeProd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"

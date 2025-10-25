@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECE3"
+    android:background="@color/Branco"
     tools:context=".ui.TelaCadastro2Comercio"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="13dp">
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
         android:text="Cadastro comercial"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,61 +26,45 @@
         app:layout_constraintVertical_bias="0.349" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+        android:id="@+id/nomeEmpresaInput"
         android:layout_width="310dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
         android:hint="Digite o nome da sua indústria"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
+        android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.047" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="310dp"
-        android:layout_height="32dp"
-        android:background="@drawable/caixa_texto"
-        android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
-        android:hint="Digite seu CNPJ"
-        android:paddingLeft="10dp"
-        android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
-        app:layout_constraintVertical_bias="0.061" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText3"
+        android:id="@+id/telefoneEmpresaInput"
         android:layout_width="309dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite seu email"
+        android:hint="digite seu numero de telefone (xx xxxxx-xxxx)"
         android:paddingLeft="10dp"
+        android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
-        app:layout_constraintVertical_bias="0.216" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
+        app:layout_constraintVertical_bias="0.345" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText2"
+        android:id="@+id/senhaEmpresaInput"
         android:layout_width="309dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -88,17 +72,18 @@
         android:gravity="center_vertical"
         android:hint="Crie uma senha"
         android:paddingLeft="10dp"
+        android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
+        app:layout_constraintVertical_bias="0.493" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText"
+        android:id="@+id/repitirSenhaInput"
         android:layout_width="309dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
@@ -106,51 +91,71 @@
         android:gravity="center_vertical"
         android:hint="Repita a senha"
         android:paddingLeft="10dp"
+        android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
+        app:layout_constraintVertical_bias="0.632" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText4"
+        android:id="@+id/emailEmpresaInput"
         android:layout_width="309dp"
         android:layout_height="32dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Selecione a categoria da sua indústria"
+        android:hint="Digite seu email"
         android:paddingLeft="10dp"
+        android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
+        app:layout_constraintVertical_bias="0.21" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/cnpjEmpresaInput"
+        android:layout_width="310dp"
+        android:layout_height="32dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite seu CNPJ"
+        android:paddingLeft="10dp"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeEmpresaInput"
+        app:layout_constraintVertical_bias="0.06" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnProximo"
         android:layout_width="124dp"
         android:layout_height="37dp"
         android:background="@drawable/bt_cadastro_estilizacao"
         android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
-        android:text="Cadastrar"
+        android:text="Próximo"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/md_theme_surface"
+        android:textColor="@color/BrancoNaoPuro"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.893" />
 
     <TextView
         android:id="@+id/textView6"
@@ -158,14 +163,14 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
         android:text="Já possui uma conta? Faça login"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.191" />
+        app:layout_constraintTop_toBottomOf="@+id/btnProximo"
+        app:layout_constraintVertical_bias="0.161" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -184,7 +189,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
         android:text="SaveIt"
-        android:textColor="@color/md_theme_onPrimaryFixed"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

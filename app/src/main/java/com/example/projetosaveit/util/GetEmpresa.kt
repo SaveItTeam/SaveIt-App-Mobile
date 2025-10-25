@@ -1,16 +1,17 @@
-package com.example.projetosaveit.ui
+package com.example.projetosaveit.util
 
 import android.util.Log
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.model.EmpresaDTO
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 object GetEmpresa {
     val repositoryEmp : EmpresaRepository = EmpresaRepository()
     fun pegarEmailEmpresa(email: String, onResult: (EmpresaDTO?) -> Unit) {
         Log.d("erro", "pegarEmailEmpresa: buscando empresa para email = $email")
-        repositoryEmp.getEmpresa(email).enqueue(object : retrofit2.Callback<EmpresaDTO> {
+        repositoryEmp.getEmpresa(email).enqueue(object : Callback<EmpresaDTO> {
             override fun onResponse(call: Call<EmpresaDTO>, response: Response<EmpresaDTO>) {
                 Log.d("teste", "getEmpresa onResponse code=${response.code()}")
                 if (response.isSuccessful) {

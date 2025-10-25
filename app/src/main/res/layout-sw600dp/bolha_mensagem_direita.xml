@@ -21,6 +21,5 @@
         android:layout_width="66dp"
         android:layout_height="66dp"
         app:layout_constraintEnd_toStartOf="@id/mensagem_direita"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

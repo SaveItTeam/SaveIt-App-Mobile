@@ -12,7 +12,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cepEmpresaInput"
-        android:layout_width="755dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
@@ -21,7 +21,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -31,7 +31,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/ruaEmpresaInput"
-        android:layout_width="755dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
@@ -40,7 +40,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -50,7 +50,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/numeroEmpresaInput"
-        android:layout_width="755dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
@@ -59,7 +59,7 @@
         android:textAlignment="viewStart"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -69,7 +69,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/estadoEmpresaInput"
-        android:layout_width="755dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
@@ -78,7 +78,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -88,7 +88,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/complementoEmpresaInput"
-        android:layout_width="755dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
@@ -97,7 +97,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -107,7 +107,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cidadeEmpresaInput"
-        android:layout_width="755dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
@@ -116,7 +116,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -126,7 +126,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/bairroEmpresaInput"
-        android:layout_width="755dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
@@ -135,7 +135,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -146,7 +146,7 @@
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="0dp"
-        android:layout_height="236dp"
+        android:layout_height="166dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,7 +156,7 @@
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="0dp"
-        android:layout_height="169dp"
+        android:layout_height="101dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,15 +167,16 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inclusive_sans"
+        android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Cadastro de endereço"
-        android:textSize="34sp"
+        android:textColor="@color/PretoNaoPuro"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/cepEmpresaInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.823" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <Button
         android:id="@+id/btnCadastroEmpresa"

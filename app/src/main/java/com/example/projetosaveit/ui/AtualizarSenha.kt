@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projetosaveit.R
 import com.example.projetosaveit.api.repository.EmpresaRepository
+import com.example.projetosaveit.util.GetEmpresa
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 

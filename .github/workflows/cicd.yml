@@ -1,35 +1,56 @@
-name: CI/CD Docker
+name: Android CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
-  build-and-push:
+  build:
     runs-on: ubuntu-latest
 
+    env:
+      ANDROID_HOME: ${{ github.workspace }}/android-sdk
+      ANDROID_SDK_ROOT: ${{ github.workspace }}/android-sdk
+
     steps:
-      # Baixar o repositório
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout do código
+        uses: actions/checkout@v4
 
-      # Configurar o builder do Docker
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      # Login no Docker Hub
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          distribution: temurin
+          java-version: 17
 
-      # Build e push da imagem
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v4
+      - name: Instalar Android SDK
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip curl
+          wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdline-tools.zip
+          mkdir -p $ANDROID_HOME/cmdline-tools
+          unzip cmdline-tools.zip -d $ANDROID_HOME/cmdline-tools
+          rm cmdline-tools.zip
+
+          yes | $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager --licenses
+          $ANDROID_HOME/cmdline-tools/cmdline-tools/bin/sdkmanager \
+            "platform-tools" \
+            "platforms;android-36" \
+            "build-tools;36.0.0"
+
+      - name: Dar permissão ao Gradle Wrapper
+        run: chmod +x ./gradlew
+
+      - name: Build Debug e Release
+        run: ./gradlew assembleDebug assembleRelease
+
+      - name: Upload APKs como artefatos
+        uses: actions/upload-artifact@v4
         with:
-          context: .
-          push: true
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/pratica-devops-python:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/pratica-devops-python:${{ github.sha }}
+          name: APKs
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk

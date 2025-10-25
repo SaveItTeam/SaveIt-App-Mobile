@@ -22,14 +22,8 @@ class Planos : AppCompatActivity() {
             insets
         }
 
-        findViewById<Button>(R.id.btBasico).setOnClickListener {
-            Toast.makeText(this, "Plano Básico assinado!", Toast.LENGTH_SHORT).show()
-            val Intent = Intent(this, Perfil::class.java)
-            startActivity(Intent)
-        }
-
-        findViewById<Button>(R.id.btAvancado).setOnClickListener {
-            Toast.makeText(this, "Plano Avançado assinado!", Toast.LENGTH_SHORT).show()
+        findViewById<Button>(R.id.btComprar).setOnClickListener {
+            Toast.makeText(this, "Plano SaveIt Pro assinado!", Toast.LENGTH_SHORT).show()
             val Intent = Intent(this, Perfil::class.java)
             startActivity(Intent)
         }

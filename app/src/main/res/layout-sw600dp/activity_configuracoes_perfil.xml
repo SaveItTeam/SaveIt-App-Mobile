@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="800dp"
+        android:layout_height="400dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:orientation="vertical"
@@ -21,12 +21,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679">
+        app:layout_constraintVertical_bias="0.592">
 
         <FrameLayout
             android:id="@+id/emailFrame"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/borda_card_tablet"
@@ -43,8 +43,8 @@
 
                 <ImageView
                     android:id="@+id/icon4"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/icon_gmail"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
                     android:fontFamily="@font/inclusive_sans"
                     android:text="E-mail do usuário aqui"
                     android:textColor="@color/PretoNaoPuro"
-                    android:textSize="48sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon4"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +67,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/borda_card_tablet"
@@ -85,8 +85,8 @@
 
                 <ImageView
                     android:id="@+id/iconNotify2"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/icon_password_write"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
                     android:fontFamily="@font/inclusive_sans"
                     android:text="Alterar sua senha"
                     android:textColor="@color/PretoNaoPuro"
-                    android:textSize="48sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iconNotify2"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -109,7 +109,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/borda_card_tablet"
@@ -128,8 +128,8 @@
 
                 <ImageView
                     android:id="@+id/icon2"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/icon_pen_write"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +143,7 @@
                     android:fontFamily="@font/inclusive_sans"
                     android:text="Alterar o nome"
                     android:textColor="@color/PretoNaoPuro"
-                    android:textSize="48sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon2"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -155,7 +155,7 @@
     <Button
         android:id="@+id/botaoLogOut"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/borda_card_vermelho"
@@ -169,18 +169,18 @@
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="48sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905" />
+        app:layout_constraintVertical_bias="0.884" />
 
     <Button
         android:id="@+id/botaoExcluirConta"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/borda_card_vermelho"
@@ -194,13 +194,13 @@
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="48sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.983" />
+        app:layout_constraintVertical_bias="0.969" />
 
     <TextView
         android:id="@+id/textView15"
@@ -209,7 +209,7 @@
         android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Configurações"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="48sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -221,7 +221,7 @@
     <ImageView
         android:id="@+id/imageView17"
         android:layout_width="0dp"
-        android:layout_height="425dp"
+        android:layout_height="255dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -233,7 +233,7 @@
     <ImageView
         android:id="@+id/imageView29"
         android:layout_width="0dp"
-        android:layout_height="246dp"
+        android:layout_height="146dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

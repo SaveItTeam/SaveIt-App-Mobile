@@ -33,4 +33,10 @@
         android:name="com.example.projetosaveit.ui.perfil.Perfil"
         android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/cadastrar_relatorio"
+        android:name="com.example.projetosaveit.CadastrarRelatorio"
+        android:label="fragment_cadastrar_relatorio"
+        tools:layout="@layout/fragment_cadastrar_relatorio" />
 </navigation>

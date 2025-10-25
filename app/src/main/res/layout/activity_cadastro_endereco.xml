@@ -169,6 +169,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inclusive_sans"
         android:text="Cadastro de endereço"
+        android:textColor="@color/PretoNaoPuro"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/cepEmpresaInput"
         app:layout_constraintEnd_toEndOf="parent"
