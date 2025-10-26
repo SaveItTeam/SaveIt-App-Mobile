@@ -24,7 +24,7 @@ import retrofit2.Call
 import retrofit2.Response
 
 class CadastroEndereco : AppCompatActivity() {
-    val autenticao : FirebaseAuth = FirebaseAuth.getInstance()
+    val autenticacao : FirebaseAuth = FirebaseAuth.getInstance()
     val repository : EmpresaRepository = EmpresaRepository()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,20 +76,18 @@ class CadastroEndereco : AppCompatActivity() {
                 postEmpresa(empresaInsertDTO)
             }
 
-            autenticao.createUserWithEmailAndPassword(
+            autenticacao.createUserWithEmailAndPassword(
                 emailEmpresa.toString(),
                 senhaEmpresa.toString()
             )
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
-                        val user: FirebaseUser? = autenticao.getCurrentUser()
+                        val user: FirebaseUser? = autenticacao.getCurrentUser()
 
                         val profileUpdate: UserProfileChangeRequest =
                             UserProfileChangeRequest.Builder()
                                 .setDisplayName(nomeEmpresa)
                                 .build()
-
-
 
                         user?.updateProfile(profileUpdate)
                             ?.addOnCompleteListener { task ->
@@ -100,6 +98,7 @@ class CadastroEndereco : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     val intent = Intent(this, MainActivity::class.java)
+                                    intent.putExtra("tipoFunc", true)
                                     startActivity(intent)
                                     finish()
                                 }

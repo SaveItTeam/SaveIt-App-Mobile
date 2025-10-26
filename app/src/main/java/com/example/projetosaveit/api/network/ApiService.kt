@@ -6,6 +6,7 @@ import com.example.projetosaveit.model.ChatDTO
 import com.example.projetosaveit.model.EmpresaDTO
 import com.example.projetosaveit.model.EmpresaInsertDTO
 import com.example.projetosaveit.model.EstoqueDTO
+import com.example.projetosaveit.model.FuncionarioDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
 import com.example.projetosaveit.model.ImagemDTO
 import com.example.projetosaveit.model.LoteInsertDTO
@@ -73,6 +74,9 @@ interface ApiService {
 
     @GET("api/enterprise/listarId/{id}")
     fun getEmpresaId(@Path("id") id : Long): Call<EmpresaDTO>
+
+    @GET("api/employee/buscarPorEmail/{email}")
+    fun getFuncionarioEmail(@Path("email") email : String): Call<FuncionarioDTO>
 
 //    API de Mongo
 

@@ -16,6 +16,7 @@ import com.example.projetosaveit.adapter.AdapterProduto
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.api.repository.LoteRepository
 import com.example.projetosaveit.util.GetEmpresa
+import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Response
@@ -41,19 +42,21 @@ class AdicionarProdutoVitrine : AppCompatActivity() {
         adapter = AdapterProduto()
         recycle.adapter = adapter
 
+        val email = objAutenticar.currentUser?.email.toString()
 
-
-        GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email.toString()) { empresa ->
+        GetEmpresa.pegarEmailEmpresa(email.toString()) { empresa ->
             if (empresa != null) {
                 idEmpresa = empresa.id
                 carregarProdutos(idEmpresa)
             } else {
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Erro")
-                builder.setMessage("Não foi possível carregar os produtos da vitrine.")
-                builder.setPositiveButton("OK", null)
-                val dialog: AlertDialog = builder.create()
-                dialog.show()
+                GetFuncionario.pegarEmailFunc(email.toString()) { func ->
+                    if (func != null) {
+                        idEmpresa = func.enterpriseId
+                        carregarProdutos(idEmpresa)
+                    } else {
+                        Toast.makeText(this, "Erro ao identificar usuário.", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
         }
 

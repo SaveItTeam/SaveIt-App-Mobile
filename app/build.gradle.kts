@@ -24,12 +24,14 @@ android {
 
     defaultConfig {
         applicationId = "com.example.projetosaveit"
-        minSdk = 33
+        minSdk = 30
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "API_EMAIL", "\"${project.property("API_EMAIL")}\"")
+        buildConfigField("String", "API_PASSWORD", "\"${project.property("API_PASSWORD")}\"")
     }
 
     buildTypes {
@@ -47,6 +49,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -77,10 +80,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.google.android.material:material:1.9.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-
     implementation("com.github.NaikSoftware:StompProtocolAndroid:1.6.6")
     implementation("org.java-websocket:Java-WebSocket:1.5.3")
-
     implementation("io.reactivex.rxjava2:rxjava:2.2.21")
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
 }

@@ -23,7 +23,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="176dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.191"
-        app:srcCompat="@drawable/seta_esquerda_tablet" />
+        app:srcCompat="@drawable/icon_seta_esquerda_tablet" />
 
     <TextView
         android:id="@+id/textView34"

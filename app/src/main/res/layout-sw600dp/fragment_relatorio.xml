@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView23"
-        android:layout_width="960dp"
-        android:layout_height="340dp"
+        android:layout_width="0dp"
+        android:layout_height="210dp"
         android:src="@drawable/onda_verde_escuraeclara_sete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="Relatório"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="48sp"
+        android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
@@ -33,11 +33,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="860dp"
-        android:layout_height="98dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="500dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
         app:cardBackgroundColor="@color/VerdeEscuro"
-        app:cardCornerRadius="48dp"
+        app:cardCornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,42 +51,42 @@
                 android:id="@+id/textView42"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="36dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Mês"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="34sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView44"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="124dp"
-                android:fontFamily="@font/inclusive_sans"
-                android:text="Saída"
-                android:textColor="@color/BrancoNaoPuro"
-                android:textSize="34sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView43"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.511" />
-
-            <TextView
                 android:id="@+id/textView43"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="64dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Entrada"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="34sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView42"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.511" />
+                app:layout_constraintVertical_bias="0.52" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Saída"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView43"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.519" />
 
             <TextView
                 android:id="@+id/textView45"
@@ -96,12 +96,14 @@
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Perda"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="34sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.651"
+                app:layout_constraintHorizontal_bias="0.6"
                 app:layout_constraintStart_toEndOf="@+id/textView44"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.519" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -121,23 +123,21 @@
 
             <TableLayout
                 android:id="@+id/tableLayout"
-                android:layout_width="856dp"
+                android:layout_width="500dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:stretchColumns="1,2,3,4">
 
-                <!-- Janeiro -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="Janeiro"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:layout_width="10dp"
@@ -145,151 +145,146 @@
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
+                        android:padding="2dp"
+                        android:text="000"
+                        android:textColor="@color/PretoNaoPuro"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:background="@drawable/borda_cell"
+                        android:fontFamily="@font/inclusive_sans"
+                        android:gravity="center"
                         android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
                 </TableRow>
 
-                <!-- Fevereiro -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="Fevereiro"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
                 </TableRow>
 
-                <!-- Março -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="Março"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
                 </TableRow>
 
-                <!-- Abril -->
                 <TableRow>
-
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="Abril"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:background="@drawable/borda_cell"
                         android:fontFamily="@font/inclusive_sans"
                         android:gravity="center"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:text="000"
                         android:textColor="@color/PretoNaoPuro"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
                 </TableRow>
 
             </TableLayout>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/seta_esquerda" />
+                android:src="@drawable/icon_seta_esquerda" />
 
             <ImageView
                 android:id="@+id/imageView28"

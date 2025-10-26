@@ -6,21 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
-import com.example.projetosaveit.R
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.projetosaveit.adapter.AdapterProduto
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.LoteRepository
-import com.example.projetosaveit.api.repository.ProdutoRepository
 import com.example.projetosaveit.databinding.FragmentHomeBinding
 import com.example.projetosaveit.model.EmpresaDTO
-import com.example.projetosaveit.model.ProdutoDTO
 import com.example.projetosaveit.ui.AdicionarProduto
-import com.example.projetosaveit.ui.TelaEstoque
 import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Response
@@ -79,7 +74,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Produto>?>, t: Throwable) {
-                binding?.textHome?.text = "Erro: ${t.message}"
+                Toast.makeText(context, "Erro ao carregar produtos: ${t.message}", Toast.LENGTH_LONG).show()
             }
         })
     }

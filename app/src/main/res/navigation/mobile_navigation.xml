@@ -36,7 +36,7 @@
 
     <fragment
         android:id="@+id/cadastrar_relatorio"
-        android:name="com.example.projetosaveit.CadastrarRelatorio"
+        android:name="com.example.projetosaveit.ui.cadastrarRelatorio.CadastrarRelatorio"
         android:label="fragment_cadastrar_relatorio"
         tools:layout="@layout/fragment_cadastrar_relatorio" />
 </navigation>

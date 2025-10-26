@@ -39,9 +39,6 @@
             android:name=".ui.AdicionarProdutoVitrine"
             android:exported="false" />
         <activity
-            android:name=".ui.CadastrarRelatorio"
-            android:exported="false" />
-        <activity
             android:name=".ui.AtualizarSenha"
             android:exported="false" />
         <activity
@@ -69,13 +66,7 @@
             android:name=".ui.Login"
             android:exported="false" />
         <activity
-            android:name=".ui.TelaCadastroIndustria"
-            android:exported="false" />
-        <activity
             android:name=".ui.TelaCadastro2Comercio"
-            android:exported="false" />
-        <activity
-            android:name=".ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SplashScreen"
