@@ -63,6 +63,9 @@
             android:name=".ui.Login"
             android:exported="false" />
         <activity
+            android:name=".ui.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.TelaCadastro2Comercio"
             android:exported="false" />
         <activity

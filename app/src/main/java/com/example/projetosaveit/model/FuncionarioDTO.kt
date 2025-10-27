@@ -5,5 +5,5 @@ data class FuncionarioDTO (
     val name: String,
     val email: String,
     val enterpriseId: Long,
-    val admin: Boolean
+    val isAdmin: Boolean
 )

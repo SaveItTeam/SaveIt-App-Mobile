@@ -53,6 +53,13 @@ class Planos : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@Planos, "Plano atualizado com sucesso!", Toast.LENGTH_SHORT).show()
+
+                        Toast.makeText(this@Planos, "Insira um funcionário administrador para continuar.", Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this@Planos, InserirFuncionario::class.java)
+                        startActivity(intent)
+
+                        finish()
                     } else {
                         Toast.makeText(this@Planos, "Falha ao atualizar o plano.", Toast.LENGTH_SHORT).show()
                     }
@@ -65,19 +72,6 @@ class Planos : AppCompatActivity() {
                     Toast.makeText(this@Planos, "Erro na requisição: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
-
-//             Atualiza toolbar
-            val mainIntent = Intent(this, MainActivity::class.java)
-            mainIntent.putExtra("plano", 1)
-            startActivity(mainIntent)
-
-            Toast.makeText(this, "Insira um funcionário administrador para continuar.", Toast.LENGTH_LONG).show()
-
-//            Depois de abrir a MainActivity, vai direto pro cadastro
-            val cadastroIntent = Intent(this, InserirFuncionario::class.java)
-            startActivity(cadastroIntent)
-
-            finish()
         }
     }
 }

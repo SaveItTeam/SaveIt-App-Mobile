@@ -1,6 +1,7 @@
 package com.example.projetosaveit.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
@@ -19,9 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding!!.root)
 
         val navView: BottomNavigationView = binding!!.navView
-        val plano: Int? = if (intent.hasExtra("plano")) intent.getIntExtra("plano", 0) else null
-        val tipoFunc: Boolean? = if (intent.hasExtra("tipoFunc")) intent.getBooleanExtra("tipoFunc", false) else null
+        val plano: Int? = intent.extras?.getInt("plano")
+        val tipoFunc: Boolean? = intent.extras?.getBoolean("tipoFunc")
 
+        Log.d("MainActivity", "plano: $plano, tipoFunc: $tipoFunc")
 //        Factory Method
         val toolbarProvider = ToolbarFactory.criarToolbar(plano, tipoFunc)
         val appBarConfiguration = toolbarProvider.setupToolbar(navView)

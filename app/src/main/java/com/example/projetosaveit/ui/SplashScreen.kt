@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projetosaveit.R
@@ -33,10 +34,11 @@ class SplashScreen : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         intent.putExtra("plano", plano)
                         startActivity(intent)
+                        Log.d("plano", plano.toString())
                         finish()
                     } else {
                         GetFuncionario.pegarEmailFunc(userLogin.email!!) { func ->
-                            val tipoFunc = func?.admin ?: false
+                            val tipoFunc = func?.isAdmin ?: false
 
                             val intent = Intent(this, MainActivity::class.java)
                             intent.putExtra("tipoFunc", tipoFunc)

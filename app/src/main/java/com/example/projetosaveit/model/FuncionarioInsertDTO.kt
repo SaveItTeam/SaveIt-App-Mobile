@@ -5,5 +5,5 @@ data class FuncionarioInsertDTO(
     val email: String,
     val password: String,
     val enterpriseId: Long,
-    val admin: Boolean
+    val isAdmin: Boolean
 )

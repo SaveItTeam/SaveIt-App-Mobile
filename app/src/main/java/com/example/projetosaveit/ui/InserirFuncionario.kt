@@ -1,5 +1,6 @@
 package com.example.projetosaveit.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -42,72 +43,31 @@ class InserirFuncionario : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btCadastrarFunc).setOnClickListener {
-            val nome = findViewById<TextInputEditText>(R.id.nomeFunc).text.toString()
-            val email = findViewById<TextInputEditText>(R.id.emailFunc).text.toString()
-            val senha = findViewById<TextInputEditText>(R.id.senhaFunc).text.toString()
-
-            val tipoCheck = findViewById<RadioGroup>(R.id.radioGrupo)
-            val tipoFunc = when (tipoCheck.checkedRadioButtonId) {
-                R.id.radioSim -> true
-                else -> false
-            }
 
             val usuario: FirebaseUser = objAutenticar.currentUser!!
             var id: Long = 0
 
             GetFuncionario.pegarEmailFunc(usuario.email.toString()) { func ->
-                id = func!!.enterpriseId
-            }
-
-            // Buscar ID da empresa antes de cadastrar funcionário
-            GetEmpresa.pegarIdEmpresa(id) { empresa ->
-                if (empresa == null) {
-                    Toast.makeText(
-                        this@InserirFuncionario,
-                        "Erro ao obter dados da empresa.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@pegarIdEmpresa
-                } else {
-                    val idEmpresa = empresa.id
-
-                    val funcionario = FuncionarioInsertDTO(
-                        enterpriseId = idEmpresa,
-                        email = email,
-                        name = nome,
-                        password = senha,
-                        admin = tipoFunc
-                    )
-
-                    // Cadastrar funcionário
-                    repository.postFuncionario(funcionario).enqueue(object : Callback<ResponseBody> {
-                        override fun onResponse(
-                            call: Call<ResponseBody>,
-                            response: Response<ResponseBody>
-                        ) {
-                            if (response.isSuccessful) {
-                                Toast.makeText(
-                                    this@InserirFuncionario,
-                                    "Funcionário cadastrado com sucesso!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            } else {
-                                Toast.makeText(
-                                    this@InserirFuncionario,
-                                    "Erro na API: ${response.code()} - ${response.message()}",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-
-                        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                if (func != null) {
+                    id = func!!.enterpriseId
+                    GetEmpresa.pegarIdEmpresa(id) { empresa ->
+                        if (empresa == null) {
                             Toast.makeText(
                                 this@InserirFuncionario,
-                                "Erro na API: ${t.message}",
+                                "Erro ao obter dados da empresa.",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            return@pegarIdEmpresa
+                        } else {
+                            val idEmpresa = empresa.id
+                            postFuncionario(idEmpresa)
                         }
-                    })
+                    }
+                } else {
+                    GetEmpresa.pegarEmailEmpresa(usuario.email.toString()) { empresa ->
+                        val idEmpresa = empresa!!.id
+                        postFuncionario(idEmpresa)
+                    }
                 }
             }
         }
@@ -115,5 +75,60 @@ class InserirFuncionario : AppCompatActivity() {
         findViewById<ImageView>(R.id.voltarInserirFunc).setOnClickListener {
             finish()
         }
+    }
+
+    fun postFuncionario(id: Long) {
+        val nome = findViewById<TextInputEditText>(R.id.nomeFunc).text.toString()
+        val email = findViewById<TextInputEditText>(R.id.emailFunc).text.toString()
+        val senha = findViewById<TextInputEditText>(R.id.senhaFunc).text.toString()
+
+        val tipoCheck = findViewById<RadioGroup>(R.id.radioGrupo)
+        val tipoFunc = when (tipoCheck.checkedRadioButtonId) {
+            R.id.radioSim -> true
+            else -> false
+        }
+
+        val funcionario = FuncionarioInsertDTO(
+            enterpriseId = id,
+            email = email,
+            name = nome,
+            password = senha,
+            isAdmin = tipoFunc
+        )
+
+        // Cadastrar funcionário
+        repository.postFuncionario(funcionario).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(
+                call: Call<ResponseBody>,
+                response: Response<ResponseBody>
+            ) {
+                if (response.isSuccessful) {
+                    Toast.makeText(
+                        this@InserirFuncionario,
+                        "Funcionário cadastrado com sucesso!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    val intent = Intent(this@InserirFuncionario, MainActivity::class.java)
+                    intent.putExtra("plano", 1)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(
+                        this@InserirFuncionario,
+                        "Erro na API: ${response.code()} - ${response.message()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(
+                    this@InserirFuncionario,
+                    "Erro na API: ${t.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
 }
