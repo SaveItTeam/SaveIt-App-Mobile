@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -65,12 +66,11 @@ class TelaCadastro2Comercio : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "A senha deve ter pelo menos 6 caracteres!", Toast.LENGTH_SHORT).show()
             }
+
+            findViewById<TextView>(R.id.btnLogin).setOnClickListener {
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+            }
         }
     }
-
-//    fun postEmpresa(empresaInsertDTO: EmpresaInsertDTO) {
-//
-//    }
-
-
 }

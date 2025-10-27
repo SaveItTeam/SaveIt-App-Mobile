@@ -90,6 +90,6 @@
         android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView38"
-        app:srcCompat="@drawable/seta_esquerda_tablet" />
+        app:srcCompat="@drawable/icon_seta_esquerda_tablet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

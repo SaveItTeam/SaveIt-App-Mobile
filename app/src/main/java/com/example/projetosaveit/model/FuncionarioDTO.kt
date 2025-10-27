@@ -1,4 +1,9 @@
 package com.example.projetosaveit.model
 
-class FuncionarioDTO {
-}
+data class FuncionarioDTO (
+    val id: Long,
+    val name: String,
+    val email: String,
+    val enterpriseId: Long,
+    val isAdmin: Boolean
+)

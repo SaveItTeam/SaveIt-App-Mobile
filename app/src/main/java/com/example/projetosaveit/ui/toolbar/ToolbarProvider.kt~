@@ -1,0 +1,4 @@
+package com.example.projetosaveit.ui.toolbar
+
+interface ToolbarProvider {
+}

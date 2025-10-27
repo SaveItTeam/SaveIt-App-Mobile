@@ -55,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/seta_esquerda" />
+        app:srcCompat="@drawable/icon_seta_esquerda" />
 
     <TextView
         android:id="@+id/textView34"

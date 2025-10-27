@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projetosaveit.R
+import com.example.projetosaveit.util.GetEmpresa
+import com.example.projetosaveit.util.GetFuncionario
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +22,10 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class Login : AppCompatActivity() {
 
-    val objAutenticar : FirebaseAuth = FirebaseAuth.getInstance()
+    private val objAutenticar : FirebaseAuth = FirebaseAuth.getInstance()
+    private var empresaVar = false
+    private var tipoFunc = false
+    private var plano: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +38,6 @@ class Login : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
 
         val btEsqueceuSenha : TextView = findViewById(R.id.esqueciSenha)
 
@@ -49,11 +52,27 @@ class Login : AppCompatActivity() {
             val txtEmail: String = findViewById<EditText>(R.id.emailLogin).text.toString()
             val txtSenha: String = findViewById<EditText>(R.id.senhaLogin).text.toString()
 
+            if (txtEmail.isBlank() || txtSenha.isBlank()) {
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             objAutenticar.signInWithEmailAndPassword(txtEmail, txtSenha)
                 .addOnCompleteListener { task: Task<AuthResult> ->
                     if (task.isSuccessful) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
+                        GetEmpresa.pegarEmailEmpresa(txtEmail) { empresa ->
+                            if (empresa != null) {
+                                // É empresa
+                                val plano = empresa.planId
+                                abrirMainActivity(plano = plano)
+                            } else {
+                                // Não é empresa, verifica se é funcionário
+                                GetFuncionario.pegarEmailFunc(txtEmail) { func ->
+                                    val tipoFunc = func?.isAdmin ?: false
+                                    abrirMainActivity(tipoFunc = tipoFunc)
+                                }
+                            }
+                        }
                     } else {
                         val exception = task.exception
                         when (exception) {
@@ -77,5 +96,17 @@ class Login : AppCompatActivity() {
             val intent = Intent(this, TelaCadastro2Comercio::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun abrirMainActivity(plano: Int? = null, tipoFunc: Boolean? = null) {
+        val intent = Intent(this, MainActivity::class.java)
+        if (plano != null) {
+            intent.putExtra("plano", plano)
+        }
+        if (tipoFunc != null) {
+            intent.putExtra("tipoFunc", tipoFunc)
+        }
+        startActivity(intent)
+        finish()
     }
 }

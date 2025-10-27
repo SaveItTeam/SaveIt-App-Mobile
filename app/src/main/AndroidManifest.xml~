@@ -27,10 +27,13 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".Conversa"
+            android:name=".ui.Conversa"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MinhaVitrine"
             android:exported="false" />
         <activity
             android:name=".ui.AdicionarProdutoVitrine"
@@ -66,13 +69,7 @@
             android:name=".ui.Login"
             android:exported="false" />
         <activity
-            android:name=".ui.TelaCadastroIndustria"
-            android:exported="false" />
-        <activity
             android:name=".ui.TelaCadastro2Comercio"
-            android:exported="false" />
-        <activity
-            android:name=".ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SplashScreen"

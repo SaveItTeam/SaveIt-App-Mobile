@@ -24,7 +24,7 @@
         android:layout_marginTop="72dp"
         android:background="@android:color/transparent"
         android:padding="8dp"
-        android:src="@drawable/seta_esquerda"
+        android:src="@drawable/icon_seta_esquerda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"

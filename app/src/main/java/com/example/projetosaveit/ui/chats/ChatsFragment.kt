@@ -29,6 +29,7 @@ class ChatsFragment : Fragment() {
     private lateinit var adapter: AdapterChat
     private val chatRepository = ChatRepository()
     private val empresaRepository = EmpresaRepository()
+    private var mostrarNaoLidos = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,6 +65,17 @@ class ChatsFragment : Fragment() {
             override fun afterTextChanged(s: android.text.Editable?) {
             }
         })
+
+        binding?.btTodos?.setOnClickListener {
+            mostrarNaoLidos = false
+            aplicarFiltro()
+        }
+
+        binding?.btNaoLidos?.setOnClickListener {
+            mostrarNaoLidos = true
+            aplicarFiltro()
+        }
+
 
         return binding!!.root
     }
@@ -190,16 +202,35 @@ class ChatsFragment : Fragment() {
     }
 
     private fun buscarChats(filtro: String) {
-        if (filtro.isEmpty()) {
-            adapter.listChats = listaOriginal.toMutableList()
+        val base = if (mostrarNaoLidos) {
+            listaOriginal.filter { !it.read }
         } else {
-            val filtradas = listaOriginal.filter { chat ->
-                chat.empresa?.name?.lowercase()?.contains(filtro) == true
-            }
-            adapter.listChats = filtradas.toMutableList()
+            listaOriginal
         }
+
+        val filtradas = if (filtro.isEmpty()) {
+            base
+        } else {
+            base.filter { chat -> chat.empresa?.name?.lowercase()?.contains(filtro) == true }
+        }
+
+        adapter.listChats = filtradas.toMutableList()
         adapter.notifyDataSetChanged()
     }
+
+    private fun aplicarFiltro() {
+        val listaFiltrada = if (mostrarNaoLidos) {
+            listaOriginal.filter { chat ->
+                chat.read == false
+            }
+        } else {
+            listaOriginal
+        }
+
+        adapter.listChats = listaFiltrada.toMutableList()
+        adapter.notifyDataSetChanged()
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

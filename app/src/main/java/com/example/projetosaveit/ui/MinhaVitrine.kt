@@ -9,9 +9,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.AdapterVitrine
 import com.example.projetosaveit.adapter.recycleView.Vitrine
-import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.util.GetEmpresa
+import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
 
 class MinhaVitrine : AppCompatActivity() {
@@ -28,12 +28,23 @@ class MinhaVitrine : AppCompatActivity() {
             insets
         }
 
-        GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email.toString()) { empresa ->
+        val email = objAutenticar.currentUser?.email.toString()
+
+        GetEmpresa.pegarEmailEmpresa(email.toString()) { empresa ->
             if (empresa != null) {
-                val idEmpresa = empresa.id
-                getarVitrinePorIdEmpresa(idEmpresa)
+                getarVitrinePorIdEmpresa(empresa.id)
             } else {
-                Toast.makeText(this, "Erro ao obter empresa.", Toast.LENGTH_SHORT).show()
+                GetFuncionario.pegarEmailFunc(email.toString()) { func ->
+                    if (func == null) {
+                        Toast.makeText(this, "Erro ao identificar usuário.", Toast.LENGTH_LONG).show()
+                        return@pegarEmailFunc
+                    } else {
+                        GetEmpresa.pegarIdEmpresa(func.enterpriseId) { empresa
+                            val idEmpresa = empresa?.id
+                            getarVitrinePorIdEmpresa(idEmpresa!!)
+                        }
+                    }
+                }
             }
         }
 

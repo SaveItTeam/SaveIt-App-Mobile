@@ -30,4 +30,26 @@ object GetEmpresa {
             }
         })
     }
+
+    fun pegarIdEmpresa(id: Long, onResult: (EmpresaDTO?) -> Unit) {
+        Log.d("erro", "pegarIdEmpresa: buscando empresa para id = $id")
+        repositoryEmp.getEmpresaId(id).enqueue(object : Callback<EmpresaDTO> {
+            override fun onResponse(call: Call<EmpresaDTO>, response: Response<EmpresaDTO>) {
+                Log.d("teste", "getEmpresaId onResponse code=${response.code()}")
+                if (response.isSuccessful) {
+                    Log.d("teste", "getEmpresaId body=${response.body()}")
+                    onResult(response.body())
+                } else {
+                    val err = try { response.errorBody()?.string() } catch (e: Exception) { "erro lendo body" }
+                    Log.e("erro", "getEmpresaId erro do servidor: code=${response.code()} body=$err")
+                    onResult(null)
+                }
+            }
+
+            override fun onFailure(call: Call<EmpresaDTO>, t: Throwable) {
+                Log.e("erro", "getEmpresaId onFailure", t)
+                onResult(null)
+            }
+        })
+    }
 }

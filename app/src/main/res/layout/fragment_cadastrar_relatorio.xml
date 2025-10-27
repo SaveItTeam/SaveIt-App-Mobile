@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/Branco"
-    tools:context=".CadastrarRelatorio">
+    tools:context=".ui.cadastrarRelatorio.CadastrarRelatorio">
 
     <Button
         android:id="@+id/botaoCadastrarProduto2"
@@ -52,7 +52,7 @@
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="DIgite o nome do produto"
+        android:hint="Digite o nome do produto"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
@@ -112,18 +112,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.181"
         app:srcCompat="@drawable/saveitlogo" />
-
-    <ImageView
-        android:id="@+id/voltarInserirFunc2"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123"
-        app:srcCompat="@drawable/seta_esquerda" />
 
     <ImageView
         android:id="@+id/imageView11"

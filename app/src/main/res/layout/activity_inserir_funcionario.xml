@@ -156,7 +156,7 @@
         app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView31"
-        app:srcCompat="@drawable/seta_esquerda" />
+        app:srcCompat="@drawable/icon_seta_esquerda" />
 
 
     <RadioGroup

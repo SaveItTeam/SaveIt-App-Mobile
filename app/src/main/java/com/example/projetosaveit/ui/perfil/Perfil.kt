@@ -5,7 +5,6 @@ import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -14,7 +13,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -31,16 +29,13 @@ import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.ImagemRepository
-import com.example.projetosaveit.model.ImagemDTO
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.ui.InserirFuncionario
 import com.example.projetosaveit.ui.Planos
+import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Response
 import java.io.File
 import java.io.FileOutputStream
 
@@ -88,16 +83,15 @@ class Perfil : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
-
-        val empresaLogada : FirebaseUser = objAutenticar.getCurrentUser()!!
         var plano: String
+        val email = objAutenticar.currentUser?.email
 
-        GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email.toString()) {
+        GetEmpresa.pegarEmailEmpresa(email.toString()) {
             if (it != null) {
                 idEmpresa = it.id
                 view.findViewById<TextView>(R.id.nomePerfil).text = it.name
                 if (it.planId == 1) {
-                    plano = "Essential"
+                    plano = "Plano Atual: SaveIt Pro"
                 } else {
                     plano = "Nenhum"
                 }
@@ -106,7 +100,24 @@ class Perfil : Fragment() {
 
                 pegarImagemEmpresa(idEmpresa)
             } else {
-                Toast.makeText(context, "Não conseguiu pegar o id da empresa", Toast.LENGTH_LONG).show()
+                GetFuncionario.pegarEmailFunc(email.toString()) { func ->
+                    if (func != null) {
+                        val id = func.enterpriseId.toLong()
+                        GetEmpresa.pegarIdEmpresa(id) { empresa ->
+                            if (empresa != null) {
+                                idEmpresa = empresa.id
+                                view.findViewById<TextView>(R.id.nomePerfil).text = empresa.name
+                                val plano = if (empresa.planId == 1) "Plano Atual: SaveIt Pro" else "Nenhum"
+                                view.findViewById<TextView>(R.id.planoAtual).text = plano
+                                pegarImagemEmpresa(idEmpresa)
+                            } else {
+                                Toast.makeText(context, "Empresa não encontrada.", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(context, "Funcionário não encontrado.", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
         }
 
@@ -114,8 +125,6 @@ class Perfil : Fragment() {
         avatar.setOnClickListener {
             showImagePickerOptions()
         }
-
-
 
         view.findViewById<ConstraintLayout>(R.id.btConfiguracoes).setOnClickListener {
             val intent = Intent(this.activity, ConfiguracoesPerfil::class.java)
@@ -133,32 +142,6 @@ class Perfil : Fragment() {
         }
 
         return view
-    }
-
-    companion object {
-        // TODO: Rename parameter arguments, choose names that match
-        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        private const val ARG_PARAM1 = "param1"
-        private const val ARG_PARAM2 = "param2"
-
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Perfil.
-         */
-        // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String?, param2: String?): Perfil {
-            val fragment = Perfil()
-            val args = Bundle()
-            args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
-            fragment.arguments = args
-            return fragment
-        }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
