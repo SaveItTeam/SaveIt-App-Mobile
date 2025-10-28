@@ -70,6 +70,7 @@ class TelaCadastro2Comercio : AppCompatActivity() {
             findViewById<TextView>(R.id.btnLogin).setOnClickListener {
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
+                finish()
             }
         }
     }

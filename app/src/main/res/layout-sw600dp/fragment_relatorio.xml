@@ -55,7 +55,7 @@
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Mês"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -64,15 +64,15 @@
                 android:id="@+id/textView43"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
+                android:layout_marginStart="52dp"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Entrada"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView42"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.52" />
+                app:layout_constraintVertical_bias="0.523" />
 
             <TextView
                 android:id="@+id/textView44"
@@ -82,7 +82,7 @@
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Saída"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView43"
                 app:layout_constraintTop_toTopOf="parent"
@@ -96,7 +96,7 @@
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Perda"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.6"
@@ -117,174 +117,18 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center|top"
             android:orientation="vertical">
 
             <TableLayout
                 android:id="@+id/tableLayout"
-                android:layout_width="500dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:padding="4dp"
-                android:stretchColumns="1,2,3,4">
-
-                <TableRow>
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="Janeiro"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="2dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-                </TableRow>
-
-                <TableRow>
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="Fevereiro"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-                </TableRow>
-
-                <TableRow>
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="Março"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-                </TableRow>
-
-                <TableRow>
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="Abril"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:background="@drawable/borda_cell"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="000"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp" />
-                </TableRow>
-
-            </TableLayout>
-
+                android:padding="8dp"
+                android:stretchColumns="1,2,3,4"></TableLayout>
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

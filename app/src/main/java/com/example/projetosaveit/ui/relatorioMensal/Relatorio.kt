@@ -1,60 +1,114 @@
 package com.example.projetosaveit.ui.relatorioMensal
 
 import android.os.Bundle
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TableRow
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.projetosaveit.R
+import com.example.projetosaveit.api.repository.EstoqueRepository
+import com.example.projetosaveit.databinding.FragmentRelatorioBinding
+import com.example.projetosaveit.model.RelatorioDTO
+import com.example.projetosaveit.util.GetEmpresa
+import com.example.projetosaveit.util.GetFuncionario
+import com.google.firebase.auth.FirebaseAuth
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 
-/**
- * A simple [androidx.fragment.app.Fragment] subclass.
- * Use the [Relatorio.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Relatorio : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var mParam1: String? = null
-    private var mParam2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (arguments != null) {
-            mParam1 = arguments!!.getString(ARG_PARAM1)
-            mParam2 = arguments!!.getString(ARG_PARAM2)
-        }
-    }
+    private val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
+    private var binding: FragmentRelatorioBinding? = null
+    private val estoqueRepository = EstoqueRepository()
+    private var idEmpresa = 1L
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_relatorio, container, false)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentRelatorioBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
-    companion object {
-        // TODO: Rename parameter arguments, choose names that match
-        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        private const val ARG_PARAM1 = "param1"
-        private const val ARG_PARAM2 = "param2"
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Relatorio.
-         */
-        // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String?, param2: String?): Relatorio {
-            val fragment = Relatorio()
-            val args = Bundle()
-            args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
-            fragment.arguments = args
-            return fragment
+        val email = objAutenticar.currentUser?.email
+        if (email == null) {
+            Log.e("Relatório", "Usuário não autenticado")
+            return
         }
+
+        GetFuncionario.pegarEmailFunc(email) { func ->
+            if (func != null) {
+                val enterpriseId = func.enterpriseId
+                GetEmpresa.pegarIdEmpresa(enterpriseId) { empresa ->
+                    if (empresa != null) {
+                        idEmpresa = empresa.id
+                        estoqueRepository.getRelatorioMensal(idEmpresa)
+                            .enqueue(object : retrofit2.Callback<List<RelatorioDTO>> {
+                                override fun onResponse(
+                                    call: retrofit2.Call<List<RelatorioDTO>>,
+                                    response: retrofit2.Response<List<RelatorioDTO>>
+                                ) {
+                                    if (response.isSuccessful)
+                                        fillTable(response.body() ?: emptyList())
+                                }
+
+                                override fun onFailure(
+                                    call: retrofit2.Call<List<RelatorioDTO>>,
+                                    t: Throwable
+                                ) {
+                                    Log.e("Relatório", "Falha: ${t.message}", t)
+                                }
+                            })
+                    } else {
+                        Log.e("Relatório", "Empresa não encontrada para o ID: $enterpriseId")
+                    }
+                }
+            } else {
+                Log.e("Relatório", "Funcionário não encontrado para o email: $email")
+            }
+        }
+    }
+
+    private fun fillTable(data: List<RelatorioDTO>) {
+        val table = binding?.tableLayout ?: return
+        table.removeAllViews()
+
+        val months = listOf(
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        )
+
+        val monthMap = data.associateBy { it.monthOutput - 1 }
+
+        months.forEachIndexed { index, month ->
+            val row = TableRow(requireContext())
+
+            val totals = monthMap[index]
+            row.addView(createCell(month))
+            row.addView(createCell((totals?.totalInput ?: 0).toString()))
+            row.addView(createCell((totals?.totalOutput ?: 0).toString()))
+            row.addView(createCell((totals?.totalDiscard ?: 0).toString()))
+
+            table.addView(row)
+        }
+    }
+
+    private fun createCell(text: String) = TextView(requireContext()).apply {
+        this.text = text
+        setPadding(8, 8, 8, 8)
+        setTextColor(ContextCompat.getColor(requireContext(), R.color.PretoNaoPuro))
+        gravity = Gravity.CENTER
+        setBackgroundResource(R.drawable.borda_cell)
+        typeface = ResourcesCompat.getFont(requireContext(), R.font.inclusive_sans)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

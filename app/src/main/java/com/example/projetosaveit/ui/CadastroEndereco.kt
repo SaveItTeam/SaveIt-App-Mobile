@@ -99,7 +99,7 @@ class CadastroEndereco : AppCompatActivity() {
                                     ).show()
                                     val intent = Intent(this, MainActivity::class.java)
                                     intent.putExtra("plano", 0)
-                                    intent.putExtra("tipoFunc", true)
+                                    intent.putExtra("tipoFunc", false)
                                     startActivity(intent)
                                     finish()
                                 }

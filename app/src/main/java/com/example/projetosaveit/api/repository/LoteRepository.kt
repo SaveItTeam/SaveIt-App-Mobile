@@ -2,6 +2,7 @@ package com.example.projetosaveit.api.repository
 
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.api.network.RetrofitClientSql
+import com.example.projetosaveit.model.LoteDTO
 import com.example.projetosaveit.model.LoteInsertDTO
 import com.example.projetosaveit.model.ProdutoDTO
 import com.example.projetosaveit.model.ProdutoInfoDTO
@@ -23,5 +24,9 @@ class LoteRepository {
 
     fun patchProdutoId(id : Long, updates : Map<String, @JvmSuppressWildcards Any>): Call<ResponseBody> {
         return RetrofitClientSql.instance.patchProdutoId(id, updates)
+    }
+
+    fun getLoteSku(sku: String) : Call<LoteDTO> {
+        return RetrofitClientSql.instance.getBatchSku(sku)
     }
 }

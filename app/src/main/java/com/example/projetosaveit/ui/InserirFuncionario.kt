@@ -77,7 +77,7 @@ class InserirFuncionario : AppCompatActivity() {
         }
     }
 
-    fun postFuncionario(id: Long) {
+    private fun postFuncionario(id: Long) {
         val nome = findViewById<TextInputEditText>(R.id.nomeFunc).text.toString()
         val email = findViewById<TextInputEditText>(R.id.emailFunc).text.toString()
         val senha = findViewById<TextInputEditText>(R.id.senhaFunc).text.toString()

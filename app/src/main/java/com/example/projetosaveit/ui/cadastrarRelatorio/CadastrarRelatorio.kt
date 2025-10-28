@@ -4,46 +4,97 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.projetosaveit.R
+import com.example.projetosaveit.api.repository.EstoqueRepository
+import com.example.projetosaveit.api.repository.LoteRepository
+import com.example.projetosaveit.databinding.FragmentCadastrarRelatorioBinding
+import com.example.projetosaveit.model.EstoqueInsertDTO
+import com.example.projetosaveit.model.LoteDTO
+import com.google.firebase.auth.FirebaseAuth
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Response
+import java.time.LocalDateTime
 
-/**
- * A simple [androidx.fragment.app.Fragment] subclass.
- * Use the [CadastrarRelatorio.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CadastrarRelatorio : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private var binding: FragmentCadastrarRelatorioBinding? = null
+    private val loteRepository = LoteRepository()
+    private val estoqueRepository = EstoqueRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cadastrar_relatorio, container, false)
+    ): View {
+        binding = FragmentCadastrarRelatorioBinding.inflate(inflater, container, false)
+
+        binding?.btnCadastrarEstoque?.setOnClickListener {
+
+            val sku = binding?.sku?.text.toString()
+            val qntdProd = binding?.qntdProd?.text.toString()
+            val qntdSaida = binding?.qntdSaida?.text.toString()
+            val motivoDescarte = binding?.motivoDescarte?.text.toString()
+            val qntdDescarte = binding?.qntdDescarte?.text.toString()
+
+            if (sku.isBlank() || qntdProd.isBlank() || qntdSaida.isBlank() || qntdDescarte.isBlank()) {
+                Toast.makeText(requireContext(), "Preencha todos os campos obrigatórios.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val createdAt = LocalDateTime.now()
+
+            loteRepository.getLoteSku(sku).enqueue(object : retrofit2.Callback<LoteDTO> {
+                override fun onResponse(call: Call<LoteDTO>, response: Response<LoteDTO>) {
+                    if (response.isSuccessful) {
+                        val lote = response.body()
+                        if (lote != null) {
+                            val estoqueDto = EstoqueInsertDTO(
+                                quantityInput = qntdProd.toInt(),
+                                quantityOutput = qntdSaida.toInt(),
+                                createdAt = createdAt.toString(),
+                                productId = lote.productId,
+                                batchId = lote.id,
+                                discardReason = motivoDescarte,
+                                discardQuantity = qntdDescarte.toInt()
+                            )
+
+                            estoqueRepository.postEstoque(estoqueDto)
+                                .enqueue(object : retrofit2.Callback<ResponseBody> {
+                                    override fun onResponse(
+                                        call: Call<ResponseBody>,
+                                        response: Response<ResponseBody>
+                                    ) {
+                                        if (response.isSuccessful) {
+                                            Toast.makeText(requireContext(), "Estoque cadastrado com sucesso", Toast.LENGTH_SHORT).show()
+                                        } else {
+                                            Toast.makeText(requireContext(), "Erro ao cadastrar estoque", Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+
+                                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                                        Toast.makeText(requireContext(), "Erro ao cadastrar estoque: ${t.message}", Toast.LENGTH_SHORT).show()
+                                    }
+                                })
+                        } else {
+                            Toast.makeText(requireContext(), "Lote não encontrado", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(requireContext(), "Erro ao buscar lote", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<LoteDTO>, t: Throwable) {
+                    Toast.makeText(requireContext(), "Erro ao buscar lote: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
+        return binding!!.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CadastrarRelatorio.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CadastrarRelatorio().apply {
-
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

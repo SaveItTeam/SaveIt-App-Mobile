@@ -8,10 +8,11 @@
     tools:context=".ui.cadastrarRelatorio.CadastrarRelatorio">
 
     <Button
-        android:id="@+id/botaoCadastrarProduto2"
+        android:id="@+id/btnCadastrarEstoque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
         android:background="@drawable/bt_cadastro_estilizacao_tablet"
         android:fontFamily="@font/inclusive_sans"
         android:padding="20dp"
@@ -23,89 +24,106 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dataHora"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintTop_toBottomOf="@+id/motivoDescarte"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/qntdProd"
-        android:layout_width="475dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite a quantidade que entrou"
+        android:hint="Digite a quantidade de entradas"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.532" />
+        app:layout_constraintTop_toBottomOf="@+id/sku"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/motivoDescarte"
+        android:layout_width="505dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite o motivo do descarte"
+        android:paddingLeft="10dp"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qntdDescarte" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/qntdSaida"
-        android:layout_width="475dp"
+        android:layout_width="505dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite a quantidade que saiu"
+        android:hint="Digite a quantidade de saídas"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintTop_toBottomOf="@+id/qntdProd"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/dataHora"
-        android:layout_width="475dp"
+        android:id="@+id/qntdDescarte"
+        android:layout_width="505dp"
         android:layout_height="50dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite a data e hora"
+        android:hint="Digite a quantidade descartada"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        app:layout_constraintTop_toBottomOf="@+id/qntdSaida" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nomeProd"
-        android:layout_width="475dp"
+        android:id="@+id/sku"
+        android:layout_width="505dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
-        android:hint="Digite o nome do produto"
+        android:hint="Digite a SKU do produto"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -115,20 +133,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208"
+        app:layout_constraintVertical_bias="0.226"
         app:srcCompat="@drawable/saveitlogo" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="415dp"
-        android:layout_height="240dp"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/onda_verde_escura_dez" />
+        app:srcCompat="@drawable/onda_verde_escuraeclara_onze" />
 
     <TextView
         android:id="@+id/textView3"
@@ -137,11 +155,11 @@
         android:fontFamily="@font/plus_jakarta_sans_extralight"
         android:text="Registrar relatório"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/nomeProd"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/motivoDescarte"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.08" />
 </androidx.constraintlayout.widget.ConstraintLayout>

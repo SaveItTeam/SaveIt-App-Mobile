@@ -1,6 +1,8 @@
 package com.example.projetosaveit.api.repository
 
 import com.example.projetosaveit.api.network.ApiService
+import com.example.projetosaveit.api.network.RetrofitClientSql
+import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.ProdutoDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -8,5 +10,7 @@ import retrofit2.Response
 
 
 class ProdutoRepository {
-    // Por enquanto nada...
+    fun postProduto(estoque : EstoqueDTO) : Call<ResponseBody> {
+        return RetrofitClientSql.instance.postProduto(estoque)
+    }
 }
