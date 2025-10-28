@@ -1,5 +1,6 @@
 package com.example.projetosaveit.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -15,6 +16,7 @@ import java.util.Date
 import java.util.Locale
 
 class ProdutoVitrine : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.enableEdgeToEdge()
@@ -32,7 +34,7 @@ class ProdutoVitrine : AppCompatActivity() {
         val descricaoProduto = bundle?.getString("descricaoVitrine")
         val empresaVitrine = bundle?.getString("empresaVitrine")
         val validadeProduto = bundle?.getString("validadeVitrine")
-        val quantidadeVitreine = bundle?.getString("quantidadeVitrine")
+        val quantidadeVitrine = bundle?.getInt("quantidadeVitrine").toString()
         val pesoVitrine = bundle?.getString("pesoVitrine")
         val localizacaoVitrine = bundle?.getString("localizacaoVitrine")
         val imgProduto = bundle?.getString("imagemVitrine")
@@ -44,7 +46,7 @@ class ProdutoVitrine : AppCompatActivity() {
         (findViewById<TextView>(R.id.descricaoProdutoResult)).setText(descricaoProduto)
         (findViewById<TextView>(R.id.empresaProdutoResult)).setText(empresaVitrine)
         (findViewById<TextView>(R.id.validadeProdutoResult)).setText(validadeProduto)
-        (findViewById<TextView>(R.id.pesoProdutoResult)).setText(quantidadeVitreine + " " + pesoVitrine)
+        (findViewById<TextView>(R.id.pesoProdutoResult)).setText(quantidadeVitrine + " " + pesoVitrine)
         (findViewById<TextView>(R.id.cidadeProdutoResult)).setText(localizacaoVitrine)
 
         (findViewById<ImageView>(R.id.setaEsquerdaVoltar)).setOnClickListener {

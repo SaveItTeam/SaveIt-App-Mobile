@@ -3,6 +3,7 @@ package com.example.projetosaveit.adapter
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import java.util.Date
@@ -19,7 +20,6 @@ import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.api.repository.EstoqueRepository
 import com.example.projetosaveit.api.repository.LoteRepository
-import com.example.projetosaveit.api.repository.ProdutoRepository
 import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.ProdutoInfoDTO
@@ -38,7 +38,7 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
     var listProdutos = listOf<Produto>()
     var repository : LoteRepository = LoteRepository()
     var repositoryVitrine : VitrineRepository = VitrineRepository()
-    var produtoRepository : ProdutoRepository = ProdutoRepository()
+    var repositoryEstoque : EstoqueRepository = EstoqueRepository()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -85,7 +85,10 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                     cancelBtn.setOnClickListener { dialog.dismiss() }
                     saveBtn.setOnClickListener {
                         val quantidade = editQuantidade.text.toString().toInt()
-                        val vitrineInsert : VitrineInsertDTO = VitrineInsertDTO("", produto.batchId, quantidade, Date())
+                        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.getDefault())
+                        val currentDate = sdf.format(Date())
+
+                        val vitrineInsert = VitrineInsertDTO("", produto.batchId, quantidade, currentDate)
 
                         repositoryVitrine.postVitrine(vitrineInsert).enqueue(object : retrofit2.Callback<ResponseBody> {
                             override fun onResponse(
@@ -93,29 +96,26 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                                 response: retrofit2.Response<ResponseBody>
                             ) {
                                 if (response.isSuccessful) {
+                                    val apenasNumero = produto.quantity.filter { it.isDigit() }
+                                    val quantidadeAtual = apenasNumero.toInt()
                                     Toast.makeText(holder.itemView.context, "Produto adicionado à vitrine com sucesso!", Toast.LENGTH_LONG).show()
-                                    val updates = mapOf("quatity" to produto.quantity.toInt() - quantidade)
-                                    repository.patchProdutoId(produto.id, updates).enqueue(object : retrofit2.Callback<ResponseBody> {
+                                    var estoque : EstoqueDTO = EstoqueDTO(0, 0, quantidadeAtual - quantidade, produto.batchId, produto.id, 0, "", currentDate)
+                                    repositoryEstoque.postEstoque(estoque).enqueue(object : retrofit2.Callback<ResponseBody> {
                                         override fun onResponse(
                                             call: retrofit2.Call<ResponseBody>,
                                             response: retrofit2.Response<ResponseBody>
                                         ) {
                                             if (response.isSuccessful) {
-                                                var estoque : EstoqueDTO = EstoqueDTO(0, 0, produto.quantity.toInt() - quantidade, produto.batchId, produto.id, 0, "", LocalDateTime.now())
-                                                produtoRepository.postProduto(estoque).enqueue(object : retrofit2.Callback<ResponseBody> {
-                                                    override fun onResponse(
-                                                        call: retrofit2.Call<ResponseBody>,
-                                                        response: retrofit2.Response<ResponseBody>
-                                                    ) {
-                                                        if (response.isSuccessful) {
-                                                            Toast.makeText(holder.itemView.context, "O estoque foi atualizado junto com inserção na vitrine", Toast.LENGTH_LONG).show()
-                                                        }
-                                                    }
+                                                Toast.makeText(holder.itemView.context, "O estoque foi atualizado junto com inserção na vitrine", Toast.LENGTH_LONG).show()
+                                            }else {
+                                                val errorBodyString = try {
+                                                    response.errorBody()?.string()
+                                                } catch (e: Exception) {
+                                                    "Erro desconhecido ao ler o corpo de erro"
+                                                }
 
-                                                    override fun onFailure(call: retrofit2.Call<ResponseBody>, t: Throwable) {
-                                                        Toast.makeText(holder.itemView.context, "Erro ao atualizar estoque: ${t.message}", Toast.LENGTH_LONG).show()
-                                                    }
-                                                })
+                                                Log.e("API_ERROR", "Erro na API: $errorBodyString")
+                                                Toast.makeText(context, errorBodyString ?: "Erro desconhecido", Toast.LENGTH_LONG).show()
                                             }
                                         }
 
@@ -123,6 +123,15 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                                             Toast.makeText(holder.itemView.context, "Erro ao atualizar estoque: ${t.message}", Toast.LENGTH_LONG).show()
                                         }
                                     })
+                                }else {
+                                    val errorBodyString = try {
+                                        response.errorBody()?.string()
+                                    } catch (e: Exception) {
+                                        "Erro desconhecido ao ler o corpo de erro"
+                                    }
+
+                                    Log.e("API_ERROR", "Erro na API: $errorBodyString")
+                                    Toast.makeText(context, errorBodyString ?: "Erro desconhecido", Toast.LENGTH_LONG).show()
                                 }
                             }
 
@@ -140,7 +149,7 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                 }
 
                 else -> {
-                    repository.getProdutoId(produto.id).enqueue(object : retrofit2.Callback<ProdutoInfoDTO> {
+                    repository.getProdutoId(produto.batchId).enqueue(object : retrofit2.Callback<ProdutoInfoDTO> {
                         override fun onResponse(
                             call: retrofit2.Call<ProdutoInfoDTO>,
                             response: retrofit2.Response<ProdutoInfoDTO>
@@ -174,6 +183,7 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                                 bundle.putString("quantidadeMostrada", produto?.batchResponseDTO?.quantity.toString())
                                 bundle.putString("marcaProduto", produto?.productResponseDTO?.brand)
                                 bundle.putString("skuProduto", produto?.batchResponseDTO?.batchCode)
+                                bundle.putLong("idProduto", produto?.productResponseDTO?.id!!)
 
                                 val intent : Intent = Intent(holder.itemView.context, TelaEstoque::class.java)
                                 intent.putExtras(bundle)

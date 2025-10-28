@@ -88,9 +88,14 @@ class HomeFragment : Fragment() {
                     Log.d("teste", "getEmpresa body=${response.body()}")
                     onResult(response.body())
                 } else {
-                    val err = try { response.errorBody()?.string() } catch (e: Exception) { "erro lendo body" }
-                    Log.e("erro", "getEmpresa erro do servidor: code=${response.code()} body=$err")
-                    onResult(null)
+                    val errorBodyString = try {
+                        response.errorBody()?.string()
+                    } catch (e: Exception) {
+                        "Erro desconhecido ao ler o corpo de erro"
+                    }
+
+                    Log.e("API_ERROR", "Erro na API: $errorBodyString")
+                    Toast.makeText(context, errorBodyString ?: "Erro desconhecido", Toast.LENGTH_LONG).show()
                 }
             }
 

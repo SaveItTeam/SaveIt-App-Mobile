@@ -10,7 +10,5 @@ import retrofit2.Response
 
 
 class ProdutoRepository {
-    fun postProduto(estoque : EstoqueDTO) : Call<ResponseBody> {
-        return RetrofitClientSql.instance.postProduto(estoque)
-    }
+    // por enquanto nada...
 }

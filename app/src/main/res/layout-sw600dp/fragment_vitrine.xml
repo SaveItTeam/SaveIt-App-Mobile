@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.213">
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/todosFiltro"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -66,7 +66,7 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/button15"
+            android:id="@+id/embutidosFiltro"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -80,7 +80,7 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/lacticiniosFiltro"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10dp"

@@ -332,6 +332,7 @@ class AdicionarProduto : AppCompatActivity() {
                         },
                         onError = { e ->
                             Toast.makeText(this@AdicionarProduto, "Erro no upload: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Log.d(ContentValues.TAG, "Erro no upload: ${e.message}")
                         }
                     )
                 }
@@ -410,8 +411,13 @@ class AdicionarProduto : AppCompatActivity() {
     }
 
     private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(intent, REQUEST_IMAGE_PICK)
+        if (ContextCompat.checkSelfPermission(this@AdicionarProduto, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestCameraPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            return
+        } else {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, REQUEST_IMAGE_PICK)
+        }
     }
 
     private fun openCamera() {

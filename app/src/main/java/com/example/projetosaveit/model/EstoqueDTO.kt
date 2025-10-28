@@ -10,5 +10,5 @@ class EstoqueDTO (
     var productId : Long,
     var discardQuantity : Int,
     var discardReason : String,
-    var createdAt : LocalDateTime
+    var createdAt : String
 )
