@@ -40,52 +40,95 @@
         app:layout_constraintTop_toBottomOf="@+id/text_dashboard"
         app:layout_constraintVertical_bias="0.009" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <HorizontalScrollView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26"
-        app:layout_constraintVertical_bias="0.028">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20">
 
-        <Button
-            android:id="@+id/button9"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/bt_filtro_estilizacao"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Todos"
-            android:textAllCaps="false"
-            android:textColor="@color/BrancoNaoPuro" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView26"
+            app:layout_constraintVertical_bias="0.028">
 
-        <Button
-            android:id="@+id/button15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/bt_filtro_estilizacao"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Embutidos"
-            android:textAllCaps="false"
-            android:textColor="@color/BrancoNaoPuro" />
+            <Button
+                android:id="@+id/todosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Todos"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
 
-        <Button
-            android:id="@+id/button14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/bt_filtro_estilizacao"
-            android:fontFamily="@font/inclusive_sans"
-            android:text="Laticínios"
-            android:textAllCaps="false"
-            android:textColor="@color/BrancoNaoPuro" />
+            <Button
+                android:id="@+id/embutidosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Embutidos"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/lacticiniosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Laticínios"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
+
+            <Button
+                android:id="@+id/graosFIltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Grãos"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
+
+            <Button
+                android:id="@+id/frutasFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Frutas"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
+
+            <Button
+                android:id="@+id/salgadosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Salgados"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVitrine"
@@ -116,9 +159,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.062"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/botaoMinhaVitrine"
@@ -134,8 +175,6 @@
         app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

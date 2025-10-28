@@ -6,7 +6,6 @@ import com.example.projetosaveit.model.ChatDTO
 import com.example.projetosaveit.model.EmpresaDTO
 import com.example.projetosaveit.model.EmpresaInsertDTO
 import com.example.projetosaveit.model.EstoqueDTO
-import com.example.projetosaveit.model.EstoqueInsertDTO
 import com.example.projetosaveit.model.FuncionarioDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
 import com.example.projetosaveit.model.ImagemDTO
@@ -14,6 +13,7 @@ import com.example.projetosaveit.model.LoteDTO
 import com.example.projetosaveit.model.LoteInsertDTO
 import com.example.projetosaveit.model.ProdutoInfoDTO
 import com.example.projetosaveit.model.RelatorioDTO
+import com.example.projetosaveit.model.RelatorioProdutoDTO
 import com.example.projetosaveit.model.VitrineDTO
 import com.example.projetosaveit.model.VitrineInsertDTO
 import okhttp3.ResponseBody
@@ -30,8 +30,18 @@ interface ApiService {
 
 //    API de SQL
 
-    @POST("api/product/inserir")
-    fun postProduto(@Body estoque : EstoqueDTO) : Call<ResponseBody>
+    @GET("api/stock/relatorioProdutoPorProduto/{enterpriseId}/{productId}")
+    fun getRelatorioProduto(@Path("enterpriseId") enterpriseId: Long, @Path("productId") productId: Long
+    ): Call<List<RelatorioProdutoDTO>>
+
+    @GET("api/stock/relatorioProduto/{enterpriseId}")
+    fun getRelatorioProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<RelatorioDTO>>
+
+    @POST("/api/stock/inserir")
+    fun postEstoque(@Body estoque : EstoqueDTO) : Call<ResponseBody>
+
+    @GET("/api/batch/selecionarSku/{sku}")
+    fun getBatchSku(@Path("sku") sku : String) : Call<LoteDTO>
 
     @GET("api/batch/listarProdutosLote/{enterpriseId}")
     fun getProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<Produto>>
@@ -80,15 +90,6 @@ interface ApiService {
 
     @GET("api/employee/buscarPorEmail/{email}")
     fun getFuncionarioEmail(@Path("email") email : String): Call<FuncionarioDTO>
-
-    @GET("api/stock/relatorioProduto/{enterpriseId}")
-    fun getRelatorioProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<RelatorioDTO>>
-
-    @GET("api/batch/selecionarSku/{sku}")
-    fun getBatchSku(@Path("sku") sku : String): Call<LoteDTO>
-
-    @POST("api/stock/inserir")
-    fun postEstoque(@Body estoque : EstoqueInsertDTO) : Call<ResponseBody>
 
 //    API de Mongo
 
