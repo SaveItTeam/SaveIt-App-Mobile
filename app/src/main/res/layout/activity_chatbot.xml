@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Chatbot">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Branco">
+
+        <ImageView
+            android:id="@+id/faixaSuperior"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/onda_verde_escuraeclara_onze"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/btMenu"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/icon_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivMascote"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/saveitlogo"
+            app:layout_constraintTop_toBottomOf="@id/faixaSuperior"
+            app:layout_constraintBottom_toTopOf="@id/tvBoasVindas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvBoasVindas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Olá usuário,\nComo posso te ajudar hoje?"
+            android:textAlignment="center"
+            android:textColor="@color/PretoNaoPuro"
+            android:textSize="18sp"
+            android:fontFamily="@font/inclusive_sans"
+            app:layout_constraintTop_toBottomOf="@id/ivMascote"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/chat_input_container"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/caixa_texto"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/enviarMsg2"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/icon_enviar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/escreverMsg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/fundo_campo_escrever_msg"
+                android:fontFamily="@font/inclusive_sans"
+                android:hint="Digite uma mensagem"
+                android:padding="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/enviarMsg2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:background="@color/Branco"
+        android:layout_gravity="start">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/containerAssuntos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:id="@+id/btnLimpar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Limpar chats"
+                android:backgroundTint="@color/Bordo"
+                android:textColor="@color/Branco"
+                android:fontFamily="@font/inclusive_sans" />
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

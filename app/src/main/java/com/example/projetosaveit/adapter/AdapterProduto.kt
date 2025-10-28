@@ -19,6 +19,7 @@ import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.api.repository.EstoqueRepository
 import com.example.projetosaveit.api.repository.LoteRepository
+import com.example.projetosaveit.api.repository.ProdutoRepository
 import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.ProdutoInfoDTO
@@ -37,7 +38,7 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
     var listProdutos = listOf<Produto>()
     var repository : LoteRepository = LoteRepository()
     var repositoryVitrine : VitrineRepository = VitrineRepository()
-    var repositoryEstoque : EstoqueRepository = EstoqueRepository()
+    var produtoRepository : ProdutoRepository = ProdutoRepository()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -101,7 +102,7 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                                         ) {
                                             if (response.isSuccessful) {
                                                 var estoque : EstoqueDTO = EstoqueDTO(0, 0, produto.quantity.toInt() - quantidade, produto.batchId, produto.id, 0, "", LocalDateTime.now())
-                                                repositoryEstoque.postEstoque(estoque).enqueue(object : retrofit2.Callback<ResponseBody> {
+                                                produtoRepository.postProduto(estoque).enqueue(object : retrofit2.Callback<ResponseBody> {
                                                     override fun onResponse(
                                                         call: retrofit2.Call<ResponseBody>,
                                                         response: retrofit2.Response<ResponseBody>
