@@ -69,7 +69,7 @@ class Login : AppCompatActivity() {
                                 // Não é empresa, verifica se é funcionário
                                 GetFuncionario.pegarEmailFunc(txtEmail) { func ->
                                     val tipoFunc = func?.isAdmin ?: false
-                                    abrirMainActivity(tipoFunc = tipoFunc)
+                                    abrirMainActivity(tipoFunc = tipoFunc, plano = 1)
                                 }
                             }
                         }

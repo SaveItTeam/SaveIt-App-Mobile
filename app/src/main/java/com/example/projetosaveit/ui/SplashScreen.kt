@@ -41,6 +41,7 @@ class SplashScreen : AppCompatActivity() {
                             val tipoFunc = func?.isAdmin ?: false
 
                             val intent = Intent(this, MainActivity::class.java)
+                            intent.putExtra("plano", 1)
                             intent.putExtra("tipoFunc", tipoFunc)
                             startActivity(intent)
                             finish()
