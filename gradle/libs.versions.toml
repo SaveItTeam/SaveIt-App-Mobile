@@ -15,7 +15,7 @@ activity = "1.10.1"
 googleGmsGoogleServices = "4.4.3"
 firebaseFirestore = "26.0.0"
 firebaseAuth = "24.0.1"
-kotlin = "2.0.21"
+kotlin = "1.9.25"
 coreKtx = "1.17.0"
 
 [libraries]
