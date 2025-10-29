@@ -216,6 +216,10 @@ class AdicionarProduto : AppCompatActivity() {
                 inserirProduto(lote)
             }
         }
+
+        findViewById<ImageView>(R.id.btVoltarAdicaoProduto).setOnClickListener {
+            finish()
+        }
     }
 
 

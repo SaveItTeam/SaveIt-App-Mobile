@@ -175,7 +175,7 @@
                 android:layout_width="160dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="280dp"
-                android:background="@drawable/bt_filtro_estilizacao"
+                android:background="@drawable/bt_filtro_estilizacao_selecionado"
                 android:fontFamily="@font/inclusive_sans"
                 android:text="Assinar"
                 android:textAllCaps="false"

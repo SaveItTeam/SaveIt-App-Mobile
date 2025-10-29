@@ -15,7 +15,6 @@ import com.example.projetosaveit.adapter.AdapterVitrine
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.databinding.FragmentVitrineBinding
-import com.example.projetosaveit.model.VitrineDTO
 import com.example.projetosaveit.ui.AdicionarProdutoVitrine
 import com.example.projetosaveit.ui.CadastroEndereco
 import retrofit2.Call
@@ -67,7 +66,6 @@ class VitrineFragment : Fragment() {
         binding!!.rvVitrine.adapter = adapter
         binding!!.rvVitrine.setLayoutManager(StaggeredGridLayoutManager(2,
             StaggeredGridLayoutManager.VERTICAL))
-        carregarVitrine("Todos")
 
         return root
     }

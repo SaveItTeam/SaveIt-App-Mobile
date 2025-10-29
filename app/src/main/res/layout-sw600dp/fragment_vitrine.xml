@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:background="@drawable/bt_filtro_estilizacao"
+            android:background="@drawable/bt_filtro_estilizacao_selecionado"
             android:fontFamily="@font/inclusive_sans"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"

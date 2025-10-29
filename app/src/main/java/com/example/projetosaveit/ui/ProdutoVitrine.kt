@@ -1,8 +1,10 @@
 package com.example.projetosaveit.ui
 
+import android.content.Intent
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -11,12 +13,17 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.projetosaveit.R
+import com.example.projetosaveit.api.repository.ProdutoRepository
+import com.example.projetosaveit.util.GetEmpresa
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class ProdutoVitrine : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
+    private var produtoRepository = ProdutoRepository()
+    private var imgEmpresa = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.enableEdgeToEdge()
@@ -30,6 +37,7 @@ class ProdutoVitrine : AppCompatActivity() {
         }
 
         val bundle = intent.extras
+        val idEmpresa = bundle?.getLong("idEmpresa")
         val nomeProduto = bundle?.getString("nomeVitrine")
         val descricaoProduto = bundle?.getString("descricaoVitrine")
         val empresaVitrine = bundle?.getString("empresaVitrine")
@@ -53,6 +61,18 @@ class ProdutoVitrine : AppCompatActivity() {
             finish()
         }
 
+        findViewById<Button>(R.id.BotaoAcessar).setOnClickListener {
 
+            GetEmpresa.pegarIdEmpresa(idEmpresa!!.toLong()) { empresa ->
+                if (empresa != null) {
+                    imgEmpresa = empresa.enterpriseImage
+                }
+            }
+
+            val intentChat = Intent(this, Conversa::class.java)
+            intentChat.putExtra("empresaFoto", imgEmpresa)
+            intentChat.putExtra("empresaId", idEmpresa)
+            startActivity(intentChat)
+        }
     }
 }

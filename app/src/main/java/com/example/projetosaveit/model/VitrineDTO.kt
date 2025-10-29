@@ -11,5 +11,6 @@ class VitrineDTO(
     var empresa: String,
     var localizacao: String,
     var validade: String,
+    var enterpriseId: Long
 ) {
 }

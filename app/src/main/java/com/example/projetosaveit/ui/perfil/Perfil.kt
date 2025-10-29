@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,6 +30,7 @@ import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.ImagemRepository
+import com.example.projetosaveit.ui.Chatbot
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.ui.InserirFuncionario
@@ -126,8 +128,13 @@ class Perfil : Fragment() {
             showImagePickerOptions()
         }
 
+        view.findViewById<LinearLayout>(R.id.btChatbot).setOnClickListener {
+            val intent = Intent(this.activity, Chatbot::class.java)
+            startActivity(intent)
+        }
+
         view.findViewById<ConstraintLayout>(R.id.btConfiguracoes).setOnClickListener {
-            val intent = Intent(this.activity, ConfiguracoesPerfil::class.java)
+            val intent = Intent(requireContext(), ConfiguracoesPerfil::class.java)
             startActivity(intent)
         }
 

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/setaEsquerdaVoltar"
+            android:id="@+id/onda_verde_clara"
             android:layout_width="0dp"
             android:layout_height="261dp"
             android:src="@drawable/onda_verde_clara_seis"
@@ -43,7 +43,7 @@
             app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/setaEsquerdaVoltar">
+            app:layout_constraintTop_toTopOf="@+id/onda_verde_clara">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -289,6 +289,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <LinearLayout
+            android:id="@+id/btChatbot"
             android:layout_width="176dp"
             android:layout_height="63dp"
             android:layout_marginTop="75dp"
@@ -314,7 +315,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inclusive_sans"
                 android:gravity="center_vertical"
-                android:text="Chatbot"
+                android:text="VitAI"
                 android:textColor="@color/BrancoNaoPuro"
                 android:textSize="24sp" />
         </LinearLayout>

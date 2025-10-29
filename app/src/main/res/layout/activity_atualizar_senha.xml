@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.317" />
 
     <ImageView
-        android:id="@+id/voltarInserirFunc"
+        android:id="@+id/btVoltarAtualizarSenha"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="100dp"
@@ -84,6 +84,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
         android:hint="Digite o seu e-mail"
+        android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"
@@ -124,6 +125,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center_vertical"
         android:hint="Digite a senha atual"
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:textColor="@color/PretoNaoPuro"
         android:textColorHint="@color/PlaceHolderColor"

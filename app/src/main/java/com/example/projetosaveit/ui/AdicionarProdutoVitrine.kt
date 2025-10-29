@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -58,6 +59,10 @@ class AdicionarProdutoVitrine : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        findViewById<ImageView>(R.id.btVoltarAdicaoVitrine).setOnClickListener {
+            finish()
         }
 
     }
