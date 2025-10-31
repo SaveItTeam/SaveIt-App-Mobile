@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Branco"
     tools:context=".ui.MinhaVitrine">
 
     <ImageView
@@ -20,7 +21,7 @@
         app:srcCompat="@drawable/onda_verde_escura_dez" />
 
     <ImageView
-        android:id="@+id/imageView38"
+        android:id="@+id/btVoltarMinhaVitrine"
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

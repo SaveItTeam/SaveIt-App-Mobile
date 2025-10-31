@@ -36,7 +36,11 @@ class Planos : AppCompatActivity() {
         GetEmpresa.pegarEmailEmpresa(empresaLogada.email.toString()) { empresa ->
             if (empresa != null) {
                 // É empresa
-                id = empresa.id
+                if (empresa.planId == 2) {
+                    findViewById<Button>(R.id.btComprar).text = "Já sou Pro"
+                } else {
+                    id = empresa.id
+                }
             } else {
                 // É funcionário
                 findViewById<Button>(R.id.btComprar).text = "Já sou Pro"
@@ -46,7 +50,7 @@ class Planos : AppCompatActivity() {
         findViewById<Button>(R.id.btComprar).setOnClickListener {
             Toast.makeText(this, "Plano SaveIt Pro assinado!", Toast.LENGTH_SHORT).show()
 
-            empresaRepository.patchEmpresa(id, mapOf("planId" to 1)).enqueue(object : retrofit2.Callback<okhttp3.ResponseBody> {
+            empresaRepository.patchEmpresa(id, mapOf("planId" to 2)).enqueue(object : retrofit2.Callback<okhttp3.ResponseBody> {
                 override fun onResponse(
                     call: retrofit2.Call<okhttp3.ResponseBody>,
                     response: retrofit2.Response<okhttp3.ResponseBody>

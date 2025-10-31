@@ -1,6 +1,7 @@
 package com.example.projetosaveit.ui
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -50,6 +51,10 @@ class MinhaVitrine : AppCompatActivity() {
 
         val recycleView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.minhaVitrineRc)
         recycleView.adapter = adapter
+
+        findViewById<ImageView>(R.id.btVoltarMinhaVitrine).setOnClickListener {
+            finish()
+        }
 
     }
 

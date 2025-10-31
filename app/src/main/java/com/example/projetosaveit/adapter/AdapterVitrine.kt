@@ -49,6 +49,7 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
                         val intent = Intent(context, ProdutoVitrine::class.java)
 
                         val bundle : Bundle = Bundle()
+                        bundle.putLong("idEmpresa", response.body()?.enterpriseId ?: 0L)
                         bundle.putLong("idVitrine", itemVitrine.id)
                         bundle.putString("nomeVitrine", itemVitrine.name)
                         bundle.putString("imagemVitrine", itemVitrine.image)

@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="98dp"
-        android:layout_height="99dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="176dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -60,6 +60,7 @@
         android:fontFamily="@font/inclusive_sans"
         android:gravity="center"
         android:hint="Digite seu email"
+        android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColor="@color/PretoNaoPuro"
@@ -110,6 +111,7 @@
         android:background="@drawable/caixa_texto"
         android:fontFamily="@font/inclusive_sans"
         android:hint="Senha"
+        android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textAlignment="viewStart"
         android:textColor="@color/PretoNaoPuro"

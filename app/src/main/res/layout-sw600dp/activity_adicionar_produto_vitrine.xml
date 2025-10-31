@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/onda_verde_escura_dez" />
 
     <ImageView
-        android:id="@+id/imageView20"
+        android:id="@+id/btVoltarAdicaoVitrine"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"

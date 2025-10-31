@@ -6,6 +6,6 @@ class VitrineInsertDTO(
     var description : String,
     var batchId : Long,
     var quantityShowcase : Int,
-    var entranceDate : Date
+    var entranceDate : String
 ) {
 }

@@ -21,7 +21,6 @@
             android:src="@drawable/onda_verde_escuraeclara_onze"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <ImageView
             android:id="@+id/btMenu"
             android:layout_width="20dp"
@@ -46,14 +45,14 @@
             android:id="@+id/tvBoasVindas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Olá usuário,\nComo posso te ajudar hoje?"
+            android:fontFamily="@font/inclusive_sans"
+            android:text="Olá usuário.\nComo posso te ajudar hoje?"
             android:textAlignment="center"
             android:textColor="@color/PretoNaoPuro"
             android:textSize="18sp"
-            android:fontFamily="@font/inclusive_sans"
-            app:layout_constraintTop_toBottomOf="@id/ivMascote"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/ivMascote" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/chat_input_container"
@@ -92,6 +91,27 @@
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/chat_input_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBoasVindas">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMensagens"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="16dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -99,35 +119,7 @@
         android:layout_width="250dp"
         android:layout_height="match_parent"
         android:background="@color/Branco"
-        android:layout_gravity="start">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:id="@+id/containerAssuntos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                </LinearLayout>
-            </ScrollView>
-
-            <Button
-                android:id="@+id/btnLimpar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Limpar chats"
-                android:backgroundTint="@color/Bordo"
-                android:textColor="@color/Branco"
-                android:fontFamily="@font/inclusive_sans" />
-        </LinearLayout>
+        android:layout_gravity="start"
+        app:headerLayout="@layout/chat_drawer">
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

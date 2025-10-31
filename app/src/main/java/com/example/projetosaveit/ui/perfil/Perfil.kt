@@ -13,7 +13,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,6 +31,7 @@ import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.ImagemRepository
+import com.example.projetosaveit.ui.Chatbot
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.ui.InserirFuncionario
@@ -86,14 +89,16 @@ class Perfil : Fragment() {
         var plano: String
         val email = objAutenticar.currentUser?.email
 
-        GetEmpresa.pegarEmailEmpresa(email.toString()) {
-            if (it != null) {
-                idEmpresa = it.id
-                view.findViewById<TextView>(R.id.nomePerfil).text = it.name
-                if (it.planId == 1) {
-                    plano = "Plano Atual: SaveIt Pro"
+        GetEmpresa.pegarEmailEmpresa(email.toString()) { empresa ->
+            if (empresa != null) {
+                idEmpresa = empresa.id
+                view.findViewById<TextView>(R.id.nomePerfil).text = empresa.name
+
+                if (empresa.planId == 1) {
+                    view.findViewById<FrameLayout>(R.id.FrameInserirFunc).visibility = View.GONE
+                    plano = "Plano Atual: Nenhum"
                 } else {
-                    plano = "Nenhum"
+                    plano = "Plano Atual: SaveIt Pro"
                 }
 
                 view.findViewById<TextView>(R.id.planoAtual).text = plano
@@ -107,9 +112,19 @@ class Perfil : Fragment() {
                             if (empresa != null) {
                                 idEmpresa = empresa.id
                                 view.findViewById<TextView>(R.id.nomePerfil).text = empresa.name
-                                val plano = if (empresa.planId == 1) "Plano Atual: SaveIt Pro" else "Nenhum"
+
+                                val plano = "Plano Atual: SaveIt Pro"
                                 view.findViewById<TextView>(R.id.planoAtual).text = plano
+
                                 pegarImagemEmpresa(idEmpresa)
+
+                                if (func.isAdmin == true) {
+                                    view.findViewById<FrameLayout>(R.id.FrameInserirFunc).visibility = View.VISIBLE
+                                } else {
+                                    view.findViewById<FrameLayout>(R.id.FrameInserirFunc).visibility = View.GONE
+                                    view.findViewById<FrameLayout>(R.id.FramePlanos).visibility = View.GONE
+                                }
+
                             } else {
                                 Toast.makeText(context, "Empresa não encontrada.", Toast.LENGTH_LONG).show()
                             }
@@ -126,8 +141,13 @@ class Perfil : Fragment() {
             showImagePickerOptions()
         }
 
+        view.findViewById<LinearLayout>(R.id.btChatbot).setOnClickListener {
+            val intent = Intent(this.activity, Chatbot::class.java)
+            startActivity(intent)
+        }
+
         view.findViewById<ConstraintLayout>(R.id.btConfiguracoes).setOnClickListener {
-            val intent = Intent(this.activity, ConfiguracoesPerfil::class.java)
+            val intent = Intent(requireContext(), ConfiguracoesPerfil::class.java)
             startActivity(intent)
         }
 

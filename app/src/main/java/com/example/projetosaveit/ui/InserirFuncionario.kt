@@ -11,13 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projetosaveit.R
-import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.FuncionarioRepository
-import com.example.projetosaveit.model.EmpresaDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.util.GetFuncionario
-import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -49,7 +46,7 @@ class InserirFuncionario : AppCompatActivity() {
 
             GetFuncionario.pegarEmailFunc(usuario.email.toString()) { func ->
                 if (func != null) {
-                    id = func!!.enterpriseId
+                    id = func.enterpriseId
                     GetEmpresa.pegarIdEmpresa(id) { empresa ->
                         if (empresa == null) {
                             Toast.makeText(
@@ -72,7 +69,7 @@ class InserirFuncionario : AppCompatActivity() {
             }
         }
 
-        findViewById<ImageView>(R.id.voltarInserirFunc).setOnClickListener {
+        findViewById<ImageView>(R.id.btVoltarInserirFunc).setOnClickListener {
             finish()
         }
     }
@@ -110,7 +107,7 @@ class InserirFuncionario : AppCompatActivity() {
                     ).show()
 
                     val intent = Intent(this@InserirFuncionario, MainActivity::class.java)
-                    intent.putExtra("plano", 1)
+                    intent.putExtra("plano", 2)
                     startActivity(intent)
                     finish()
                 } else {

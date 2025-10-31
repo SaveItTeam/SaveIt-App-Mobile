@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Branco"
-    tools:context=".ui.AtualizarSenha">
+    tools:context=".ui.AtualizarNome">
 
     <ImageView
-        android:id="@+id/voltarSenha"
+        android:id="@+id/onda_verde_escura"
         android:layout_width="0dp"
         android:layout_height="134dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.317" />
 
     <ImageView
-        android:id="@+id/btVoltarAtualizarSenha"
+        android:id="@+id/btVoltarAtualizarNome"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="100dp"
@@ -65,7 +65,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="190dp"
         android:fontFamily="@font/plus_jakarta_sans_extralight"
-        android:text="Atualize a senha"
+        android:text="Atualize o seu nome"
         android:textColor="@color/PretoNaoPuro"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/emailAtualizarS"
+        android:id="@+id/emailAtualizarN"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginStart="50dp"
@@ -92,77 +92,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeNovo" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nomeNovo"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="51dp"
+        android:background="@drawable/caixa_texto"
+        android:fontFamily="@font/inclusive_sans"
+        android:gravity="center_vertical"
+        android:hint="Digite o seu novo nome"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColor="@color/PretoNaoPuro"
+        android:textColorHint="@color/PlaceHolderColor"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/senhaNova"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="51dp"
-        android:background="@drawable/caixa_texto"
-        android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
-        android:hint="Digite a nova senha"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textColor="@color/PretoNaoPuro"
-        android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senhaAtual" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/senhaAtual"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="51dp"
-        android:background="@drawable/caixa_texto"
-        android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
-        android:hint="Digite a senha atual"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textColor="@color/PretoNaoPuro"
-        android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailAtualizarS" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/senhaNova2"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="51dp"
-        android:background="@drawable/caixa_texto"
-        android:fontFamily="@font/inclusive_sans"
-        android:gravity="center_vertical"
-        android:hint="Digite a senha novamente"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textColor="@color/PretoNaoPuro"
-        android:textColorHint="@color/PlaceHolderColor"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senhaNova" />
-
     <Button
-        android:id="@+id/btAlterarSenha2"
+        android:id="@+id/btAlterarNome"
         android:layout_width="124dp"
         android:layout_height="45dp"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="162dp"
         android:background="@drawable/bt_cadastro_estilizacao"
         android:fontFamily="@font/inclusive_sans"
@@ -172,7 +130,7 @@
         android:textColor="@color/BrancoNaoPuro"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailAtualizarS" />
+        app:layout_constraintTop_toBottomOf="@+id/emailAtualizarN" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

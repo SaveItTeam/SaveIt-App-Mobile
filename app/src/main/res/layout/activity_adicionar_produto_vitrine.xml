@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/onda_verde_escura_dez" />
 
     <ImageView
-        android:id="@+id/imageView20"
+        android:id="@+id/btVoltarAdicaoVitrine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -9,9 +9,9 @@
     tools:context=".ui.Conversa">
 
     <ImageView
-        android:id="@+id/imageView38"
-        android:layout_width="413dp"
-        android:layout_height="87dp"
+        android:id="@+id/btVoltarConversa"
+        android:layout_width="0dp"
+        android:layout_height="83dp"
         android:src="@drawable/onda_verde_escuraeclara_onze"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,13 +32,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="520dp"
+        android:layout_height="620dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:layout_constraintBottom_toTopOf="@id/chat_input_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView38">
+        app:layout_constraintTop_toBottomOf="@+id/btVoltarMinhaVitrine">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -68,6 +68,7 @@
             android:id="@+id/escreverMsg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/fundo_campo_escrever_msg"
             android:fontFamily="@font/inclusive_sans"

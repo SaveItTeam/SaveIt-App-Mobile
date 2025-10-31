@@ -2,6 +2,7 @@ package com.example.projetosaveit.ui.vitrine
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,13 +15,17 @@ import com.example.projetosaveit.adapter.AdapterVitrine
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.databinding.FragmentVitrineBinding
-import com.example.projetosaveit.model.VitrineDTO
 import com.example.projetosaveit.ui.AdicionarProdutoVitrine
+import com.example.projetosaveit.ui.CadastroEndereco
+import com.example.projetosaveit.util.GetEmpresa
+import com.example.projetosaveit.util.GetFuncionario
+import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Response
 
 class VitrineFragment : Fragment() {
     private var binding: FragmentVitrineBinding? = null
+    private val objAutenticar = FirebaseAuth.getInstance()
 
     private lateinit var adapter: AdapterVitrine
     private val repository = VitrineRepository()
@@ -34,15 +39,29 @@ class VitrineFragment : Fragment() {
         binding = FragmentVitrineBinding.inflate(inflater, container, false)
         val root: View = binding!!.root
 
-        val botoes = listOf(binding!!.button9, binding!!.button15, binding!!.button14)
+        val email = objAutenticar.currentUser?.email.toString()
+
+        GetEmpresa.pegarEmailEmpresa(email) { empresa ->
+            if (empresa != null) {
+                if (empresa.planId == 1) {
+                    binding!!.botaoAdicionarVitrine?.visibility = View.GONE
+                    binding!!.botaoMinhaVitrine?.visibility = View.GONE
+                }
+            } else {
+                Log.d("VitrineFragment", "Empresa não encontrada para o email: $email")
+            }
+            carregarVitrine("Todos")
+        }
+
+        val botoes = listOf(binding!!.todosFiltro, binding!!.embutidosFiltro, binding!!.lacticiniosFiltro, binding!!.graosFIltro, binding!!.frutasFiltro, binding!!.salgadosFiltro)
 
         botoes.forEach { botao ->
-            botao.setOnClickListener {
-                botoes.forEach { it.isSelected = false }
+            botao?.setOnClickListener {
+                botoes.forEach { it?.isSelected = false }
                 botao.isSelected = true
 
-                botoes.forEach { it.setBackgroundResource(R.drawable.bt_filtro_estilizacao)
-                                it.setTextColor(resources.getColor(R.color.BrancoNaoPuro))}
+                botoes.forEach { it?.setBackgroundResource(R.drawable.bt_filtro_estilizacao)
+                                it?.setTextColor(resources.getColor(R.color.BrancoNaoPuro))}
                 botao.setBackgroundResource(R.drawable.bt_filtro_estilizacao_selecionado)
                 botao.setTextColor(resources.getColor(R.color.PretoNaoPuro))
 
@@ -55,10 +74,6 @@ class VitrineFragment : Fragment() {
             val intent : Intent = Intent(v.context, AdicionarProdutoVitrine::class.java)
             startActivity(intent)
         }
-
-
-
-
 
         adapter = AdapterVitrine()
 
@@ -80,7 +95,14 @@ class VitrineFragment : Fragment() {
                     adapter.listVitrine = produtos ?: emptyList()
                     adapter.notifyDataSetChanged()
                 } else {
-                    Toast.makeText(context, "Falha ao carregar a vitrine", Toast.LENGTH_LONG).show()
+                    val errorBodyString = try {
+                        response.errorBody()?.string()
+                    } catch (e: Exception) {
+                        "Erro desconhecido ao ler o corpo de erro"
+                    }
+
+                    Log.e("API_ERROR", "Erro na API: $errorBodyString")
+                    Toast.makeText(context, errorBodyString ?: "Erro desconhecido", Toast.LENGTH_LONG).show()
                 }
             }
 

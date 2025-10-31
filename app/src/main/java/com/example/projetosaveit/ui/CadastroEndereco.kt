@@ -54,23 +54,23 @@ class CadastroEndereco : AppCompatActivity() {
             val estadoEmpresa : String = findViewById<TextInputEditText>(R.id.estadoEmpresaInput).text.toString()
             val complementoEmpresa : String = findViewById<TextInputEditText>(R.id.complementoEmpresaInput).text.toString()
 
-            if (cepEmpresa == null) {
+            if (cepEmpresa.isEmpty()) {
                 Toast.makeText(this@CadastroEndereco, "CEP não pode ser vazio", Toast.LENGTH_LONG).show()
-            }else if(ruaEmpresa == null) {
+            }else if(ruaEmpresa.isEmpty()) {
                 Toast.makeText(this@CadastroEndereco, "A rua da empresa não pode ser vazia", Toast.LENGTH_LONG).show()
-            }else if(bairroEmpresa == null) {
+            }else if(bairroEmpresa.isEmpty()) {
                 Toast.makeText(this@CadastroEndereco, "O bairro da empresa não pode ser vazio", Toast.LENGTH_LONG).show()
-            }else if(numeroEmpresa == null) {
+            }else if(numeroEmpresa.isEmpty()) {
                 Toast.makeText(this@CadastroEndereco, "O número da empresa não pode ser vazio", Toast.LENGTH_LONG).show()
-            }else if(cidadeEmpresa == null) {
+            }else if(cidadeEmpresa.isEmpty()) {
                 Toast.makeText(this@CadastroEndereco, "A cidade da empresa não pode ser vazio", Toast.LENGTH_LONG).show()
-            }else if (estadoEmpresa == null) {
+            }else if (estadoEmpresa.isEmpty()) {
                 Toast.makeText(this@CadastroEndereco, "O estado da empresa não pode ser vazio", Toast.LENGTH_LONG).show()
-            }else if (complementoEmpresa == null) {
+            }else if (complementoEmpresa.isEmpty()) {
                 Toast.makeText(this@CadastroEndereco, "O complemento da empresa não pode ser vazio",
                     Toast.LENGTH_LONG).show()
             }else {
-                val empresaDTO : EmpresaDTO = EmpresaDTO(0,cnpjEmpresa.toString(), nomeEmpresa.toString(), emailEmpresa.toString(), planId = 2, "", telefoneEmpresa.toString(), addressId = 0, senhaEmpresa.toString())
+                val empresaDTO : EmpresaDTO = EmpresaDTO(0,cnpjEmpresa.toString(), nomeEmpresa.toString(), emailEmpresa.toString(), planId = 1, "", telefoneEmpresa.toString(), addressId = 0, senhaEmpresa.toString())
                 val enderecoDTO : EnderecoDTO = EnderecoDTO(0,estadoEmpresa.toString(), cidadeEmpresa.toString(), ruaEmpresa.toString(), cepEmpresa.toString(), bairroEmpresa.toString(), complementoEmpresa.toString(), numeroEmpresa.toInt())
                 val empresaInsertDTO : EmpresaInsertDTO = EmpresaInsertDTO(empresaDTO, enderecoDTO)
                 postEmpresa(empresaInsertDTO)
@@ -98,8 +98,9 @@ class CadastroEndereco : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     val intent = Intent(this, MainActivity::class.java)
-                                    intent.putExtra("plano", 0)
+                                    intent.putExtra("plano", 1)
                                     intent.putExtra("tipoFunc", false)
+                                    intent.putExtra("isEmpresa", true)
                                     startActivity(intent)
                                     finish()
                                 }
@@ -122,6 +123,15 @@ class CadastroEndereco : AppCompatActivity() {
             ) {
                 if(p1.isSuccessful) {
                     Toast.makeText(this@CadastroEndereco, "Empresa cadastrada com sucesso!", Toast.LENGTH_LONG).show()
+                }else {
+                    val errorBodyString = try {
+                        p1.errorBody()?.string()
+                    } catch (e: Exception) {
+                        "Erro desconhecido ao ler o corpo de erro"
+                    }
+
+                    Log.e("API_ERROR", "Erro na API: $errorBodyString")
+                    Toast.makeText(this@CadastroEndereco, errorBodyString ?: "Erro desconhecido", Toast.LENGTH_LONG).show()
                 }
             }
 

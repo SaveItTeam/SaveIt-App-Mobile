@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import com.example.projetosaveit.api.repository.EstoqueRepository
 import com.example.projetosaveit.api.repository.LoteRepository
 import com.example.projetosaveit.databinding.FragmentCadastrarRelatorioBinding
-import com.example.projetosaveit.model.EstoqueInsertDTO
+import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.LoteDTO
-import com.google.firebase.auth.FirebaseAuth
 import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDateTime
 
@@ -35,7 +35,11 @@ class CadastrarRelatorio : Fragment() {
             val qntdProd = binding?.qntdProd?.text.toString()
             val qntdSaida = binding?.qntdSaida?.text.toString()
             val motivoDescarte = binding?.motivoDescarte?.text.toString()
-            val qntdDescarte = binding?.qntdDescarte?.text.toString()
+            var qntdDescarte = binding?.qntdDescarte?.text.toString()
+
+            if (qntdDescarte.isNullOrEmpty()) {
+                qntdDescarte = "0"
+            }
 
             if (sku.isBlank() || qntdProd.isBlank() || qntdSaida.isBlank() || qntdDescarte.isBlank()) {
                 Toast.makeText(requireContext(), "Preencha todos os campos obrigatórios.", Toast.LENGTH_SHORT).show()
@@ -44,23 +48,24 @@ class CadastrarRelatorio : Fragment() {
 
             val createdAt = LocalDateTime.now()
 
-            loteRepository.getLoteSku(sku).enqueue(object : retrofit2.Callback<LoteDTO> {
+            loteRepository.getLoteSku(sku).enqueue(object : Callback<LoteDTO> {
                 override fun onResponse(call: Call<LoteDTO>, response: Response<LoteDTO>) {
                     if (response.isSuccessful) {
                         val lote = response.body()
                         if (lote != null) {
-                            val estoqueDto = EstoqueInsertDTO(
+                            val estoqueDto = EstoqueDTO(
                                 quantityInput = qntdProd.toInt(),
                                 quantityOutput = qntdSaida.toInt(),
                                 createdAt = createdAt.toString(),
                                 productId = lote.productId,
                                 batchId = lote.id,
                                 discardReason = motivoDescarte,
-                                discardQuantity = qntdDescarte.toInt()
+                                discardQuantity = qntdDescarte.toInt(),
+                                id = 0
                             )
 
                             estoqueRepository.postEstoque(estoqueDto)
-                                .enqueue(object : retrofit2.Callback<ResponseBody> {
+                                .enqueue(object : Callback<ResponseBody> {
                                     override fun onResponse(
                                         call: Call<ResponseBody>,
                                         response: Response<ResponseBody>

@@ -16,20 +16,31 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1)
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
         val navView: BottomNavigationView = binding!!.navView
         val plano: Int? = intent.extras?.getInt("plano")
         val tipoFunc: Boolean? = intent.extras?.getBoolean("tipoFunc")
+        val isEmpresa: Boolean = intent.extras?.getBoolean("isEmpresa") ?: false
 
         Log.d("MainActivity", "plano: $plano, tipoFunc: $tipoFunc")
-//        Factory Method
-        val toolbarProvider = ToolbarFactory.criarToolbar(plano, tipoFunc)
+
+        // Factory Method
+        val toolbarProvider = ToolbarFactory.criarToolbar(plano, tipoFunc, isEmpresa)
         val appBarConfiguration = toolbarProvider.setupToolbar(navView)
 
         val navController = findNavController(this, R.id.nav_host_fragment_activity_main)
-//        setupActionBarWithNavController(this, navController, appBarConfiguration)
         setupWithNavController(navView, navController)
+
+        if (isEmpresa && plano == 1) {
+            navView.post {
+                navController.navigate(R.id.navigation_vitrine)
+            }
+        }
     }
 }

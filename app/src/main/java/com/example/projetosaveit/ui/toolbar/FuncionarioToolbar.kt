@@ -10,7 +10,7 @@ class FuncionarioToolbar : ToolbarProvider {
         navView.inflateMenu(R.menu.bottom_nav_funcionario)
         return AppBarConfiguration.Builder(
             R.id.navigation_home,
-            R.id.relatorio,
+            R.id.cadastrar_relatorio,
             R.id.perfil
         ).build()
     }

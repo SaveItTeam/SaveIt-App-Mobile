@@ -1,12 +1,12 @@
 package com.example.projetosaveit.ui.toolbar
 
 object ToolbarFactory {
-    fun criarToolbar(plano: Int?, tipoFunc: Boolean?): ToolbarProvider {
+    fun criarToolbar(plano: Int?, tipoFunc: Boolean?, isEmpresa: Boolean): ToolbarProvider {
         return when {
-            tipoFunc != null && tipoFunc && plano == 1 -> AdminToolbar()
-            tipoFunc != null && !tipoFunc && plano == 1 -> FuncionarioToolbar()
-            plano != null && plano == 0 -> SemPlanoToolbar()
-            plano != null && plano == 1 -> AdminToolbar()
+            isEmpresa && plano == 1 -> SemPlanoToolbar()
+            isEmpresa && plano == 2 -> AdminToolbar()
+            !isEmpresa && tipoFunc == true -> AdminToolbar()
+            !isEmpresa && tipoFunc == false -> FuncionarioToolbar()
             else -> SemPlanoToolbar()
         }
     }

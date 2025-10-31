@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient
 
 object RetrofitClientSql {
 
-    private const val BASE_URL = "https://apisaveit.onrender.com/"
+    private const val BASE_URL = "https://apisaveit.onrender.com"
     private const val API_TOKEN = "essentiasaveit-193812-paoea-oei"
 
     private val client = OkHttpClient.Builder()

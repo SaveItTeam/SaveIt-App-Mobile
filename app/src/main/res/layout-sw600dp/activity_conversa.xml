@@ -9,7 +9,7 @@
     tools:context=".ui.Conversa">
 
     <ImageView
-        android:id="@+id/imageView38"
+        android:id="@+id/btVoltarConversa"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:src="@drawable/onda_verde_escuraeclara_onze"
@@ -56,6 +56,7 @@
             android:id="@+id/escreverMsg"
             android:layout_width="355dp"
             android:layout_height="67dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/fundo_campo_escrever_msg"
             android:fontFamily="@font/inclusive_sans"
@@ -89,7 +90,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView38"
+        app:layout_constraintTop_toBottomOf="@+id/btVoltarMinhaVitrine"
         app:srcCompat="@drawable/icon_seta_esquerda_tablet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
