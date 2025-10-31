@@ -190,7 +190,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/caixa_texto"
                 android:ems="10"
-                android:hint="Digite a quantidade maxima em estoque"
+                android:hint="Digite a quantidade máxima em estoque"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:textColor="@color/PretoNaoPuro"

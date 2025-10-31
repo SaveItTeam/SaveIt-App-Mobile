@@ -17,11 +17,15 @@ import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.databinding.FragmentVitrineBinding
 import com.example.projetosaveit.ui.AdicionarProdutoVitrine
 import com.example.projetosaveit.ui.CadastroEndereco
+import com.example.projetosaveit.util.GetEmpresa
+import com.example.projetosaveit.util.GetFuncionario
+import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Response
 
 class VitrineFragment : Fragment() {
     private var binding: FragmentVitrineBinding? = null
+    private val objAutenticar = FirebaseAuth.getInstance()
 
     private lateinit var adapter: AdapterVitrine
     private val repository = VitrineRepository()
@@ -34,6 +38,20 @@ class VitrineFragment : Fragment() {
 
         binding = FragmentVitrineBinding.inflate(inflater, container, false)
         val root: View = binding!!.root
+
+        val email = objAutenticar.currentUser?.email.toString()
+
+        GetEmpresa.pegarEmailEmpresa(email) { empresa ->
+            if (empresa != null) {
+                if (empresa.planId == 1) {
+                    binding!!.botaoAdicionarVitrine?.visibility = View.GONE
+                    binding!!.botaoMinhaVitrine?.visibility = View.GONE
+                }
+            } else {
+                Log.d("VitrineFragment", "Empresa não encontrada para o email: $email")
+            }
+            carregarVitrine("Todos")
+        }
 
         val botoes = listOf(binding!!.todosFiltro, binding!!.embutidosFiltro, binding!!.lacticiniosFiltro, binding!!.graosFIltro, binding!!.frutasFiltro, binding!!.salgadosFiltro)
 
@@ -56,10 +74,6 @@ class VitrineFragment : Fragment() {
             val intent : Intent = Intent(v.context, AdicionarProdutoVitrine::class.java)
             startActivity(intent)
         }
-
-
-
-
 
         adapter = AdapterVitrine()
 

@@ -10,9 +10,7 @@ import com.example.projetosaveit.api.repository.EstoqueRepository
 import com.example.projetosaveit.api.repository.LoteRepository
 import com.example.projetosaveit.databinding.FragmentCadastrarRelatorioBinding
 import com.example.projetosaveit.model.EstoqueDTO
-import com.example.projetosaveit.model.EstoqueInsertDTO
 import com.example.projetosaveit.model.LoteDTO
-import com.google.firebase.auth.FirebaseAuth
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,7 +35,11 @@ class CadastrarRelatorio : Fragment() {
             val qntdProd = binding?.qntdProd?.text.toString()
             val qntdSaida = binding?.qntdSaida?.text.toString()
             val motivoDescarte = binding?.motivoDescarte?.text.toString()
-            val qntdDescarte = binding?.qntdDescarte?.text.toString()
+            var qntdDescarte = binding?.qntdDescarte?.text.toString()
+
+            if (qntdDescarte.isNullOrEmpty()) {
+                qntdDescarte = "0"
+            }
 
             if (sku.isBlank() || qntdProd.isBlank() || qntdSaida.isBlank() || qntdDescarte.isBlank()) {
                 Toast.makeText(requireContext(), "Preencha todos os campos obrigatórios.", Toast.LENGTH_SHORT).show()

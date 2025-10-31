@@ -107,7 +107,7 @@ class InserirFuncionario : AppCompatActivity() {
                     ).show()
 
                     val intent = Intent(this@InserirFuncionario, MainActivity::class.java)
-                    intent.putExtra("plano", 1)
+                    intent.putExtra("plano", 2)
                     startActivity(intent)
                     finish()
                 } else {

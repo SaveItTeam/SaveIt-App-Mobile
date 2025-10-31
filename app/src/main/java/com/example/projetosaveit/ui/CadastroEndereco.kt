@@ -70,7 +70,7 @@ class CadastroEndereco : AppCompatActivity() {
                 Toast.makeText(this@CadastroEndereco, "O complemento da empresa não pode ser vazio",
                     Toast.LENGTH_LONG).show()
             }else {
-                val empresaDTO : EmpresaDTO = EmpresaDTO(0,cnpjEmpresa.toString(), nomeEmpresa.toString(), emailEmpresa.toString(), planId = 2, "", telefoneEmpresa.toString(), addressId = 0, senhaEmpresa.toString())
+                val empresaDTO : EmpresaDTO = EmpresaDTO(0,cnpjEmpresa.toString(), nomeEmpresa.toString(), emailEmpresa.toString(), planId = 1, "", telefoneEmpresa.toString(), addressId = 0, senhaEmpresa.toString())
                 val enderecoDTO : EnderecoDTO = EnderecoDTO(0,estadoEmpresa.toString(), cidadeEmpresa.toString(), ruaEmpresa.toString(), cepEmpresa.toString(), bairroEmpresa.toString(), complementoEmpresa.toString(), numeroEmpresa.toInt())
                 val empresaInsertDTO : EmpresaInsertDTO = EmpresaInsertDTO(empresaDTO, enderecoDTO)
                 postEmpresa(empresaInsertDTO)
@@ -98,8 +98,9 @@ class CadastroEndereco : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     val intent = Intent(this, MainActivity::class.java)
-                                    intent.putExtra("plano", 0)
+                                    intent.putExtra("plano", 1)
                                     intent.putExtra("tipoFunc", false)
+                                    intent.putExtra("isEmpresa", true)
                                     startActivity(intent)
                                     finish()
                                 }

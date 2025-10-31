@@ -209,6 +209,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/FrameInserirFunc"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="16dp"
@@ -253,6 +254,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/FramePlanos"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="16dp"
@@ -303,7 +305,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inclusive_sans"
-            android:text="Plano Atual: Avançado"
+            android:text="Plano Atual: Nenhum"
             android:textColor="@color/PretoNaoPuro"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"

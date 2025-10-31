@@ -3,12 +3,17 @@ package com.example.projetosaveit.api.network
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.model.ChatDTO
+import com.example.projetosaveit.model.ChatRequest
+import com.example.projetosaveit.model.ChatResponse
 import com.example.projetosaveit.model.EmpresaDTO
 import com.example.projetosaveit.model.EmpresaInsertDTO
 import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.FuncionarioDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
+import com.example.projetosaveit.model.HistoricoResponse
 import com.example.projetosaveit.model.ImagemDTO
+import com.example.projetosaveit.model.IniciarChatRequest
+import com.example.projetosaveit.model.IniciarChatResponse
 import com.example.projetosaveit.model.LoteDTO
 import com.example.projetosaveit.model.LoteInsertDTO
 import com.example.projetosaveit.model.ProdutoInfoDTO
@@ -91,25 +96,41 @@ interface ApiService {
     @GET("api/employee/buscarPorEmail/{email}")
     fun getFuncionarioEmail(@Path("email") email : String): Call<FuncionarioDTO>
 
-//    API de Mongo
+    @GET("api/showcase/novos")
+    fun getVitrinesNovas(
+        @Query("ultimoCheck") ultimoCheck: String
+    ): Call<List<VitrineDTO>>
 
-    @GET("chats/enterprise/{enterpriseId}")
+//    API de Mongo/WebSocket
+
+    @GET("chats/empresa/{enterpriseId}")
     fun getChatsEmpresa(
         @Path("enterpriseId") idEmpresa: Long
     ): Call<List<ChatDTO>>
 
-    @GET("chats/ultimamensagem")
+    @GET("chats/ultimaMensagemDoChat")
     fun getChatUltimaMensagem(
         @Query("chatId") idChat: Long, @Query("enterpriseId") idEmpresa: Long
     ): Call<ChatDTO>
 
-    @GET("chats/outraempresa")
+    @GET("chats/buscarOutraEmpresa")
     fun getChatOutraEmpresa(
         @Query("chatId") idChat: Long, @Query("enterpriseId") idEmpresa: Long
     ): Call<ChatDTO>
 
-    @GET("chats/buscarchatweb")
+    @GET("chats/buscarChatWebSocket")
     fun getChatsHistorico(
         @Query("chatId") idChat: Long
     ): Call<List<ChatDTO>>
+
+//    API de Chatbot
+
+    @POST("iniciar_chat")
+    fun iniciarChat(@Body request: IniciarChatRequest): Call<IniciarChatResponse>
+
+    @POST("executar_fluxo")
+    fun enviarMensagem(@Body request: ChatRequest): Call<ChatResponse>
+
+    @GET("obter_historico")
+    fun obterHistorico(@Query("session_id") sessionId: String): Call<HistoricoResponse>
 }

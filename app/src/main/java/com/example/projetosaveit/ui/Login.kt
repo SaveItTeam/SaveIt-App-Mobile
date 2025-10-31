@@ -64,12 +64,12 @@ class Login : AppCompatActivity() {
                             if (empresa != null) {
                                 // É empresa
                                 val plano = empresa.planId
-                                abrirMainActivity(plano = plano)
+                                abrirMainActivity(plano = plano, isEmpresa = true)
                             } else {
                                 // Não é empresa, verifica se é funcionário
                                 GetFuncionario.pegarEmailFunc(txtEmail) { func ->
                                     val tipoFunc = func?.isAdmin ?: false
-                                    abrirMainActivity(tipoFunc = tipoFunc, plano = 1)
+                                    abrirMainActivity(plano = 2, tipoFunc = tipoFunc, isEmpresa = false)
                                 }
                             }
                         }
@@ -98,14 +98,15 @@ class Login : AppCompatActivity() {
         }
     }
 
-    private fun abrirMainActivity(plano: Int? = null, tipoFunc: Boolean? = null) {
+    private fun abrirMainActivity(plano: Int? = null, tipoFunc: Boolean? = null, isEmpresa: Boolean) {
         val intent = Intent(this, MainActivity::class.java)
-        if (plano != null) {
+        if (plano != null)
             intent.putExtra("plano", plano)
-        }
-        if (tipoFunc != null) {
+
+        if (tipoFunc != null)
             intent.putExtra("tipoFunc", tipoFunc)
-        }
+
+        intent.putExtra("isEmpresa", isEmpresa)
         startActivity(intent)
         finish()
     }

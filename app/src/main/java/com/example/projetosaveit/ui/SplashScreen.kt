@@ -33,6 +33,7 @@ class SplashScreen : AppCompatActivity() {
 
                         val intent = Intent(this, MainActivity::class.java)
                         intent.putExtra("plano", plano)
+                        intent.putExtra("isEmpresa", true)
                         startActivity(intent)
                         Log.d("plano", plano.toString())
                         finish()
@@ -41,8 +42,9 @@ class SplashScreen : AppCompatActivity() {
                             val tipoFunc = func?.isAdmin ?: false
 
                             val intent = Intent(this, MainActivity::class.java)
-                            intent.putExtra("plano", 1)
+                            intent.putExtra("plano", 2)
                             intent.putExtra("tipoFunc", tipoFunc)
+                            intent.putExtra("isEmpresa", false)
                             startActivity(intent)
                             finish()
                         }
