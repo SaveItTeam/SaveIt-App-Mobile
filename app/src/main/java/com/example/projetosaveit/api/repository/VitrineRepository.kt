@@ -12,4 +12,6 @@ class VitrineRepository {
     fun getVitrineEmpresa(enterpriseId : Long) = RetrofitClientSql.instance.getVitrinesEmpresa(enterpriseId)
 
     fun postVitrine(showcase : VitrineInsertDTO) = RetrofitClientSql.instance.postVitrine(showcase)
+
+    fun getVitrineNovas(ultimoCheck: String) = RetrofitClientSql.instance.getVitrinesNovas(ultimoCheck)
 }

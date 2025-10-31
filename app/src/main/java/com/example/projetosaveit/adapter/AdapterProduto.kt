@@ -26,6 +26,7 @@ import com.example.projetosaveit.model.ProdutoInfoDTO
 import com.example.projetosaveit.model.VitrineDTO
 import com.example.projetosaveit.model.VitrineInsertDTO
 import com.example.projetosaveit.ui.TelaEstoque
+import com.example.projetosaveit.util.NotificaoUtils
 import com.google.android.material.appbar.MaterialToolbar
 import okhttp3.ResponseBody
 import java.text.SimpleDateFormat
@@ -96,9 +97,15 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                                 response: retrofit2.Response<ResponseBody>
                             ) {
                                 if (response.isSuccessful) {
+
                                     val apenasNumero = produto.quantity.filter { it.isDigit() }
                                     val quantidadeAtual = apenasNumero.toInt()
-                                    Toast.makeText(holder.itemView.context, "Produto adicionado à vitrine com sucesso!", Toast.LENGTH_LONG).show()
+
+                                    NotificaoUtils.notificarProdutoAdicionado(
+                                        holder.itemView.context,
+                                        produto.name
+                                    )
+
                                     var estoque : EstoqueDTO = EstoqueDTO(0, 0, quantidadeAtual - quantidade, produto.batchId, produto.id, 0, "", currentDate)
                                     repositoryEstoque.postEstoque(estoque).enqueue(object : retrofit2.Callback<ResponseBody> {
                                         override fun onResponse(
