@@ -33,13 +33,19 @@ class MainActivity : AppCompatActivity() {
         val isEmpresa: Boolean = intent.extras?.getBoolean("isEmpresa") ?: false
 
         Log.d("MainActivity", "plano: $plano, tipoFunc: $tipoFunc")
-//        Factory Method
+
+        // Factory Method
         val toolbarProvider = ToolbarFactory.criarToolbar(plano, tipoFunc, isEmpresa)
         val appBarConfiguration = toolbarProvider.setupToolbar(navView)
 
         val navController = findNavController(this, R.id.nav_host_fragment_activity_main)
-//        setupActionBarWithNavController(this, navController, appBarConfiguration)
         setupWithNavController(navView, navController)
+
+        if (isEmpresa && plano == 1) {
+            navView.post {
+                navController.navigate(R.id.navigation_vitrine)
+            }
+        }
 
         val serviceIntent = Intent(this, VitrineForegroundService::class.java)
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

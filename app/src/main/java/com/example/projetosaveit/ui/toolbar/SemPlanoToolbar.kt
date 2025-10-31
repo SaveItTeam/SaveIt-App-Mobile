@@ -9,7 +9,8 @@ class SemPlanoToolbar : ToolbarProvider {
         navView.menu.clear()
         navView.inflateMenu(R.menu.bottom_nav_admin_sp)
         return AppBarConfiguration.Builder(
-            R.id.navigation_home,
+            R.id.navigation_vitrine,
+            R.id.chat,
             R.id.perfil
         ).build()
     }
