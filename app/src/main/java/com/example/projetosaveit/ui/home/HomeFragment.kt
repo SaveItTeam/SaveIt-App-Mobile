@@ -16,6 +16,8 @@ import com.example.projetosaveit.api.repository.LoteRepository
 import com.example.projetosaveit.databinding.FragmentHomeBinding
 import com.example.projetosaveit.model.EmpresaDTO
 import com.example.projetosaveit.ui.AdicionarProduto
+import com.example.projetosaveit.ui.VisaoGeralEstoque
+import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Response
@@ -49,12 +51,23 @@ class HomeFragment : Fragment() {
                 idEmpresa = empresa.id
                 carregarProdutos(idEmpresa)
             }else {
-                Toast.makeText(context, "não conseguiu pegar o id da empresa", Toast.LENGTH_LONG).show()
+                GetFuncionario.pegarEmailFunc(emailEmp) { funcionario ->
+                    if ((funcionario != null )&&(funcionario!!.id.toInt() != 0)) {
+                        idEmpresa = funcionario!!.enterpriseId
+                    }else {
+                        Toast.makeText(context, "não foi possivel pegar o id do usuario", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
         }
 
         binding!!.botaoAdicionarProduto.setOnClickListener {
             val intent = Intent(requireContext(), AdicionarProduto::class.java)
+            startActivity(intent)
+        }
+
+        binding!!.button7.setOnClickListener { v->
+            val intent : Intent = Intent(context, VisaoGeralEstoque::class.java)
             startActivity(intent)
         }
 

@@ -7,6 +7,44 @@
     android:background="@color/Branco"
     tools:context=".ui.vitrine.VitrineFragment">
 
+    <Button
+        android:id="@+id/botaoAdicionarVitrine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao"
+        android:fontFamily="@font/inclusive_sans"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Adicionar produto"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textColorHighlight="@color/BrancoNaoPuro"
+        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918" />
+
+    <Button
+        android:id="@+id/botaoMinhaVitrine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao"
+        android:fontFamily="@font/inclusive_sans"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Meus produtos"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textColorHighlight="@color/BrancoNaoPuro"
+        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918" />
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="wrap_content"
@@ -128,57 +166,48 @@
                 android:textAllCaps="false"
                 android:textColor="@color/BrancoNaoPuro" />
 
+            <Button
+                android:id="@+id/docesFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Doces"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
+
+            <Button
+                android:id="@+id/bebidasFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Bebidas"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro" />
+
         </LinearLayout>
     </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVitrine"
         android:layout_width="0dp"
-        android:layout_height="560dp"
+        android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="98dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="64dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="0.0"
         app:spanCount="2"
         tools:listitem="@layout/item_vitrine" />
-
-    <Button
-        android:id="@+id/botaoAdicionarVitrine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bt_cadastro_estilizacao"
-        android:fontFamily="@font/inclusive_sans"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:text="Adicionar produto"
-        android:textAllCaps="false"
-        android:textColor="@color/BrancoNaoPuro"
-        android:textColorHighlight="@color/BrancoNaoPuro"
-        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/botaoMinhaVitrine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bt_cadastro_estilizacao"
-        android:fontFamily="@font/inclusive_sans"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:text="Meus produtos"
-        android:textAllCaps="false"
-        android:textColor="@color/BrancoNaoPuro"
-        android:textColorHighlight="@color/BrancoNaoPuro"
-        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

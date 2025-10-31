@@ -1,17 +1,21 @@
 package com.example.projetosaveit.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.projetosaveit.R
+import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.databinding.ActivityMainBinding
+//import com.example.projetosaveit.service.VitrineForegroundService
 import com.example.projetosaveit.ui.toolbar.ToolbarFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private var binding: ActivityMainBinding? = null
+    private val repositoryVitrine = VitrineRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,5 +46,12 @@ class MainActivity : AppCompatActivity() {
                 navController.navigate(R.id.navigation_vitrine)
             }
         }
+//
+//        val serviceIntent = Intent(this, VitrineForegroundService::class.java)
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//            startForegroundService(serviceIntent)
+//        } else {
+//            startService(serviceIntent)
+//        }
     }
 }

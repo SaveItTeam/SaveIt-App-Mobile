@@ -98,9 +98,8 @@ class CadastroEndereco : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     val intent = Intent(this, MainActivity::class.java)
-                                    intent.putExtra("plano", 1)
+                                    intent.putExtra("plano", 0)
                                     intent.putExtra("tipoFunc", false)
-                                    intent.putExtra("isEmpresa", true)
                                     startActivity(intent)
                                     finish()
                                 }

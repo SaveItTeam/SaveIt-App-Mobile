@@ -1,5 +1,6 @@
 package com.example.projetosaveit.ui
 
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.widget.ProgressBar
@@ -15,12 +16,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.projetosaveit.R
+import android.widget.ImageView
 import com.example.projetosaveit.api.repository.EstoqueRepository
 import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.model.RelatorioProdutoDTO
 import com.example.projetosaveit.ui.CadastroEndereco
 import com.example.projetosaveit.util.GetEmpresa
 import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Response
@@ -82,14 +85,18 @@ class TelaEstoque : AppCompatActivity() {
             GetEmpresa.pegarEmailEmpresa(objAutenticar.currentUser?.email!!) { empresa ->
                 if (empresa != null) {
                     enterpriseId  = empresa.id
+                    getRelatorioProduto(idProduto, empresa.id)
                 }
             }
 
+            (findViewById<ImageView>(R.id.imgSetaVoltarEstoque)).setOnClickListener { v->
+                finish()
+            }
         }
     }
 
     private fun getRelatorioProduto(productId : Long, enterpriseId : Long) {
-        repository.getRelatorioProduto(productId, enterpriseId).enqueue(object : retrofit2.Callback<List<RelatorioProdutoDTO>> {
+        repository.getRelatorioProduto(enterpriseId, productId).enqueue(object : retrofit2.Callback<List<RelatorioProdutoDTO>> {
             override fun onResponse(
                 p0: Call<List<RelatorioProdutoDTO>?>,
                 p1: Response<List<RelatorioProdutoDTO>?>
@@ -120,32 +127,44 @@ class TelaEstoque : AppCompatActivity() {
     private fun mostrarGrafico(dados: List<RelatorioProdutoDTO>) {
         val barChart = findViewById<BarChart>(R.id.barChart)
 
-        val entradasInput = ArrayList<BarEntry>()
-        val entradasOutput = ArrayList<BarEntry>()
+        // Converte os dados da API em entradas para o gráfico
+        val entradas = ArrayList<BarEntry>()
+        val labels = ArrayList<String>()
 
         for ((index, item) in dados.withIndex()) {
-            entradasInput.add(BarEntry(index.toFloat(), item.mouthInput.toFloat()))
-            entradasOutput.add(BarEntry(index.toFloat(), item.totalOutput.toFloat()))
+            // item.mouthInput é o eixo X (mês)
+            // item.totalOutput é o valor Y (quantidade)
+            entradas.add(BarEntry(index.toFloat(), item.totalOutput.toFloat()))
+            labels.add(item.mouthInput.toString()) // usado como rótulo do eixo X
         }
 
-        val dataSetInput = BarDataSet(entradasInput, "Entradas")
-        dataSetInput.color = getColor(R.color.VerdeEscuro)
+        // Cria o dataset (conjunto de barras)
+        val dataSet = BarDataSet(entradas, "Saída de Produtos")
+        dataSet.color = getColor(R.color.VerdeEscuro)
+        dataSet.valueTextSize = 12f
 
-        val dataSetOutput = BarDataSet(entradasOutput, "Saídas")
-        dataSetOutput.color = getColor(R.color.Verde)
-
-        val data = BarData(dataSetInput, dataSetOutput)
-        data.barWidth = 0.3f
-
+        val data = BarData(dataSet)
         barChart.data = data
 
+        // Configurações visuais do gráfico
+        barChart.description.isEnabled = false
+        barChart.axisRight.isEnabled = false
+        barChart.setDrawGridBackground(false)
+        barChart.animateY(1500)
+        barChart.setFitBars(true)
+
+        // Configuração do eixo X
         val xAxis = barChart.xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.granularity = 1f
         xAxis.setDrawGridLines(false)
+        xAxis.valueFormatter = IndexAxisValueFormatter(labels)
 
-        barChart.groupBars(0f, 0.4f, 0.05f)
-        barChart.invalidate()
+        // Configuração do eixo Y
+        barChart.axisLeft.axisMinimum = 0f
+
+        barChart.invalidate() // atualiza o gráfico
     }
+
 
 }

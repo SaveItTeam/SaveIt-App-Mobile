@@ -72,6 +72,7 @@
         app:layout_constraintVertical_bias="0.335" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
@@ -103,16 +104,28 @@
                     android:textColor="@color/PretoNaoPuro"
                     android:textSize="16sp" />
 
-                <ImageView
-                    android:id="@+id/imagemProdutoInput"
-                    android:layout_width="191dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="end"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_weight="1"
-                    android:scaleType="fitEnd"
-                    tools:srcCompat="@android:drawable/ic_menu_add" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="191dp"
+                        android:layout_height="100dp"
+                        tools:srcCompat="@android:drawable/ic_menu_add" />
+
+                    <ImageView
+                        android:id="@+id/imagemProdutoInput"
+                        android:layout_width="191dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="end"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitEnd"
+                        app:srcCompat="@android:drawable/ic_menu_add" />
+                </FrameLayout>
+
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputEditText
@@ -308,14 +321,15 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/btVoltarAdicaoProduto"
+        android:id="@+id/setaEsquerdaVoltarInserirProduto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView25"
-        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162"
         app:srcCompat="@drawable/icon_seta_esquerda" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

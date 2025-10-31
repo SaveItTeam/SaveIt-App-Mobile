@@ -1,19 +1,21 @@
 package com.example.projetosaveit.api.network
 
+import com.example.projetosaveit.adapter.recycleView.ProdutoEstoqueRelatorio
+import com.example.projetosaveit.adapter.recycleView.Venda
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.model.ChatDTO
-import com.example.projetosaveit.model.ChatRequest
-import com.example.projetosaveit.model.ChatResponse
+//import com.example.projetosaveit.model.ChatRequest
+//import com.example.projetosaveit.model.ChatResponse
 import com.example.projetosaveit.model.EmpresaDTO
 import com.example.projetosaveit.model.EmpresaInsertDTO
 import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.FuncionarioDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
-import com.example.projetosaveit.model.HistoricoResponse
+//import com.example.projetosaveit.model.HistoricoResponse
 import com.example.projetosaveit.model.ImagemDTO
-import com.example.projetosaveit.model.IniciarChatRequest
-import com.example.projetosaveit.model.IniciarChatResponse
+//import com.example.projetosaveit.model.IniciarChatRequest
+//import com.example.projetosaveit.model.IniciarChatResponse
 import com.example.projetosaveit.model.LoteDTO
 import com.example.projetosaveit.model.LoteInsertDTO
 import com.example.projetosaveit.model.ProdutoInfoDTO
@@ -27,7 +29,6 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
-import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -53,6 +54,12 @@ interface ApiService {
 
     @GET("api/image/showcase-images/{showcaseId}")
     fun getVitrine(@Path("showcaseId") showcaseId : Long): Call<VitrineDTO>
+
+    @GET("/api/stock/listarQuantidadesProduto/{enterpriseId}")
+    fun getQuantidadesProduto(@Path("enterpriseId") enterpriseId: Long): Call<List<ProdutoEstoqueRelatorio>>
+
+    @GET("/api/stock/listarMovimentacoesEstoque/{enterpriseId}")
+    fun getListaMovimentacoesEstoque(@Path("enterpriseId") enterpriseId: Long) : Call<List<Venda>>
 
     @GET("api/batch/informacoesProduto/{batchId}")
     fun getProdutoId(@Path("batchId") idProduto : Long): Call<ProdutoInfoDTO>
@@ -125,12 +132,12 @@ interface ApiService {
 
 //    API de Chatbot
 
-    @POST("iniciar_chat")
-    fun iniciarChat(@Body request: IniciarChatRequest): Call<IniciarChatResponse>
-
-    @POST("executar_fluxo")
-    fun enviarMensagem(@Body request: ChatRequest): Call<ChatResponse>
-
-    @GET("obter_historico")
-    fun obterHistorico(@Query("session_id") sessionId: String): Call<HistoricoResponse>
+//    @POST("iniciar_chat")
+//    fun iniciarChat(@Body request: IniciarChatRequest): Call<IniciarChatResponse>
+//
+//    @POST("executar_fluxo")
+//    fun enviarMensagem(@Body request: ChatRequest): Call<ChatResponse>
+//
+//    @GET("obter_historico")
+//    fun obterHistorico(@Query("session_id") sessionId: String): Call<HistoricoResponse>
 }

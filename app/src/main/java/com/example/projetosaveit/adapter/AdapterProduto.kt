@@ -2,6 +2,8 @@ package com.example.projetosaveit.adapter
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -79,6 +81,9 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                     val builder = AlertDialog.Builder(activity).setView(dialogView)
                     val dialog = builder.create()
 
+                    dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+
                     val cancelBtn = dialogView!!.findViewById<Button>(R.id.button)
                     val saveBtn = dialogView.findViewById<Button>(R.id.button3)
                     val editQuantidade = dialogView.findViewById<EditText>(R.id.editTextNumber)
@@ -106,7 +111,7 @@ class AdapterProduto : RecyclerView.Adapter<AdapterProduto.ViewHolder>() {
                                         produto.name
                                     )
 
-                                    var estoque : EstoqueDTO = EstoqueDTO(0, 0, quantidadeAtual - quantidade, produto.batchId, produto.id, 0, "", currentDate)
+                                    var estoque : EstoqueDTO = EstoqueDTO(0, 0, quantidade, produto.batchId, produto.id, 0, "", currentDate)
                                     repositoryEstoque.postEstoque(estoque).enqueue(object : retrofit2.Callback<ResponseBody> {
                                         override fun onResponse(
                                             call: retrofit2.Call<ResponseBody>,
