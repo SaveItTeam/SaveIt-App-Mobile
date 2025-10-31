@@ -25,10 +25,7 @@ class Chatbot : AppCompatActivity() {
 
         drawerLayout = findViewById(R.id.drawerLayout)
 
-        val btMenu = findViewById<ImageButton>(R.id.btMenu)
-        btMenu.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
-        }
+//ac
     }
 
     override fun onBackPressed() {

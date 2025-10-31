@@ -50,7 +50,9 @@ class MinhaVitrine : AppCompatActivity() {
         }
 
         val recycleView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.minhaVitrineRc)
+        recycleView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 2)
         recycleView.adapter = adapter
+
 
         findViewById<ImageView>(R.id.btVoltarMinhaVitrine).setOnClickListener {
             finish()
@@ -65,12 +67,14 @@ class MinhaVitrine : AppCompatActivity() {
                 response: retrofit2.Response<List<Vitrine>>
             ) {
                 if (response.isSuccessful) {
-                    val produtos = response.body()
-                    adapter.listVitrine = produtos ?: emptyList()
-                    if (adapter.listVitrine.isEmpty()) {
-                        Toast.makeText(this@MinhaVitrine, "Vitrine vazia.", Toast.LENGTH_SHORT).show()
+                    val produtos = response.body() ?: emptyList()
+                    runOnUiThread {
+                        adapter.listVitrine = produtos
+                        adapter.notifyDataSetChanged()
+                        if (produtos.isEmpty()) {
+                            Toast.makeText(this@MinhaVitrine, "Vitrine vazia.", Toast.LENGTH_SHORT).show()
+                        }
                     }
-                    adapter.notifyDataSetChanged()
                 } else {
                     Toast.makeText(this@MinhaVitrine, "Erro ao obter vitrine.", Toast.LENGTH_SHORT).show()
                 }

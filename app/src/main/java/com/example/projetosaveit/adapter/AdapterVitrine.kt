@@ -17,6 +17,8 @@ import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.model.VitrineDTO
 import com.example.projetosaveit.ui.ProdutoVitrine
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
@@ -58,13 +60,19 @@ class AdapterVitrine() : RecyclerView.Adapter<AdapterVitrine.ViewHolder>() {
                         bundle.putString("empresaVitrine", response.body()?.empresa)
                         bundle.putInt("quantidadeVitrine", response.body()?.quantidadeGeral ?: 0)
                         val validadeOriginal = response.body()?.validade
-                        val sdfEntrada = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                        val sdfSaida = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                         val validadeFormatada = try {
-                            validadeOriginal?.let { sdfSaida.format(sdfEntrada.parse(it)!!) }
+                            val formatoEntrada = if (validadeOriginal?.contains("T") == true) {
+                                SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+                            } else {
+                                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                            }
+                            val formatoSaida = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                            validadeOriginal?.let { formatoSaida.format(formatoEntrada.parse(it)!!) }
                         } catch (e: Exception) {
-                            null
+                            "Data inválida"
                         }
+
+
 
                         bundle.putString("validadeVitrine", validadeFormatada ?: "Data inválida")
                         bundle.putString("pesoVitrine", response.body()?.tipoPeso)

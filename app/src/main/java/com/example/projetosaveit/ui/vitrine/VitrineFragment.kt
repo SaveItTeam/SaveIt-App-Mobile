@@ -17,6 +17,7 @@ import com.example.projetosaveit.api.repository.VitrineRepository
 import com.example.projetosaveit.databinding.FragmentVitrineBinding
 import com.example.projetosaveit.ui.AdicionarProdutoVitrine
 import com.example.projetosaveit.ui.CadastroEndereco
+import com.example.projetosaveit.ui.MinhaVitrine
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
@@ -53,7 +54,7 @@ class VitrineFragment : Fragment() {
             carregarVitrine("Todos")
         }
 
-        val botoes = listOf(binding!!.todosFiltro, binding!!.embutidosFiltro, binding!!.lacticiniosFiltro, binding!!.graosFIltro, binding!!.frutasFiltro, binding!!.salgadosFiltro)
+        val botoes = listOf(binding!!.todosFiltro, binding!!.embutidosFiltro, binding!!.lacticiniosFiltro, binding!!.graosFIltro, binding!!.frutasFiltro, binding!!.salgadosFiltro, binding!!.docesFiltro, binding!!.bebidasFiltro)
 
         botoes.forEach { botao ->
             botao?.setOnClickListener {
@@ -72,6 +73,11 @@ class VitrineFragment : Fragment() {
 
         binding!!.botaoAdicionarVitrine?.setOnClickListener { v ->
             val intent : Intent = Intent(v.context, AdicionarProdutoVitrine::class.java)
+            startActivity(intent)
+        }
+
+        binding!!.botaoMinhaVitrine?.setOnClickListener { v ->
+            val intent : Intent = Intent(v.context, MinhaVitrine::class.java)
             startActivity(intent)
         }
 

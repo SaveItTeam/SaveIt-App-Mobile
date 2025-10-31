@@ -99,22 +99,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="40dp"
                     android:fontFamily="@font/inclusive_sans"
                     android:text="Insira a imagem aqui"
                     android:textColor="@color/PretoNaoPuro"
                     android:textSize="24sp" />
 
-                <ImageView
-                    android:id="@+id/imagemProdutoInput"
-                    android:layout_width="275dp"
-                    android:layout_height="175dp"
-                    android:layout_gravity="end"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="100dp"
-                    android:layout_weight="1"
-                    android:scaleType="fitEnd"
-                    tools:srcCompat="@android:drawable/ic_menu_add" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="234dp"
+                        android:layout_height="162dp"
+                        tools:srcCompat="@android:drawable/ic_menu_add" />
+
+                    <ImageView
+                        android:id="@+id/imagemProdutoInput"
+                        android:layout_width="200dp"
+                        android:layout_height="160dp"
+                        android:layout_gravity="end"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitEnd"
+                        app:srcCompat="@android:drawable/ic_menu_add" />
+                </FrameLayout>
+
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputEditText
@@ -126,28 +138,29 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/caixa_texto"
                 android:fontFamily="@font/inclusive_sans"
+                android:gravity="center_vertical"
                 android:hint="Digite o nome do produto"
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/descricaoProdutoInput"
-                android:layout_width="505dp"
-                android:layout_height="247dp"
+                android:layout_width="500dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/caixa_texto"
                 android:fontFamily="@font/inclusive_sans"
-                android:gravity="top"
+                android:gravity="clip_horizontal"
                 android:hint="Digite a descrição do produto"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/marcaProdutoInput"
@@ -158,13 +171,14 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/caixa_texto"
                 android:fontFamily="@font/inclusive_sans"
+                android:gravity="center_vertical"
                 android:hint="Digite a marca do produto"
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/quantidadeProdutoInput"
                 android:layout_width="505dp"
                 android:layout_height="50dp"
@@ -172,12 +186,48 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/caixa_texto"
-                android:fontFamily="@font/inclusive_sans"
+                android:ems="10"
                 android:hint="Digite a quantidade em estoque"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:textColor="@color/PretoNaoPuro"
+                android:textColorHighlight="@color/PretoNaoPuro"
+                android:textColorHint="@color/PlaceHolderColor"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/quantidadeMaximaProdutoInput"
+                android:layout_width="505dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/caixa_texto"
+                android:ems="10"
+                android:hint="Digite a quantidade maxima em estoque"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:textColor="@color/PretoNaoPuro"
+                android:textColorHighlight="@color/PretoNaoPuro"
+                android:textColorHint="@color/PlaceHolderColor"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/categoriaProduto"
+                android:layout_width="505dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/caixa_texto"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/inclusive_sans"
+                android:hint="Digite a categoria do produto"
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/unidadeMedidaProdutoInput"
@@ -190,11 +240,12 @@
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:fontFamily="@font/inclusive_sans"
+                android:gravity="center_vertical"
                 android:hint="Digite a unidade de medida do produto"
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/skuProdutoInput"
@@ -205,11 +256,32 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/caixa_texto"
                 android:fontFamily="@font/inclusive_sans"
+                android:gravity="center_vertical"
                 android:hint="Digite a SKU do poduto"
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/entradaProdutoInput"
+                android:layout_width="505dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/caixa_texto"
+                android:clickable="true"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/inclusive_sans"
+                android:gravity="center_vertical"
+                android:hint="Digite a data de entrada do produto"
+                android:inputType="none"
+                android:paddingLeft="10dp"
+                android:textColor="@color/PretoNaoPuro"
+                android:textColorHint="@color/PlaceHolderColor"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/validadeProdutoInput"
@@ -224,51 +296,33 @@
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:fontFamily="@font/inclusive_sans"
+                android:gravity="center_vertical"
                 android:hint="Digite a data de validade do produto"
                 android:inputType="none"
                 android:paddingLeft="10dp"
                 android:textColor="@color/PretoNaoPuro"
                 android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/entradaProdutoInput"
-                android:layout_width="505dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/caixa_texto"
-                android:clickable="true"
-                android:ems="10"
-                android:focusableInTouchMode="false"
-                android:fontFamily="@font/inclusive_sans"
-                android:hint="Digite a data de entrada do produto"
-                android:inputType="none"
-                android:paddingLeft="10dp"
-                android:textColor="@color/PretoNaoPuro"
-                android:textColorHint="@color/PlaceHolderColor"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/botaoCadastrarProduto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="124dp"
+                android:layout_height="37dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/bt_cadastro_estilizacao_tablet"
+                android:background="@drawable/bt_cadastro_estilizacao"
                 android:fontFamily="@font/inclusive_sans"
-                android:padding="20dp"
+                android:gravity="center"
                 android:text="Cadastrar"
                 android:textAllCaps="false"
                 android:textColor="@color/BrancoNaoPuro"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView20"
+        android:id="@+id/setaEsquerdaVoltarInserirProduto"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="12dp"

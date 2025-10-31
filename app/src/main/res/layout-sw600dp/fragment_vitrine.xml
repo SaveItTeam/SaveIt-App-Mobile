@@ -7,6 +7,176 @@
     android:background="@color/Branco"
     tools:context=".ui.vitrine.VitrineFragment">
 
+    <Button
+        android:id="@+id/botaoAdicionarVitrine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao"
+        android:fontFamily="@font/inclusive_sans"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Adicionar produto"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textColorHighlight="@color/BrancoNaoPuro"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <Button
+        android:id="@+id/botaoMinhaVitrine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_cadastro_estilizacao"
+        android:fontFamily="@font/inclusive_sans"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Meus produtos"
+        android:textAllCaps="false"
+        android:textColor="@color/BrancoNaoPuro"
+        android:textColorHighlight="@color/BrancoNaoPuro"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvVitrine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.16000003">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView26"
+            app:layout_constraintVertical_bias="0.028">
+
+            <Button
+                android:id="@+id/todosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao_selecionado"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Todos"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/embutidosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Embutidos"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/lacticiniosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Laticínios"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/graosFIltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Grãos"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/frutasFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Frutas"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/salgadosFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Salgados"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/docesFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Doces"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/bebidasFiltro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bt_filtro_estilizacao"
+                android:fontFamily="@font/inclusive_sans"
+                android:padding="10dp"
+                android:text="Bebidas"
+                android:textAllCaps="false"
+                android:textColor="@color/BrancoNaoPuro"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="wrap_content"
@@ -16,13 +186,13 @@
         android:text="Vitrine Virtual"
         android:textAlignment="center"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="48sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.008" />
 
     <TextView
         android:id="@+id/textView26"
@@ -31,86 +201,29 @@
         android:fontFamily="@font/inclusive_sans"
         android:text="Categorias"
         android:textColor="@color/PretoNaoPuro"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dashboard"
-        app:layout_constraintVertical_bias="0.384" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213">
-
-        <Button
-            android:id="@+id/todosFiltro"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:background="@drawable/bt_filtro_estilizacao_selecionado"
-            android:fontFamily="@font/inclusive_sans"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="Todos"
-            android:textAllCaps="false"
-            android:textColor="@color/BrancoNaoPuro"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/embutidosFiltro"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:background="@drawable/bt_filtro_estilizacao"
-            android:fontFamily="@font/inclusive_sans"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="Embutidos"
-            android:textAllCaps="false"
-            android:textColor="@color/BrancoNaoPuro"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/lacticiniosFiltro"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:background="@drawable/bt_filtro_estilizacao"
-            android:fontFamily="@font/inclusive_sans"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="Laticínios"
-            android:textAllCaps="false"
-            android:textColor="@color/BrancoNaoPuro"
-            android:textSize="24sp" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVitrine"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="60dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
         app:spanCount="2"
-        tools:listitem="@layout/item_vitrine" />
+        tools:listitem="@layout/item_vitrine">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

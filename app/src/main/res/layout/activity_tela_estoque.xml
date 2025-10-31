@@ -39,7 +39,7 @@
             </FrameLayout>
 
             <ImageView
-                android:id="@+id/imageView27"
+                android:id="@+id/imgSetaVoltarEstoque"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -225,8 +225,8 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
@@ -267,6 +267,17 @@
                     android:scaleY="1" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inclusive_sans"
+                android:text="Quantidade que saiu por mês"
+                android:textColor="@color/PlaceHolderColor"
+                android:textSize="14sp" />
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/barChart"

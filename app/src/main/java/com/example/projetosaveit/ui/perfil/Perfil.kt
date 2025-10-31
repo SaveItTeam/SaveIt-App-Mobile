@@ -1,11 +1,13 @@
 package com.example.projetosaveit.ui.perfil
 
 import android.Manifest
+import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -18,6 +20,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +34,7 @@ import com.cloudinary.utils.ObjectUtils
 import com.example.projetosaveit.R
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.ImagemRepository
+import com.example.projetosaveit.ui.AdicionarProduto
 import com.example.projetosaveit.ui.Chatbot
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
 import com.example.projetosaveit.util.GetEmpresa
@@ -50,9 +54,13 @@ class Perfil : Fragment() {
     val repository : ImagemRepository = ImagemRepository()
     val repositoryEmpresa : EmpresaRepository = EmpresaRepository()
     var idEmpresa : Long = 0
+    var imagemAtual : String = ""
+
+    private lateinit var pickImageLauncher: ActivityResultLauncher<Intent>
+    private lateinit var permissionLauncher: ActivityResultLauncher<String>
+    private val REQUEST_IMAGE_PICK = 1001
 
     private val REQUEST_IMAGE_CAPTURE = 1
-    private val REQUEST_IMAGE_PICK = 2
     private val CAMERA_REQUEST_CODE = 100
     private var photoUri: Uri? = null
     private val requestCameraPermissionLauncher =
@@ -76,6 +84,28 @@ class Perfil : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        pickImageLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val imageUri = result.data?.data
+                if (imageUri != null) {
+                    Toast.makeText(requireContext(), "Imagem selecionada!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        // Configura o launcher de permissão
+        permissionLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { granted ->
+            if (granted) {
+                openGallery()
+            } else {
+                Toast.makeText(requireContext(), "Permissão negada!", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 
@@ -215,21 +245,29 @@ class Perfil : Fragment() {
 
                 REQUEST_IMAGE_PICK -> {
                     val selectedImageUri = data?.data
-                    val file = File(getRealPathFromUri(selectedImageUri!!))
-                    uploadToCloudinary(file,
-                        onSuccess = { url ->
-                            Glide.with(this)
-                                .load(url)
-                                .circleCrop()
-                                .into(avatar!!)
+                    if (selectedImageUri != null) {
+                        val file = getFileFromUri(selectedImageUri)
+                        if (file != null) {
+                            uploadToCloudinary(file,
+                                onSuccess = { url ->
+                                    val avatar = view?.findViewById<ImageView>(R.id.imagemPerfil)
+                                    Glide.with(this)
+                                        .load(url)
+                                        .circleCrop()
+                                        .into(avatar!!)
 
-                            Toast.makeText(requireContext(), "Foi inserido com sucesso!", Toast.LENGTH_SHORT).show()
-                        },
-                        onError = { e ->
-                            Toast.makeText(requireContext(), "Erro no upload: ${e.message}", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(requireContext(), "Imagem enviada com sucesso!", Toast.LENGTH_SHORT).show()
+                                },
+                                onError = { e ->
+                                    Toast.makeText(requireContext(), "Erro no upload: ${e.message}", Toast.LENGTH_SHORT).show()
+                                }
+                            )
+                        } else {
+                            Toast.makeText(requireContext(), "Erro ao processar imagem", Toast.LENGTH_SHORT).show()
                         }
-                    )
+                    }
                 }
+
             }
         }
     }
@@ -238,6 +276,7 @@ class Perfil : Fragment() {
         Thread {
             try {
                 Log.d(ContentValues.TAG, "inserindo")
+                destroyFromCloudinary(imagemAtual)
                 val result = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
                 var url = result["secure_url"] as String
                 imagePublicId = result["public_id"] as String
@@ -274,10 +313,35 @@ class Perfil : Fragment() {
             .setItems(options) { _, which ->
                 when (which) {
                     0 -> openCamera()
-                    1 -> openGallery()
+                    1 -> requestGalleryPermission()
                 }
             }
             .show()
+    }
+
+    private fun getFileFromUri(uri: Uri): File? {
+        return try {
+            val inputStream = requireContext().contentResolver.openInputStream(uri)
+            val tempFile = File.createTempFile("selectedImage_", ".jpg", requireContext().cacheDir)
+            inputStream?.use { input ->
+                tempFile.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            tempFile
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+
+    private fun requestGalleryPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            permissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES)
+        } else {
+            permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
     }
 
     private fun openGallery() {
@@ -319,11 +383,11 @@ class Perfil : Fragment() {
                 response: retrofit2.Response<com.example.projetosaveit.model.EmpresaDTO>
             ) {
                 if (response.isSuccessful) {
-                    val imagemUrl = response.body()?.enterpriseImage
+                    imagemAtual = response.body()!!.enterpriseImage
                     val avatar = view?.findViewById<ImageView>(R.id.imagemPerfil)
-                    if (!imagemUrl.isNullOrEmpty()) {
+                    if (!imagemAtual.isNullOrEmpty()) {
                         Glide.with(requireContext())
-                            .load(imagemUrl)
+                            .load(imagemAtual)
                             .circleCrop()
                             .into(avatar!!)
                     }
@@ -356,19 +420,31 @@ class Perfil : Fragment() {
         })
     }
 
-    fun deleteImageFromCloudinary(publicId: String, onSuccess: () -> Unit, onError: (Exception) -> Unit) {
+    private fun destroyFromCloudinary(publicId: String) {
         Thread {
             try {
                 val result = cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap())
+                Log.d("Cloudinary", "Delete result: $result")
+
                 requireActivity().runOnUiThread {
-                    onSuccess()
+                    Toast.makeText(
+                        requireContext(),
+                        "Resultado: ${result["result"]}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
+
             } catch (e: Exception) {
                 requireActivity().runOnUiThread {
-                    onError(e)
+                    Toast.makeText(
+                        requireContext(),
+                        "Não foi possível excluir a imagem: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }.start()
     }
+
 
 }

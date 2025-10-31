@@ -39,6 +39,9 @@
 <!--            android:name=".ui.Chatbot"-->
 <!--            android:exported="false" />-->
         <activity
+            android:name=".ui.VisaoGeralEstoque"
+            android:exported="false" />
+        <activity
             android:name=".ui.Conversa"
             android:exported="false" />
         <activity
