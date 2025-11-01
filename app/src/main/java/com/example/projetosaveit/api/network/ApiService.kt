@@ -26,6 +26,7 @@ import com.example.projetosaveit.model.VitrineInsertDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
@@ -39,6 +40,9 @@ interface ApiService {
     @GET("api/stock/relatorioProdutoPorProduto/{enterpriseId}/{productId}")
     fun getRelatorioProduto(@Path("enterpriseId") enterpriseId: Long, @Path("productId") productId: Long
     ): Call<List<RelatorioProdutoDTO>>
+
+    @DELETE("/api/enterprise/excluir/{id}")
+    fun deleteEmpresa(@Path("id")  enterpriseId : Long) : Call<ResponseBody>
 
     @GET("api/stock/relatorioProduto/{enterpriseId}")
     fun getRelatorioProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<RelatorioDTO>>

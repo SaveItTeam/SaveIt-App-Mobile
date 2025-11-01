@@ -354,7 +354,7 @@ class AdicionarProduto : AppCompatActivity() {
                 if (p1.isSuccessful) {
                     Toast.makeText(
                         this@AdicionarProduto,
-                        "Inserido com sucesso. Resultado: " + p1.body(),
+                        "Inserido com sucesso",
                         Toast.LENGTH_SHORT
                     ).show()
                     finish()
