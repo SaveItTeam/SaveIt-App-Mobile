@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.example.projetosaveit.R
 import com.example.projetosaveit.api.repository.EstoqueRepository
 import com.example.projetosaveit.databinding.FragmentRelatorioBinding
@@ -16,10 +18,9 @@ import com.example.projetosaveit.model.RelatorioDTO
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 
 class Relatorio : Fragment() {
+
     private val objAutenticar: FirebaseAuth = FirebaseAuth.getInstance()
     private var binding: FragmentRelatorioBinding? = null
     private val estoqueRepository = EstoqueRepository()
@@ -41,37 +42,48 @@ class Relatorio : Fragment() {
             return
         }
 
-        GetFuncionario.pegarEmailFunc(email) { func ->
-            if (func != null) {
-                val enterpriseId = func.enterpriseId
-                GetEmpresa.pegarIdEmpresa(enterpriseId) { empresa ->
-                    if (empresa != null) {
-                        idEmpresa = empresa.id
-                        estoqueRepository.getRelatorioMensal(idEmpresa)
-                            .enqueue(object : retrofit2.Callback<List<RelatorioDTO>> {
-                                override fun onResponse(
-                                    call: retrofit2.Call<List<RelatorioDTO>>,
-                                    response: retrofit2.Response<List<RelatorioDTO>>
-                                ) {
-                                    if (response.isSuccessful)
-                                        fillTable(response.body() ?: emptyList())
-                                }
-
-                                override fun onFailure(
-                                    call: retrofit2.Call<List<RelatorioDTO>>,
-                                    t: Throwable
-                                ) {
-                                    Log.e("Relatório", "Falha: ${t.message}", t)
-                                }
-                            })
+        // Primeiro tenta pegar como empresa
+        GetEmpresa.pegarEmailEmpresa(email) { empresa ->
+            if (empresa != null) {
+                // Usuário é uma empresa
+                idEmpresa = empresa.id
+                buscarRelatorio()
+            } else {
+                // Tenta pegar como funcionário
+                GetFuncionario.pegarEmailFunc(email) { func ->
+                    if (func != null) {
+                        val enterpriseId = func.enterpriseId
+                        GetEmpresa.pegarIdEmpresa(enterpriseId) { emp ->
+                            if (emp != null) {
+                                idEmpresa = emp.id
+                                buscarRelatorio()
+                            } else {
+                                Log.e("Relatório", "Empresa não encontrada para o ID: $enterpriseId")
+                            }
+                        }
                     } else {
-                        Log.e("Relatório", "Empresa não encontrada para o ID: $enterpriseId")
+                        Log.e("Relatório", "Usuário não encontrado como empresa ou funcionário: $email")
                     }
                 }
-            } else {
-                Log.e("Relatório", "Funcionário não encontrado para o email: $email")
             }
         }
+    }
+
+    private fun buscarRelatorio() {
+        estoqueRepository.getRelatorioMensal(idEmpresa)
+            .enqueue(object : retrofit2.Callback<List<RelatorioDTO>> {
+                override fun onResponse(
+                    call: retrofit2.Call<List<RelatorioDTO>>,
+                    response: retrofit2.Response<List<RelatorioDTO>>
+                ) {
+                    if (response.isSuccessful)
+                        fillTable(response.body() ?: emptyList())
+                }
+
+                override fun onFailure(call: retrofit2.Call<List<RelatorioDTO>>, t: Throwable) {
+                    Log.e("Relatório", "Falha: ${t.message}", t)
+                }
+            })
     }
 
     private fun fillTable(data: List<RelatorioDTO>) {
