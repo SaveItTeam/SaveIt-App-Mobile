@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.projetosaveit.R
 import com.example.projetosaveit.adapter.AdapterChat
 import com.example.projetosaveit.api.repository.ChatRepository
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.databinding.FragmentChatsBinding
 import com.example.projetosaveit.model.ChatDTO
 import com.example.projetosaveit.model.EmpresaDTO
+import com.example.projetosaveit.util.GetEmpresa
+import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import retrofit2.Call
@@ -69,11 +72,15 @@ class ChatsFragment : Fragment() {
         binding?.btTodos?.setOnClickListener {
             mostrarNaoLidos = false
             aplicarFiltro()
+            binding?.btTodos?.setBackgroundResource(R.drawable.bt_filtro_estilizacao_selecionado)
+            binding?.btNaoLidos?.setBackgroundResource(R.drawable.bt_filtro_estilizacao)
         }
 
         binding?.btNaoLidos?.setOnClickListener {
             mostrarNaoLidos = true
             aplicarFiltro()
+            binding?.btTodos?.setBackgroundResource(R.drawable.bt_filtro_estilizacao)
+            binding?.btNaoLidos?.setBackgroundResource(R.drawable.bt_filtro_estilizacao_selecionado)
         }
 
 
@@ -81,23 +88,23 @@ class ChatsFragment : Fragment() {
     }
 
     private fun carregarIdEmpresaEChats(email: String) {
+        var idEmpresa: Long
 
-        empresaRepository.getEmpresa(email).enqueue(object : Callback<EmpresaDTO> {
-            override fun onResponse(call: Call<EmpresaDTO>, response: Response<EmpresaDTO>) {
-                if (response.isSuccessful && response.body() != null) {
-                    val empresa = response.body()!!
-                    val idEmpresa = empresa.id
-                    Log.d("ChatsFragment", "Empresa logada: ${empresa.name} (ID: $idEmpresa)")
-                    carregarChats(idEmpresa)
-                } else {
-                    Toast.makeText(context, "Empresa não encontrada para o e-mail informado", Toast.LENGTH_LONG).show()
+        GetEmpresa.pegarEmailEmpresa(email) { empresa ->
+            if (empresa != null) {
+                idEmpresa = empresa.id
+                carregarChats(idEmpresa)
+            } else {
+                GetFuncionario.pegarEmailFunc(email) { func ->
+                    if (func != null) {
+                        idEmpresa = func.enterpriseId
+                        carregarChats(idEmpresa)
+                    } else {
+                        Toast.makeText(context, "Erro ao obter dados da empresa ou funcionário", Toast.LENGTH_LONG).show()
+                    }
                 }
             }
-
-            override fun onFailure(call: Call<EmpresaDTO>, t: Throwable) {
-                Toast.makeText(context, "Erro ao buscar empresa: ${t.message}", Toast.LENGTH_LONG).show()
-            }
-        })
+        }
     }
 
     private fun carregarChats(idEmpresaLogada: Long) {
@@ -144,7 +151,7 @@ class ChatsFragment : Fragment() {
                                                     }
 
                                                     override fun onFailure(call: Call<EmpresaDTO>, t: Throwable) {
-                                                        // Erro ao buscar empresa, passa para a próxima etapa/próximo chat
+                                                        // Erro ao buscar empresa, passa para o próximo chat
                                                         loadedChats++
 
                                                         if (loadedChats == totalChats) {
@@ -156,7 +163,7 @@ class ChatsFragment : Fragment() {
                                         }
 
                                         override fun onFailure(call: Call<ChatDTO>, t: Throwable) {
-                                            // Erro na última mensagem, ainda podemos mostrar o resto
+                                            // Erro na última mensagem
                                             loadedChats++
                                             if (loadedChats == totalChats) {
                                                 atualizarAdapter(chats)

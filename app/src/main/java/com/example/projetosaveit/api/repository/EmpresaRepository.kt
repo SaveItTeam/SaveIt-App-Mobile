@@ -26,4 +26,12 @@ class EmpresaRepository {
     fun deleteEmpresa(enterpriseId : Long) : Call<ResponseBody> {
         return RetrofitClientSql.instance.deleteEmpresa(enterpriseId)
     }
+
+    fun registrarEntrada(idEmpresa: Int): Call<ResponseBody> {
+        return RetrofitClientSql.instance.registrarEntrada(idEmpresa)
+    }
+
+    fun registrarSaida(idEmpresa: Int): Call<ResponseBody> {
+        return RetrofitClientSql.instance.registrarSaida(idEmpresa)
+    }
 }

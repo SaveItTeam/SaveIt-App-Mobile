@@ -1,6 +1,7 @@
 package com.example.projetosaveit.api.repository
 
 import com.example.projetosaveit.api.network.RetrofitClientMongo
+import com.example.projetosaveit.api.network.RetrofitClientSql
 import com.example.projetosaveit.model.ChatDTO
 import retrofit2.Call
 
@@ -19,5 +20,9 @@ class ChatRepository {
 
     fun getChatHistorico(idChat: Long): Call<List<ChatDTO>> {
         return RetrofitClientMongo.instance.getChatsHistorico(idChat)
+    }
+
+    fun marcarComoLida(chatId: Long): Call<Void> {
+        return RetrofitClientSql.instance.marcarComoLida(chatId)
     }
 }

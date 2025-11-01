@@ -35,11 +35,11 @@ import com.example.projetosaveit.R
 import com.example.projetosaveit.api.repository.EmpresaRepository
 import com.example.projetosaveit.api.repository.ImagemRepository
 import com.example.projetosaveit.ui.AdicionarProduto
-import com.example.projetosaveit.ui.Chatbot
 import com.example.projetosaveit.ui.ConfiguracoesPerfil
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.ui.InserirFuncionario
 import com.example.projetosaveit.ui.Planos
+import com.example.projetosaveit.ui.chatbot.Chatbot
 import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
 import okhttp3.ResponseBody
