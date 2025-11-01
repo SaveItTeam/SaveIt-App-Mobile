@@ -22,4 +22,8 @@ class EmpresaRepository {
     fun patchEmpresa(id : Long, updates : Map<String, @JvmSuppressWildcards Any>) : Call<ResponseBody> {
         return RetrofitClientSql.instance.patchEmpresaId(id, updates)
     }
+
+    fun deleteEmpresa(enterpriseId : Long) : Call<ResponseBody> {
+        return RetrofitClientSql.instance.deleteEmpresa(enterpriseId)
+    }
 }
