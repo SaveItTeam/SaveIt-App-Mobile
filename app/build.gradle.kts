@@ -1,8 +1,13 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.kotlin.android)
 }
+
+val token = gradleLocalProperties(rootDir, providers)
+    .getProperty("API_TOKEN", "")
 
 buildscript {
     repositories {
@@ -30,6 +35,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField(
+            "String",
+            "API_TOKEN",
+            "\"${token}\""
+        )
     }
 
     buildTypes {
@@ -82,4 +93,7 @@ dependencies {
     implementation("org.java-websocket:Java-WebSocket:1.5.3")
     implementation("io.reactivex.rxjava2:rxjava:2.2.21")
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-process:2.8.4")
 }

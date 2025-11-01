@@ -35,9 +35,9 @@
         <activity
             android:name=".ui.AtualizarNome"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".ui.Chatbot"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".ui.chatbot.Chatbot"
+            android:exported="false" />
         <activity
             android:name=".ui.VisaoGeralEstoque"
             android:exported="false" />

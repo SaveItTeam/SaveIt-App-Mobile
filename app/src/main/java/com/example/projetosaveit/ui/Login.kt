@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projetosaveit.R
+import com.example.projetosaveit.util.AppLifecycleObserver
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.util.GetFuncionario
 import com.google.android.gms.tasks.Task
@@ -64,11 +65,13 @@ class Login : AppCompatActivity() {
                             if (empresa != null) {
                                 // É empresa
                                 val plano = empresa.planId
+                                AppLifecycleObserver.iniciar(empresa.id.toInt())
                                 abrirMainActivity(plano = plano, isEmpresa = true)
                             } else {
                                 // Não é empresa, verifica se é funcionário
                                 GetFuncionario.pegarEmailFunc(txtEmail) { func ->
                                     val tipoFunc = func?.isAdmin ?: false
+                                    AppLifecycleObserver.iniciar(func!!.enterpriseId.toInt())
                                     abrirMainActivity(plano = 2, tipoFunc = tipoFunc, isEmpresa = false)
                                 }
                             }

@@ -5,6 +5,8 @@ import com.example.projetosaveit.adapter.recycleView.Venda
 import com.example.projetosaveit.adapter.recycleView.Produto
 import com.example.projetosaveit.adapter.recycleView.Vitrine
 import com.example.projetosaveit.model.ChatDTO
+import com.example.projetosaveit.model.ChatRequest
+import com.example.projetosaveit.model.ChatResponse
 //import com.example.projetosaveit.model.ChatRequest
 //import com.example.projetosaveit.model.ChatResponse
 import com.example.projetosaveit.model.EmpresaDTO
@@ -12,8 +14,12 @@ import com.example.projetosaveit.model.EmpresaInsertDTO
 import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.FuncionarioDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
+import com.example.projetosaveit.model.HistoricoResponse
+import com.example.projetosaveit.model.HistoricoSessaoRequest
 //import com.example.projetosaveit.model.HistoricoResponse
 import com.example.projetosaveit.model.ImagemDTO
+import com.example.projetosaveit.model.IniciarChatRequest
+import com.example.projetosaveit.model.IniciarChatResponse
 //import com.example.projetosaveit.model.IniciarChatRequest
 //import com.example.projetosaveit.model.IniciarChatResponse
 import com.example.projetosaveit.model.LoteDTO
@@ -26,6 +32,7 @@ import com.example.projetosaveit.model.VitrineInsertDTO
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
@@ -39,6 +46,9 @@ interface ApiService {
     @GET("api/stock/relatorioProdutoPorProduto/{enterpriseId}/{productId}")
     fun getRelatorioProduto(@Path("enterpriseId") enterpriseId: Long, @Path("productId") productId: Long
     ): Call<List<RelatorioProdutoDTO>>
+
+    @DELETE("/api/enterprise/excluir/{id}")
+    fun deleteEmpresa(@Path("id")  enterpriseId : Long) : Call<ResponseBody>
 
     @GET("api/stock/relatorioProduto/{enterpriseId}")
     fun getRelatorioProdutos(@Path("enterpriseId") idEmpresa : Long): Call<List<RelatorioDTO>>
@@ -108,6 +118,12 @@ interface ApiService {
         @Query("ultimoCheck") ultimoCheck: String
     ): Call<List<VitrineDTO>>
 
+    @POST("api/enterprise/registrarEntrada/{enterpriseId}")
+    fun registrarEntrada(@Path("enterpriseId") idEmpresa: Int): Call<ResponseBody>
+
+    @POST("api/enterprise/registrarSaida/{enterpriseId}")
+    fun registrarSaida(@Path("enterpriseId") idEmpresa: Int): Call<ResponseBody>
+
 //    API de Mongo/WebSocket
 
     @GET("chats/empresa/{enterpriseId}")
@@ -130,14 +146,20 @@ interface ApiService {
         @Query("chatId") idChat: Long
     ): Call<List<ChatDTO>>
 
+    @PATCH("/chats/marcarComoLida/{chatId}")
+    fun marcarComoLida(@Path("chatId") chatId: Long): Call<Void>
+
 //    API de Chatbot
 
-//    @POST("iniciar_chat")
-//    fun iniciarChat(@Body request: IniciarChatRequest): Call<IniciarChatResponse>
-//
-//    @POST("executar_fluxo")
-//    fun enviarMensagem(@Body request: ChatRequest): Call<ChatResponse>
-//
-//    @GET("obter_historico")
-//    fun obterHistorico(@Query("session_id") sessionId: String): Call<HistoricoResponse>
+    @POST("iniciar_chat")
+    fun iniciarChat(@Body request: IniciarChatRequest): Call<IniciarChatResponse>
+
+    @POST("executar_fluxo")
+    fun enviarMensagem(@Body request: ChatRequest): Call<ChatResponse>
+
+    @POST("historico_funcionario")
+    fun obterHistoricoFuncionario(@Body request: Map<String, Int>): Call<HistoricoResponse>
+
+    @POST("historico_sessao")
+    fun obterHistoricoSessao(@Body request: HistoricoSessaoRequest): Call<HistoricoResponse>
 }

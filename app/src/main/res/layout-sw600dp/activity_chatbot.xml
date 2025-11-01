@@ -19,13 +19,15 @@
             android:layout_height="80dp"
             android:scaleType="fitXY"
             android:src="@drawable/onda_verde_escuraeclara_onze"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/btMenu"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="44dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="80dp"
             android:src="@drawable/icon_menu"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,8 +35,8 @@
 
         <ImageView
             android:id="@+id/ivMascote"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/saveitlogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +50,7 @@
             android:text="Olá usuário.\nComo posso te ajudar hoje?"
             android:textAlignment="center"
             android:textColor="@color/PretoNaoPuro"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivMascote" />
@@ -66,23 +68,24 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/chat_input_container"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_width="505dp"
+            android:layout_height="89dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="44dp"
             android:background="@drawable/caixa_texto"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
                 android:id="@+id/enviarMsg2"
-                android:layout_width="44dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:src="@drawable/icon_enviar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -90,13 +93,14 @@
             <EditText
                 android:id="@+id/escreverMsg"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="67dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/fundo_campo_escrever_msg"
                 android:fontFamily="@font/inclusive_sans"
                 android:hint="Digite uma mensagem"
                 android:padding="12dp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/enviarMsg2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -107,12 +111,12 @@
 
         <ImageView
             android:id="@+id/btVoltarChatbot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/icon_seta_esquerda"
+            android:src="@drawable/icon_seta_esquerda_tablet_2x"
             app:layout_constraintEnd_toStartOf="@+id/btMenu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/faixaSuperior" />

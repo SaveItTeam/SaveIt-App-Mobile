@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projetosaveit.R
+import com.example.projetosaveit.util.AppLifecycleObserver
 import com.example.projetosaveit.util.GetEmpresa
 import com.example.projetosaveit.util.GetFuncionario
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class SplashScreen : AppCompatActivity() {
 
@@ -34,6 +33,7 @@ class SplashScreen : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         intent.putExtra("plano", plano)
                         intent.putExtra("isEmpresa", true)
+                        AppLifecycleObserver.iniciar(empresa.id.toInt())
                         startActivity(intent)
                         Log.d("plano", plano.toString())
                         finish()
@@ -45,6 +45,8 @@ class SplashScreen : AppCompatActivity() {
                             intent.putExtra("plano", 2)
                             intent.putExtra("tipoFunc", tipoFunc)
                             intent.putExtra("isEmpresa", false)
+                            AppLifecycleObserver.iniciar(func!!.enterpriseId.toInt())
+
                             startActivity(intent)
                             finish()
                         }
