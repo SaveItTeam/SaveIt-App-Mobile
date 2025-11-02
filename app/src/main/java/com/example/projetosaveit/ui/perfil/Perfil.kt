@@ -127,8 +127,10 @@ class Perfil : Fragment() {
                 if (empresa.planId == 1) {
                     view.findViewById<FrameLayout>(R.id.FrameInserirFunc).visibility = View.GONE
                     plano = "Plano Atual: Nenhum"
+                    view.findViewById<LinearLayout>(R.id.btChatbot).visibility = View.GONE
                 } else {
                     plano = "Plano Atual: SaveIt Pro"
+                    view.findViewById<LinearLayout>(R.id.btChatbot).visibility = View.VISIBLE
                 }
 
                 view.findViewById<TextView>(R.id.planoAtual).text = plano

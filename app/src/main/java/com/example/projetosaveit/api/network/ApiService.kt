@@ -14,14 +14,11 @@ import com.example.projetosaveit.model.EmpresaInsertDTO
 import com.example.projetosaveit.model.EstoqueDTO
 import com.example.projetosaveit.model.FuncionarioDTO
 import com.example.projetosaveit.model.FuncionarioInsertDTO
-import com.example.projetosaveit.model.HistoricoResponse
-import com.example.projetosaveit.model.HistoricoSessaoRequest
-//import com.example.projetosaveit.model.HistoricoResponse
+import com.example.projetosaveit.model.HistoricoFuncionarioResponse
+import com.example.projetosaveit.model.HistoricoSessaoResponse
 import com.example.projetosaveit.model.ImagemDTO
 import com.example.projetosaveit.model.IniciarChatRequest
 import com.example.projetosaveit.model.IniciarChatResponse
-//import com.example.projetosaveit.model.IniciarChatRequest
-//import com.example.projetosaveit.model.IniciarChatResponse
 import com.example.projetosaveit.model.LoteDTO
 import com.example.projetosaveit.model.LoteInsertDTO
 import com.example.projetosaveit.model.ProdutoInfoDTO
@@ -157,9 +154,12 @@ interface ApiService {
     @POST("executar_fluxo")
     fun enviarMensagem(@Body request: ChatRequest): Call<ChatResponse>
 
-    @POST("historico_funcionario")
-    fun obterHistoricoFuncionario(@Body request: Map<String, Int>): Call<HistoricoResponse>
+    @GET("historico_funcionario")
+    fun obterHistoricoFuncionario(@Query("funcionario_id") funcionarioId: Int): Call<HistoricoFuncionarioResponse>
 
-    @POST("historico_sessao")
-    fun obterHistoricoSessao(@Body request: HistoricoSessaoRequest): Call<HistoricoResponse>
+    @GET("historico_sessao")
+    fun obterHistoricoSessao(
+        @Query("funcionario_id") funcionarioId: Int,
+        @Query("session_id") sessionId: String
+    ): Call<HistoricoSessaoResponse>
 }

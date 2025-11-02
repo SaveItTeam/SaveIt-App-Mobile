@@ -82,7 +82,7 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
-            android:layout_height="480dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:orientation="vertical"
@@ -92,52 +92,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nomePerfil"
-            app:layout_constraintVertical_bias="0.312">
-
-            <FrameLayout
-                android:id="@+id/frameLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/borda_card_tablet"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:elevation="6dp"
-                app:cardCornerRadius="20dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/btDados"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp">
-
-                    <ImageView
-                        android:id="@+id/iconNotify3"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="20dp"
-                        android:src="@drawable/icon_dados"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/titleTerms3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:text="Dados"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/iconNotify3"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.542" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </FrameLayout>
+            app:layout_constraintVertical_bias="0.13999999">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -283,7 +238,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/inclusive_sans"
-            android:text="Plano tual: Nenhum"
+            android:text="Plano Atual: Nenhum"
             android:textColor="@color/PretoNaoPuro"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -15,12 +15,13 @@
             android:id="@+id/btChatbot"
             android:layout_width="120dp"
             android:layout_height="43dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="85dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/bt_cadastro_estilizacao"
             android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -113,57 +114,13 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="385dp"
-            android:layout_height="318dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:orientation="vertical"
             android:paddingVertical="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nomePerfil">
-
-            <FrameLayout
-                android:id="@+id/frameLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/borda_card"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:elevation="6dp"
-                app:cardCornerRadius="20dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/btDados"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp">
-
-                    <ImageView
-                        android:id="@+id/iconNotify3"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/icon_dados"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/titleTerms3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="@font/inclusive_sans"
-                        android:text="Dados"
-                        android:textColor="@color/PretoNaoPuro"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/iconNotify3"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.542" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </FrameLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -304,12 +261,13 @@
             android:id="@+id/planoAtual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/inclusive_sans"
             android:text="Plano Atual: Nenhum"
             android:textColor="@color/PretoNaoPuro"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
