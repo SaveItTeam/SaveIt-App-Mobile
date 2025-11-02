@@ -160,7 +160,7 @@ class Chatbot : AppCompatActivity() {
                     sessionId = response.body()?.session_id
                     Log.d("Chatbot", "Sessao iniciada: $sessionId")
 
-                    val tituloSessao = "Sessao ${listaSessoes.size + 1}"
+                    val tituloSessao = "Conversa ${listaSessoes.size + 1}"
                     adapterSessoes.adicionarConversa(tituloSessao, sessionId ?: "")
 
                     enviarMensagem(primeiraMsg)
@@ -206,35 +206,41 @@ class Chatbot : AppCompatActivity() {
     }
 
     private fun carregarHistoricoSessoes() {
-        Log.d("Chatbot", "Carregando historico de SESSOES...")
+        Log.d("Chatbot", "Carregando historico do FUNCIONARIO...")
 
-        chatbotRepository.obterHistoricoFuncionario(funcionarioId).enqueue(object : Callback<HistoricoResponse> {
-            override fun onResponse(call: Call<HistoricoResponse>, response: Response<HistoricoResponse>) {
+        chatbotRepository.obterHistoricoFuncionario(funcionarioId).enqueue(object : Callback<HistoricoFuncionarioResponse> {
+            override fun onResponse(
+                call: Call<HistoricoFuncionarioResponse>,
+                response: Response<HistoricoFuncionarioResponse>
+            ) {
                 if (response.isSuccessful) {
-                    val sessoes = response.body()?.sessoes ?: emptyList()
+                    val historicoCompleto = response.body()?.historicos ?: emptyList()
                     listaSessoes.clear()
 
-                    Log.d("Chatbot", "${sessoes.size} sessoes carregadas")
+                    val sessoesAgrupadas = historicoCompleto.groupBy { it.session_id }
 
-                    sessoes.forEachIndexed { index, sessao ->
-                        val titulo = "Conversa ${index + 1} - ${sessao.data?.substring(0, 10) ?: "Data"}"
-                        listaSessoes.add(com.example.projetosaveit.adapter.ConversaItem(titulo, sessao.session_id))
+                    Log.d("Chatbot", "${sessoesAgrupadas.size} sessoes encontradas")
+
+                    sessoesAgrupadas.keys.forEachIndexed { index, sessionId ->
+                        val titulo = "Conversa ${index + 1}"
+                        listaSessoes.add(com.example.projetosaveit.adapter.ConversaItem(titulo, sessionId))
                     }
 
                     adapterSessoes.notifyDataSetChanged()
 
-                    if (sessoes.isNotEmpty()) {
-                        sessionId = sessoes.first().session_id
-                        carregarHistoricoMensagens(sessoes.first().session_id)
+                    if (sessoesAgrupadas.isNotEmpty()) {
+                        val primeiraSessao = sessoesAgrupadas.keys.first()
+                        sessionId = primeiraSessao
+                        carregarHistoricoMensagens(primeiraSessao)
                     }
 
                 } else {
-                    Log.e("Chatbot", "Erro carregar historico de SESSOES: ${response.code()}")
+                    Log.e("Chatbot", "Erro carregar historico do FUNCIONARIO: ${response.code()}")
                 }
             }
 
-            override fun onFailure(call: Call<HistoricoResponse>, t: Throwable) {
-                Log.e("Chatbot", "Falha ao carregar historico de SESSOES", t)
+            override fun onFailure(call: Call<HistoricoFuncionarioResponse>, t: Throwable) {
+                Log.e("Chatbot", "Falha ao carregar historico do FUNCIONARIO", t)
             }
         })
     }
@@ -242,26 +248,24 @@ class Chatbot : AppCompatActivity() {
     private fun carregarHistoricoMensagens(sessionId: String) {
         Log.d("Chatbot", "Carregando historico de MENSAGENS da sessao: $sessionId")
 
-        val request = HistoricoSessaoRequest(
-            funcionario_id = funcionarioId,
-            session_id = sessionId
-        )
-
-        chatbotRepository.obterHistoricoSessao(request).enqueue(object : Callback<HistoricoResponse> {
-            override fun onResponse(call: Call<HistoricoResponse>, response: Response<HistoricoResponse>) {
+        chatbotRepository.obterHistoricoSessao(funcionarioId, sessionId).enqueue(object : Callback<HistoricoSessaoResponse> {
+            override fun onResponse(
+                call: Call<HistoricoSessaoResponse>,
+                response: Response<HistoricoSessaoResponse>
+            ) {
                 if (response.isSuccessful) {
-                    val historico = response.body()?.historico ?: emptyList()
+                    val historicoSessao = response.body()?.historico ?: emptyList()
                     listaMensagens.clear()
 
-                    Log.d("Chatbot", "${historico.size} mensagens carregadas")
+                    Log.d("Chatbot", "${historicoSessao.size} mensagens carregadas")
 
-                    historico.forEach { mensagem ->
-                        val tipo = when (mensagem.role) {
+                    historicoSessao.forEach { mensagem ->
+                        val tipo = when (mensagem.tipo) {
                             "user" -> TipoMensagemChatbot.USUARIO
                             "assistant" -> TipoMensagemChatbot.BOT
                             else -> TipoMensagemChatbot.BOT
                         }
-                        listaMensagens.add(MensagemChatbot(mensagem.content, tipo))
+                        listaMensagens.add(MensagemChatbot(mensagem.mensagem, tipo))
                     }
 
                     adapterChat.notifyDataSetChanged()
@@ -274,7 +278,7 @@ class Chatbot : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<HistoricoResponse>, t: Throwable) {
+            override fun onFailure(call: Call<HistoricoSessaoResponse>, t: Throwable) {
                 Log.e("Chatbot", "Falha ao carregar historico de MENSAGENS", t)
             }
         })

@@ -20,19 +20,43 @@ data class ChatResponse(
     val resposta_assistente: String
 )
 
-data class HistoricoSessaoRequest(
+data class HistoricoSessaoResponse(
+    val status: String,
     val funcionario_id: Int,
-    val session_id: String
+    val session_id: String,
+    val historico: List<MensagemHistorico>
 )
 
-data class HistoricoResponse(
-    val historico: List<MensagemHistorico> = emptyList(),
-    val sessoes: List<SessaoHistorico> = emptyList()
+data class HistoricoFuncionarioResponse(
+    val status: String,
+    val funcionario_id: Int,
+    val total_sessoes: Int,
+    val historicos: List<MensagemHistoricoCompleto>
 )
 
 data class MensagemHistorico(
+    val tipo: String,
+    val mensagem: String
+)
+
+data class MensagemHistoricoCompleto(
+    val empresa_id: Int,
+    val funcionario_id: Int,
+    val session_id: String,
     val role: String,
-    val content: String
+    val content: String,
+    val timestamp: String
+)
+
+data class HistoricoResponse(
+    val historico: List<MensagemChatHistorico> = emptyList(),
+    val sessoes: List<SessaoHistorico> = emptyList()
+)
+
+data class MensagemChatHistorico(
+    val role: String,
+    val content: String,
+    val timestamp: String? = null
 )
 
 data class SessaoHistorico(

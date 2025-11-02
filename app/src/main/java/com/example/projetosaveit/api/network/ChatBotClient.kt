@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ChatBotClient {
-    private const val BASE_URL = "http://3.92.141.56:8000"
+    private const val BASE_URL = "http://98.91.17.130:8000"
 
     val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(20, TimeUnit.SECONDS)
