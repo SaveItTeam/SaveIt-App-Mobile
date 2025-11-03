@@ -19,6 +19,6 @@ class ChatbotRepository {
     fun obterHistoricoFuncionario(funcionarioId: Int) =
         ChatBotClient.instance.obterHistoricoFuncionario(funcionarioId)
 
-    fun obterHistoricoSessao(funcionarioId: Int, sessionId: String) =
-        ChatBotClient.instance.obterHistoricoSessao(funcionarioId, sessionId)
+    fun obterHistoricoSessao(empresaId: Int, funcionarioId: Int, sessionId: String) =
+        ChatBotClient.instance.obterHistoricoSessao(empresaId, funcionarioId, sessionId)
 }
