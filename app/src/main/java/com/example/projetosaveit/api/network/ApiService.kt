@@ -159,6 +159,7 @@ interface ApiService {
 
     @GET("historico_sessao")
     fun obterHistoricoSessao(
+        @Query("empresa_id") empresaId: Int,
         @Query("funcionario_id") funcionarioId: Int,
         @Query("session_id") sessionId: String
     ): Call<HistoricoSessaoResponse>

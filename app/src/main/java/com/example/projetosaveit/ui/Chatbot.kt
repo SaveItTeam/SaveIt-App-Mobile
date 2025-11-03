@@ -248,7 +248,7 @@ class Chatbot : AppCompatActivity() {
     private fun carregarHistoricoMensagens(sessionId: String) {
         Log.d("Chatbot", "Carregando historico de MENSAGENS da sessao: $sessionId")
 
-        chatbotRepository.obterHistoricoSessao(funcionarioId, sessionId).enqueue(object : Callback<HistoricoSessaoResponse> {
+        chatbotRepository.obterHistoricoSessao(empresaId, funcionarioId, sessionId).enqueue(object : Callback<HistoricoSessaoResponse> {
             override fun onResponse(
                 call: Call<HistoricoSessaoResponse>,
                 response: Response<HistoricoSessaoResponse>
